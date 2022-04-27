@@ -1,40 +1,40 @@
 <h2>
 	<div class="icon project"></div>
-	Project settings
+	项目设置
 </h2>
 
 <div class="buttons">
-	<button class="save" title="Save project" keys="CTRL+S">Save project</button>
-	<button class="saveAs" title="Save project to a different file" keys="CTRL+SHIFT+S">Save as...</button>
-	<button class="rename" title="Renaming should only happen from inside the app as various internal file paths will also need to be updated accordingly.">Rename project</button>
+	<button class="save" title="保存项目" keys="CTRL+S"> 保存项目</button>
+	<button class="saveAs" title="将项目保存到其他文件" keys="CTRL+SHIFT+S"> 重命名项目 </button>
+	<button class="rename" title="重命名只能在应用程序内部进行，因为各种内部文件路径也需要相应更新。"> 重命名项目 </button>
 	<button class="locate gray small" title="Locate project file"><span class="icon locate"></span> </button>
 </div>
 
 <dl class="form projectForm">
-	<dt class="full"> <h3>Project file settings</h3> </dt>
+	<dt class="full"> <h3>项目文件设置</h3> </dt>
 
 	<dt>
-		<label for="minify">Super simple export ❤</label>
+		<label for="minify">超级简单的导出 ❤</label>
 		<info tip="bottom">
-			Enable this to export your level data in a secondary super simple format, ideal for quick integration in ANY existing engine.
-			You will get:
-			 - one PNG per layer,
-			 - one composite PNG per level,
-			 - a single JSON file per level containing main level infos and entities.
+			启用这个功能可以将你的关卡数据以一种次要的超级简单的格式导出，是快速集成到任何现有引擎的理想选择。
+			你将得到。
+			 - 每层一个PNG。
+			 - 每个关卡一个复合PNG。
+			 - 每层一个JSON文件，包含主要的关卡信息和实体。
 
 		</info>
 	</dt>
 	<dd class="simplifiedExport">
 		<input type="checkbox" name="simplifiedExport" id="simplifiedExport"/>
 		<div class="locate"></div>
-		<a href="https://ldtk.io/go/simple">Learn more about this format</a>
+		<a href="https://ldtk.io/go/simple">了解有关此格式的详细信息</a>
 	</dd>
 
 	<dt>
-		<label for="externalLevels">Save levels to separate files</label>
+		<label for="externalLevels">将关卡保存到单独的文件</label>
 		<info>
-			Enable this to separate the main project file (containing settings, definitions etc.) from the level files (one file per level, stored in a sub-folder).
-			Saving times are also faster with separate levels enabled because unmodified data is cached and not re-wrote.
+			启用这个功能可以将主项目文件（包含设置、定义等）与级别文件（每个级别一个文件，存储在一个子文件夹中）分开。
+			启用单独的关卡后，保存时间也会更快，因为未修改的数据会被缓存，不会被重新写入。
 		</info>
 	</dt>
 	<dd>
@@ -43,39 +43,39 @@
 	</dd>
 
 	<dt>
-		<label for="useAppExtension">Use .::ext:: extension</label>
+		<label for="useAppExtension">使用 .::ext:: 扩展名</label>
 		<info>
-			If checked, the project file will use the official extension ".::ext::" instead of the standard ".json".
-			This setting is recommended for proper file identification and association on your system.
+			如果选中，项目文件将使用官方扩展名".:ext:: "而不是标准的".json"。
+			为了在你的系统上进行正确的文件识别和关联，建议使用这一设置。
 		</info>
 	</dt>
 	<dd>
 		<input type="checkbox" name="useAppExtension" id="useAppExtension"/>
-		<span>(recommended)</span>
+		<span>(建议勾选)</span>
 	</dd>
 
 	<dt>
-		<label for="backup">Backup on save</label>
+		<label for="backup">保存时备份</label>
 		<info>
-			Everytime you save your project, an extra backup copy will be created in a subfolder.
-			Backups will obviously increase saving time and disk usage, but that's not a reason for not using them ;)
-			Note: in case of a crash, a special backup will be created, even if this setting is disabled.
+			每次你保存你的项目时，都会在一个子文件夹中创建一个额外的备份副本。
+			备份显然会增加保存时间和磁盘使用量，但这并不是不使用它们的理由；)
+			注意：在崩溃的情况下，将创建一个特殊的备份，即使这个设置被禁用。
 		</info>
 	</dt>
 	<dd>
 		<input type="checkbox" id="backup" />
 		<div class="locate"></div>
-		<span>Max backup files: </span>
+		<span>最大备份文件数量: </span>
 		<input type="text" id="backupCount"/>
-		<warning class="backupRecommend">It's recommended to enable backups for large or important projects.</warning>
+		<warning class="backupRecommend">建议对大型或重要项目启用备份。</warning>
 	</dd>
 
 	<dt>
-		<label for="minify">Minify JSON</label>
+		<label for="minify">简化JSON</label>
 		<info>
-			Enable this to save project JSON file without any "pretty" formatting (ie. white spaces and indentation).
-			This is NOT necessarily recommended if your project is stored on a versioning system (git, svn etc.) because this could cause issues with diffs and merging operations.
-			Only use this option if you really need to reduce the project files size.
+			启用这个功能是为了保存没有任何 "漂亮 "格式的项目JSON文件（即空格和缩进）。
+			如果你的项目存储在一个版本系统（git, svn等）上，不一定建议这样做，因为这可能导致差异和合并操作的问题。
+			只有当你真的需要减少项目文件的大小时才使用这个选项。
 		</info>
 	</dt>
 	<dd>
@@ -83,8 +83,8 @@
 	</dd>
 
 	<dt class="notSimplified">
-		<label for="png">Export as PNG</label>
-		<info>This option allows you to export 'flattened' PNG screenshots of the levels in addition to the JSON data, every time you save the project.</info>
+		<label for="png">导出为PNG</label>
+		<info>这个选项允许你在每次保存项目时，除了JSON数据外，还可以导出关卡的 "扁平化 "PNG屏幕截图。</info>
 	</dt>
 	<dd class="imageExportMode notSimplified">
 		<div class="locate"></div>
@@ -93,15 +93,15 @@
 		</select>
 	</dd>
 
-	<dt class="imageExportOnly notSimplified">PNG file names</dt>
+	<dt class="imageExportOnly notSimplified">PNG文件名称</dt>
 	<dd class="imageExportOnly notSimplified">
 		<div class="pngPatternEditor"></div>
 	</dd>
 
 
 	<dt>
-		<label for="png">Identifers format convention</label>
-		<info>This option allows to customize the constraints on "identifiers" format. It's recommended to keep the default "First letter uppercased" format, unless you know what you're doing.</info>
+		<label for="png">标识符格式约束</label>
+		<info>这个选项允许自定义对 "标识符 "格式的约束。建议保持默认的 "首字母大写 "格式，除非你知道自己在做什么。</info>
 	</dt>
 	<dd>
 		<select id="identifierStyle"></select>
@@ -109,26 +109,26 @@
 
 
 	<dt>
-		<label for="tiled">Export Tiled TMX</label>
+		<label for="tiled">导出 Tiled TMX</label>
 		<info>
-			Enable this to create Tiled TMX files (one per level) in a sub folder, every time you save your project.
-			Warning: this Tiled export is made for quick integration with game frameworks that don't support LDtk yet, but it comes with some limitations!
-			See the link for more info.
+			启用这个功能可以在一个子文件夹中创建Tiled TMX文件（每层一个），每次你保存你的项目时。
+			警告：这个Tiled导出是为了与还不支持LDtk的游戏框架快速集成，但它有一些限制！请参见链接。
+			更多信息请看链接。
 		</info>
 	</dt>
 	<dd>
 		<input type="checkbox" id="tiled"/>
 		<div class="locate"></div>
-		<a href="https://ldtk.io/go/tiled">Learn more about Tiled export limitations</a>
+		<a href="https://ldtk.io/go/tiled">了解更多关于Tiled导出的限制</a>
 	</dd>
 
 
 
-	<dt class="full"> <h3>Workspace settings</h3> </dt>
+	<dt class="full"> <h3>工作区设置</h3> </dt>
 
 	<dt>
-		<label for="defaultGridSize">Default layer grid</label>
-		<info>Set the default grid size when creating new layers in this project.</info>
+		<label for="defaultGridSize">默认的图层网格</label>
+		<info>在这个项目中创建新图层时，设置默认的网格大小。</info>
 	</dt>
 	<dd>
 		<input type="text" name="defaultGridSize" id="defaultGridSize" class="small"/>
@@ -136,11 +136,11 @@
 	</dd>
 
 	<dt>
-		<label for="levelName">Default level identifiers</label>
+		<label for="levelName">默认关卡标识符</label>
 		<info>
-			You can customize the default naming convention for all level identifiers.
-			Note that level identifiers must be UNIQUE and as such, an extra auto-increment might be added to levels sharing getting the same name, to avoid collisions.
-			Also, remember the identifiers should only contain letters, numbers, "-" and "_".
+			你可以定制所有级别标识符的默认命名规则。
+			请注意，级别标识符必须是唯一的，因此，在共享相同名称的级别上可能会增加一个额外的自动增量，以避免碰撞。
+			另外，记住标识符应该只包含字母、数字、"-"和"_"。
 		</info>
 	</dt>
 	<dd>
@@ -148,26 +148,26 @@
 	</dd>
 
 	<dt>
-		<label for="bgColor">Workspace background color</label>
-		<info>Base background color of the project workspace</info>
+		<label for="bgColor">工作区背景颜色</label>
+		<info>项目工作区的基本背景颜色</info>
 	</dt>
 	<dd>
 		<input type="color" name="bgColor" id="bgColor"/>
 	</dd>
 
 	<dt>
-		<label for="defaultLevelbgColor">Default level bg color</label>
-		<info>Default background color of all levels.</info>
+		<label for="defaultLevelbgColor">关卡默认背景颜色</label>
+		<info>所有关卡的默认背景色。</info>
 	</dt>
 	<dd>
 		<input type="color" name="defaultLevelbgColor" id="defaultLevelbgColor"/>
 	</dd>
 
 	<dt>
-		<label>Default pivot point for new entities</label>
+		<label>新实体的默认枢轴点</label>
 		<info>
-			Default entity pivot point position for all entities.
-			See the Entity panel for more information about the pivot point.
+			所有实体的默认实体枢轴点位置。
+			关于支点的更多信息，请参见实体面板。
 		</info>
 	</dt>
 	<dd>
@@ -177,14 +177,14 @@
 
 
 	<dt class="full">
-		<a class="showAdv">[ Show advanced settings ]</a>
+		<a class="showAdv">[ 显示高级设置 ]</a>
 	</dt>
 
-	<dt class="full adv"> <h3>Advanced export settings</h3> </dt>
+	<dt class="full adv"> <h3>高级导出设置</h3> </dt>
 
 	<dt class="full adv">
 		<div class="help">
-			Advanced options are not recommended for most users as they might break compatibility with older game APIs. Please make sure you know what you're doing before using any of them!
+			对于大多数用户来说，不建议使用高级选项，因为它们可能会破坏与旧游戏API的兼容性。在使用这些选项之前，请确保你知道你在做什么!
 		</div>
 	</dt>
 
@@ -193,10 +193,10 @@
 	</dt>
 
 	<dt class="sample adv">
-		Tutorial description
+		教程描述
 		<info>
-			This optional description is displayed in a permanent banner on top of LDtk while this project is open.
-			It is mainly used in LDtk sample maps to provide extra explanations of provided examples.
+			当这个项目打开时，这个可选的描述会显示在LDtk顶部的一个永久横幅上。
+			它主要用于LDtk样本地图，为提供的例子提供额外的解释。
 		</info>
 	</dt>
 	<dd class="sample adv">

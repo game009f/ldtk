@@ -1,6 +1,6 @@
 <div class="buttons">
-	<button type="button" class="createSingle" title="Add a field that contains a single value.">+ single value</button>
-	<button type="button" class="createArray" title="Add a field that contains an array of multiple values.">+ array</button>
+	<button type="button" class="createSingle" title="Add a field that contains a single value.">+ 单个值</button>
+	<button type="button" class="createArray" title="Add a field that contains an array of multiple values.">+ 数组</button>
 </div>
 
 <ul class="niceList fieldList"></ul>
@@ -9,17 +9,17 @@
 
 <dl class="form">
 	<dt>
-		<label>Type</label>
-		<info>This is the type of data stored in this custom field (number, text etc.)</info>
+		<label>类型</label>
+		<info>这是存储在此自定义字段中的数据类型（数字、文本等）</info>
 	</dt>
 	<dd>
 		<input type="text" readonly="readonly" class="type"/>
-		<button class="convert">Convert</button>
+		<button class="convert">转换</button>
 	</dd>
 
 
 	<dt>
-		<label for="fName">Field identifier</label>
+		<label for="fName">字段标识符</label>
 		<info class="identifier"></info>
 	</dt>
 	<dd>
@@ -28,8 +28,8 @@
 
 
 	<dt class="F_Int F_Float F_String">
-		<label for="fDef">Default value</label>
-		<info>This is the default number value for this field, unless overridden with something else.</info>
+		<label for="fDef">默认值</label>
+		<info>这是此字段的默认数字值，除非被其他内容覆盖。</info>
 	</dt>
 	<dd>
 		<input type="text" name="fDef" placeholder="" id="fDef"/>
@@ -37,8 +37,8 @@
 
 
 	<dt class="F_Text">
-		<label for="fDefMultiLines">Default value</label>
-		<info>This is the default text for this field, unless modified manually.</info>
+		<label for="fDefMultiLines">默认值</label>
+		<info>这是此字段的默认文本，除非手动修改。</info>
 	</dt>
 	<dd>
 		<div class="multiLines" id="fDefMultiLines"></div>
@@ -46,8 +46,8 @@
 
 
 	<dt class="F_Bool">
-		<label for="bDef">Default state</label>
-		<info>This is the default checkbox state for this field, unless modified manually.</info>
+		<label for="bDef">默认状态</label>
+		<info>这是此字段的默认复选框状态，除非手动修改。</info>
 	</dt>
 	<dd>
 		<input type="checkbox" name="bDef" id="bDef"/>
@@ -55,8 +55,8 @@
 
 
 	<dt class="F_Color">
-		<label for="cDef">Default color</label>
-		<info>This is the default color for this field, unless modified manually.</info>
+		<label for="cDef">默认颜色</label>
+		<info>这是此字段的默认颜色，除非手动修改。</info>
 	</dt>
 	<dd>
 		<input type="color" name="cDef" id="cDef"/>
@@ -64,21 +64,21 @@
 
 
 	<dt class="F_Int F_Float">
-		<label for="min">Limits</label>
-		<info>You can define a min and/or max limit of this number.</info>
+		<label for="min">钳制</label>
+		<info>您可以定义此数字的最小和/或最大限制。</info>
 	</dt>
 	<dd>
-		<input type="text" name="min" id="min" placeholder="Min" title="Value should be GREATER than or EQUAL to this."/>
+		<input type="text" name="min" id="min" placeholder="最小值" title="值应大于或等于此。"/>
 		<span>to</span>
-		<input type="text" name="max" id="max" placeholder="Max" title="Value should be LOWER than or EQUAL to this."/>
+		<input type="text" name="max" id="max" placeholder="最大值" title="值应低于或等于这个值。"/>
 	</dd>
 
 
 	<dt class="F_Path">
-		<label for="acceptTypes">File extensions</label>
+		<label for="acceptTypes">文件扩展名</label>
 		<info>
-			Enter a list of accepted extensions, separated by a space, case insensitive. For example: "txt dat png jpg gif". This filter won't prevent user from picking another file, it's just a display limitation.
-			If empty, all extensions will be accepted.
+			输入一个可接受的扩展名列表，用空格隔开，不区分大小写。例如。"txt dat png jpg gif"。这个过滤器不会阻止用户选择其他文件，它只是一个显示限制。
+			如果为空，所有扩展名都将被接受。
 		</info>
 	</dt>
 	<dd>
@@ -87,22 +87,22 @@
 
 
 	<dt class="F_String">
-		<label for="regex">Regex check</label>
+		<label for="regex">正则检查</label>
 		<info>
-			You can enter a Regular Expression here to check the values entered for this field.
-			Any character that doesn't match the RegEx will be discarded (WARNING: existing values in your levels will NOT be affected by a change here)
+			你可以在这里输入一个正则表达式来检查这个领域的输入值。
+			任何不符合RegEx的字符将被丢弃（警告：你的关卡中的现有值不会受到这里的改变的影响）。
 		</info>
 	</dt>
 	<dd>
 		<input type="text" id="regex" placeholder="(none)"/>
-		<input type="checkbox" id="flag_i" title='Check to enable "i" flag (case insensitive)'/> <span>i</span>
-		<button class="testRegex small gray" title="Open external website to test your regex">Test</button>
+		<input type="checkbox" id="flag_i" title='检查启用 "i "标志（不区分大小写）。'/> <span>i</span>
+		<button class="testRegex small gray" title="打开外部网站来测试你的正则">测试</button>
 	</dd>
 
 
 	<dt class="F_Text">
-		<label for="textLanguage">Language</label>
-		<div class="info" title="This option will ONLY affect how your text will be displayed in the editor (ie. syntax coloring)."></div>
+		<label for="textLanguage">语言</label>
+		<div class="info" title="这个选项将只影响你的文本在编辑器中的显示方式（即语法着色）。"></div>
 	</dt>
 	<dd>
 		<select id="textLanguage"></select>
@@ -110,17 +110,17 @@
 
 
 	<dt class="F_Int F_Float F_String F_Text">
-		<label for="canBeNull" class="Array">Can contain nulls</label>
-		<label for="canBeNull" class="NotArray">Can be null</label>
+		<label for="canBeNull" class="Array">可以包含空值</label>
+		<label for="canBeNull" class="NotArray">可以是空的</label>
 
 		<info class="Array">
-			If enabled, it will be possible to have "null" values inside this array.
-			If disabled, the array values will use the "default" if unspecified.
+			如果启用，该数组内将有可能出现 "空 "值。
+			如果禁用，如果没有指定，数组的值将使用 "默认"。
 		</info>
 
 		<info class="NotArray">
-			If enabled, it will be possible to have no value at all for this field (ie. "null").
-			If disabled, the value will be the "default" one if nothing is entered.
+			如果启用，这个字段就有可能没有任何值（即 "null"）。
+			如果禁用，如果没有输入任何东西，该值将是 "默认 "的。
 		</info>
 	</dt>
 	<dd>
@@ -129,17 +129,17 @@
 
 
 	<dt class="F_Enum F_Path F_Point F_EntityRef F_Tile">
-		<label for="canBeNull" class="Array">Can contain nulls</label>
-		<label for="canBeNull" class="NotArray">Is optional</label>
+		<label for="canBeNull" class="Array">可以包含空值</label>
+		<label for="canBeNull" class="NotArray">是可选的</label>
 
 		<info class="Array">
-			If enabled, it will be possible to have "null" values inside this array.
-			If disabled, the array values will use the "default" if unspecified.
+			如果启用，该数组内将有可能出现 "空 "值。
+			如果禁用，如果没有指定，数组的值将使用 "默认"。
 		</info>
 
 		<info class="NotArray">
-			If enabled, it will be possible to have no value at all for this field (ie. "null").
-			If disabled, the value will become mandatory and an error message will show up if the value is unspecified.
+			如果启用，这个字段就有可能没有任何值（即 "null"）。
+			如果禁用，该值将成为强制性的，如果未指定该值，将显示一个错误信息。
 		</info>
 	</dt>
 	<dd>
@@ -148,12 +148,12 @@
 
 
 	<dt class="F_Tile">
-		<label for="tilesetUid">Tileset</label>
+		<label for="tilesetUid">瓷砖组</label>
 	</dt>
 	<dd class="tile">
 		<select id="tilesetUid"></select>
 		<div class="defaultTile">
-			<span>Default: </span>
+			<span>默认: </span>
 			<div class="picker"></div>
 			<button class="clear gray"> <span class="icon clear"></span> </button>
 		</div>
@@ -161,29 +161,29 @@
 
 
 	<dt class="F_EntityRef">
-		<label>Reference options</label>
+		<label>参考选项</label>
 	</dt>
 	<dd>
 		<label for="symmetricalRef">
-			<input type="checkbox" name="symmetricalRef" id="symmetricalRef" title="If enabled and you pick a target for this value, a symmetrical reference will be set on the target.\nThis only works if the target Entity is of the same type as this one."/>
-			symmetrical
+			<input type="checkbox" name="symmetricalRef" id="symmetricalRef" title="如果启用并且你为这个值选择了一个目标，一个对称的引用将被设置在目标上。这只在目标实体与这个实体是同一类型的情况下起作用"/>
+			对称的
 		</label>
 
 		<label for="allowOutOfLevelRef">
-			<input type="checkbox" name="allowOutOfLevelRef" id="allowOutOfLevelRef" title="If enabled, it will be possible to pick an Entity from a different level."/>
-			in any level
+			<input type="checkbox" name="allowOutOfLevelRef" id="allowOutOfLevelRef" title="如果启用，将有可能从不同的关卡挑选一个实体。"/>
+			在任何关卡
 		</label>
 
 		<label for="autoChainRef">
-			<input type="checkbox" name="autoChainRef" id="autoChainRef" title="If enabled, if you place a compatible Entity right after placing this one, this field will automatically reference the newly added Entity."/>
-			auto-chain
+			<input type="checkbox" name="autoChainRef" id="autoChainRef" title="如果启用，如果你在放置这个实体后立即放置一个兼容的实体，这个字段将自动引用新添加的实体。"/>
+			自动链
 		</label>
 	</dd>
 
 
 	<dt class="F_EntityRef">
-		<label>Allowed references</label>
-		<info>Define which kind of entity is allowed to be picked for this value.</info>
+		<label>允许的参考资料</label>
+		<info>定义哪种实体允许被选为这个值。</info>
 	</dt>
 	<dd>
 		<select name="allowedRefs" id="allowedRefs" class="full"></select>
@@ -192,21 +192,21 @@
 
 
 	<dt class="Array">
-		<label for="arrayMinLength">Array length</label>
-		<info>Constraints to the array size (ie. min length and/or max length)</info>
+		<label for="arrayMinLength">数组长度</label>
+		<info>对阵列大小的限制（即最小长度和/或最大长度）</info>
 	</dt>
 	<dd>
-		<input type="text" name="arrayMinLength" id="arrayMinLength" placeholder="min length" title="Min array length"/>
+		<input type="text" name="arrayMinLength" id="arrayMinLength" placeholder="最小长度" title="最小数组长度"/>
 		<span>to</span>
-		<input type="text" name="arrayMaxLength" id="arrayMaxLength" placeholder="max length" title="Max array length"/>
+		<input type="text" name="arrayMaxLength" id="arrayMaxLength" placeholder="最大长度" title="最大数组长度"/>
 	</dd>
 
 
 	<dt>
-		<label for="editorDisplayMode">Display in editor</label>
+		<label for="editorDisplayMode">在编辑器中显示</label>
 		<info>
-			Customize how values for this field should be displayed in the editor view.
-			A quick recommendation here: don't display too many entity fields or the editor view would become really cluttered.
+			自定义这个字段的值应该如何在编辑器视图中显示。
+			这里有一个简单的建议：不要显示太多的实体字段，否则编辑器视图会变得非常杂乱。
 		</info>
 	</dt>
 	<dd class="displayMode">
@@ -216,10 +216,10 @@
 
 
 	<dt class="F_Int F_Float">
-		<label for="editorTextPrefix">Prefix/suffix</label>
+		<label for="editorTextPrefix">前缀/后缀</label>
 		<info>
-			Optional text prefix and suffix to display around the values in the editor view.
-			Examples: 0.1 seconds, $17
+			可选的文本前缀和后缀，显示在编辑器视图中的值周围。
+			例子: 0.1 seconds, $17
 		</info>
 	</dt>
 	<dd>
@@ -230,11 +230,11 @@
 
 
 	<dt>
-		<label for="editorAlwaysShow">Always show</label>
+		<label for="editorAlwaysShow">始终显示</label>
 		<info>
-			If checked, the value will always be displayed in editor view, even if it is using default value.
-			If not checked, the value will only show up if it is not the default value.
-			Only applies if any display mode was selected above.
+			如果选中，该值将始终显示在编辑器视图中，即使它是使用默认值。
+			如果不勾选，该值只在它不是默认值的情况下显示。
+			只有在上面选择了任何显示模式时才适用。
 		</info>
 	</dt>
 	<dd>
@@ -243,8 +243,8 @@
 
 
 	<dt class="F_String F_Text">
-		<label for="editorCutLongValues">Only show an excerpt in editor</label>
-		<info>If enabled (recommended), long texts will be cut when displayed in the editor view.</info>
+		<label for="editorCutLongValues">只在编辑器中显示摘录</label>
+		<info>如果启用(建议勾选)，长文本在编辑器视图中显示时将被剪切。</info>
 	</dt>
 	<dd>
 		<input type="checkbox" id="editorCutLongValues"/>
@@ -252,14 +252,14 @@
 
 
 	<dt class="F_Color F_Enum">
-		<label for="bDef">Override ::parentType:: color</label>
+		<label for="bDef">覆盖 ::parentType:: 颜色</label>
 		<info class="F_Color">
-			If enabled, this color will override the default ::parentType:: color when displayed in the editor view.
-			For arrays, the first valid value of the array will be used.
+			如果启用，在编辑器视图中显示时，这种颜色将覆盖默认的::parentType::颜色。
+			对于数组，将使用数组的第一个有效值。
 		</info>
 		<info class="F_Enum">
-			If enabled, the color of the Enum value (if any) will override the default ::parentType:: color when displayed in the editor view.
-			For arrays, the first valid value of the array will be used.
+			如果启用，Enum值的颜色（如果有的话）在编辑器视图中显示时将覆盖默认的::parentType:: 颜色。
+			对于数组，将使用数组的第一个有效值。
 		</info>
 	</dt>
 	<dd>

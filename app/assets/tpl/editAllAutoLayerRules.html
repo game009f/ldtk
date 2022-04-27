@@ -1,14 +1,14 @@
-<h2><span class="icon rule"></span>  Rules: ::layer::</h2>
+<h2><span class="icon rule"></span>  规则: ::图层::</h2>
 
 <header>
-	<button class="createGroup">+ group</button>
-	<button class="seed" title="Change the random seed of the current layer">Randomize</button>
-	<label keys="R" title="Show/hide the render of all auto-layers. You can also press SHIFT-R at any time to toggle this option.">
+	<button class="创建组">+ 组</button>
+	<button class="seed" title="改变当前层的随机种子">随机化</button>
+	<label keys="R" title="显示/隐藏所有自动图层的渲染。你也可以在任何时候按SHIFT-R来切换这个选项。">
 		<input type="checkbox" name="renderRules"/>
-		Render
+		渲染
 	</label>
 
-	<select id="autoLayerTileset" title="You can use a different tileset in each level, as long as the tilesets share the exact same dimensions."></select>
+	<select id="autoLayerTileset" title="你可以在每个关卡使用不同的瓷砖组，只要瓷砖组的尺寸完全相同。"></select>
 </header>
 
 <ul class="ruleGroups"></ul>
@@ -25,7 +25,7 @@
 		<input type="text" class="name"/>
 		<!-- <span class="optional" title="This group of rules is marked as 'OPTIONAL'. That means it's DISABLED by default, and it can be manually enabled separately in each level instance.">Opt.</span> -->
 		<button class="active transparent"> <span class="icon"></span> </button>
-		<button class="addRule" title="Add a new rule in this group">+</button>
+		<button class="addRule" title="在该组中添加一个新的规则">+</button>
 	</header>
 
 	<ul class="ruleGroup"></ul>
@@ -43,13 +43,13 @@
 		</div>
 		<div class="modulo"></div>
 
-		<a class="active" title="Enable/disable this rule"> <span class="icon"></span> </a>
-		<a class="break" title="**Stop on match** If this rule is applied in a grid cell, it will prevent all following rules to apply too"> <span class="icon stop"></span> </a>
+		<a class="active" title="启用/禁用该规则"> <span class="icon"></span> </a>
+		<a class="break" title="**匹配时停止** 如果该规则应用于网格单元，它将阻止所有以下规则的应用"> <span class="icon stop"></span> </a>
 
-		<a class="flipX" title="**X mirror** This rule can be reversed HORIZONTALLY to match more cases.">X</a>
-		<a class="flipY" title="**Y mirror** This rule can be reversed VERTICALLY to match more cases.">Y</a>
-		<a class="perlin" title="**Perlin filtering** Use a PERLIN noise to only enable this rule in random area. RIGHT CLICK to customize perlin settings.">P</a>
-		<a class="checker" title="**Checker mode** Offset rule check every rows/columns. RIGHT CLICK to adjust."> <span class="icon checker"></span> </a>
+		<a class="flipX" title="**X镜像**这个规则可以横向颠倒，以匹配更多的情况。">X</a>
+		<a class="flipY" title="**Y镜像**这个规则可以垂直颠倒，以匹配更多的情况。">Y</a>
+		<a class="perlin" title="**Perlin过滤**使用PERLIN噪音，只在随机区域启用此规则。右键单击以自定义perlin设置。">P</a>
+		<a class="checker" title="**检查模式**偏移规则检查每行/列。右键点击来调整。"> <span class="icon checker"></span> </a>
 	</div>
 
 	<!-- <button class="delete dark">🗑️</button> -->

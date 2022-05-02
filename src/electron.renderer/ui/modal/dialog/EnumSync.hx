@@ -189,7 +189,7 @@ class EnumSync extends ui.modal.Dialog {
 			}
 
 		// Validate sync
-		jConfirm = addButton(L.t._("Apply these changes"), "confirm", function() {
+		jConfirm = addButton(L.t._("应用这些更改"), "confirm", function() {
 
 			// Update diff with enum renames
 			for(r in enumRenames) {

@@ -34,7 +34,7 @@ class EditEntityDefs extends ui.modal.Panel {
 		jEntityList.parent().find("button.presets").click( (ev)->{
 			var ctx = new ContextMenu(ev);
 			ctx.add({
-				label: L.t._("Rectangle region"),
+				label: L.t._("矩形区域"),
 				cb: ()->{
 					var ed = _createEntity();
 					ed.identifier = project.fixUniqueIdStr("RectRegion", (s)->project.defs.isEntityIdentifierUnique(s));
@@ -48,7 +48,7 @@ class EditEntityDefs extends ui.modal.Panel {
 				}
 			});
 			ctx.add({
-				label: L.t._("Circle region"),
+				label: L.t._("圆圈区域"),
 				cb: ()->{
 					var ed = _createEntity();
 					ed.identifier = project.fixUniqueIdStr("CircleRegion", (s)->project.defs.isEntityIdentifierUnique(s));
@@ -96,7 +96,7 @@ class EditEntityDefs extends ui.modal.Panel {
 		}
 			// : Lang.t._("This entity is not used and can be safely removed."),
 
-		new ui.LastChance( L.t._("Entity ::name:: deleted", { name:ed.identifier }), project );
+		new ui.LastChance( L.t._("实体 ::name:: 删除", { name:ed.identifier }), project );
 		project.defs.removeEntityDef(ed);
 		editor.ge.emit(EntityDefRemoved);
 		if( project.defs.entities.length>0 )
@@ -322,13 +322,13 @@ class EditEntityDefs extends ui.modal.Panel {
 			()->curEntity.tileRenderMode,
 			(v)->curEntity.tileRenderMode = v,
 			(v)->switch v {
-				case Cover: L.t._("Cover bounds");
-				case FitInside: L.t._("Fit inside bounds");
-				case Repeat: L.t._("Repeat");
-				case Stretch: L.t._("Dirty stretch to bounds");
-				case FullSizeCropped: L.t._("Full size (cropped in bounds)");
-				case FullSizeUncropped: L.t._("Full size (not cropped)");
-				case NineSlice: L.t._("9-slices scaling");
+				case Cover: L.t._("封面边界");
+				case FitInside: L.t._("适合内限");
+				case Repeat: L.t._("重复");
+				case Stretch: L.t._("肮脏的伸展到边界");
+				case FullSizeCropped: L.t._("全尺寸（在边界内裁剪）");
+				case FullSizeUncropped: L.t._("全尺寸（未裁剪）");
+				case NineSlice: L.t._("9 切片缩放");
 			}
 		);
 		i.linkEvent( EntityDefChanged );
@@ -383,9 +383,9 @@ class EditEntityDefs extends ui.modal.Panel {
 			()->curEntity.limitScope,
 			(e)->curEntity.limitScope = e,
 			(e)->switch e {
-				case PerLayer: L.t._("per layer");
-				case PerLevel: L.t._("per level");
-				case PerWorld: L.t._("in the world");
+				case PerLayer: L.t._("每层");
+				case PerLevel: L.t._("每关卡");
+				case PerWorld: L.t._("在世界上");
 			}
 		);
 		i.setEnabled(curEntity.maxCount>0);

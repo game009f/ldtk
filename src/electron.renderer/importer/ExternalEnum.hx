@@ -21,7 +21,7 @@ class ExternalEnum {
 				var i = new importer.enu.JsonEnum();
 				i.load(relPath, true);
 
-			case _: N.error('Unsupported extension "$ext" for imported enum file.');
+			case _: N.error('导入的枚举文件，是不支持的扩展"$ext"');
 		}
 	}
 
@@ -52,7 +52,7 @@ class ExternalEnum {
 					load(newRel, true);
 				});
 			else
-				N.error( Lang.t._("File not found: ::path::", { path:relPath }) );
+				N.error( Lang.t._("未找到文件: ::path::", { path:relPath }) );
 
 			return;
 		}
@@ -60,7 +60,7 @@ class ExternalEnum {
 		// Empty file
 		if( fileContent.length==0 ) {
 			App.LOG.add("import", 'Empty file');
-			N.error( Lang.t._("This file is empty: ::path::", { path:relPath }) );
+			N.error( Lang.t._("此文件为空: ::path::", { path:relPath }) );
 			return;
 		}
 
@@ -86,7 +86,7 @@ class ExternalEnum {
 				var ed = project.defs.getEnumDef(pe.enumId);
 				if( ed!=null && ed.externalRelPath!=relPath ) {
 					App.LOG.add("import", 'Conflict with existing enum: ${pe.enumId}');
-					N.error("Import failed: the file contains the Enum \""+pe.enumId+"\" which is already used in this project.");
+					N.error("导入失败：文件包含枚举 \""+pe.enumId+"\" 已经在这个项目中使用了。");
 					return;
 				}
 			}
@@ -332,7 +332,7 @@ class ExternalEnum {
 				project.tidy();
 				updateChecksums(relSourcePath, checksum);
 				Editor.ME.ge.emit( ExternalEnumsLoaded(true) );
-				N.success( fileName, L.t._("Enums updated successfully.") );
+				N.success( fileName, L.t._("枚举已成功更新.") );
 			});
 		}
 		else {
@@ -345,7 +345,7 @@ class ExternalEnum {
 				if( valuesDataChanged )
 					Editor.ME.invalidateAllLevelsCache();
 				Editor.ME.ge.emit( ExternalEnumsLoaded(true) );
-				N.success( fileName, L.t._("Enums updated successfully.") );
+				N.success( fileName, L.t._("枚举已成功更新.") );
 			}
 			else {
 				// No change

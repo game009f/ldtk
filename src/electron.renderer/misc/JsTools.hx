@@ -477,7 +477,7 @@ class JsTools {
 					var extra = jThis.text();
 					jThis.data(
 						"str",
-						L.t._("An identifier should be UNIQUE (in this context) and can only contain LETTERS, NUMBERS or UNDERSCORES (ie. \"_\").")
+						L.t._("标识符应为 UNIQUE（在此上下文中），并且只能包含字母、数字或下划线 (ie. \"_\").")
 						+ (extra==null || extra.length==0 ? "" : "\n"+extra )
 					);
 				}
@@ -529,7 +529,7 @@ class JsTools {
 					case 2:
 						var ctx = new ui.modal.ContextMenu(ev);
 						ctx.add({
-							label: L.t._("Copy URL"),
+							label: L.t._("复制 URL"),
 							cb: ()->{
 								App.ME.clipboard.copyStr(url);
 								N.copied();
@@ -751,12 +751,12 @@ class JsTools {
 
 	public static function locateFile(path:String, isFile:Bool) {
 		if( path==null )
-			N.error("No file");
+			N.error("无文件");
 		else {
 			if( !NT.fileExists(path) )
-				N.error("Sorry, but this file couldn't be found.");
+				N.error("很抱歉，找不到此文件。");
 			else {
-				N.msg("Locating file...");
+				N.msg("查找文件...");
 				ET.locate(path, isFile);
 			}
 		}
@@ -775,7 +775,7 @@ class JsTools {
 		if( filePath==null )
 			a.hide();
 
-		ui.Tip.attach( a, isFile ? L.t._("Locate file") : L.t._("Locate folder") );
+		ui.Tip.attach( a, isFile ? L.t._("查找文件") : L.t._("查找文件夹") );
 
 		return a;
 	}
@@ -992,7 +992,7 @@ class JsTools {
 				if( curRelPath!=null ) {
 					Editor.ME.project.disposeImage(curRelPath);
 					_pick(curRelPath);
-					N.success(L.t._("Image reloaded: ::file::", {file:fileName}));
+					N.success(L.t._("图像已重新加载: ::file::", {file:fileName}));
 				}
 			});
 		}
@@ -1036,7 +1036,7 @@ class JsTools {
 			ui.Tip.attach(jPick, abs);
 			if( !NT.fileExists(abs) ) {
 				jWrapper.addClass("error");
-				jPick.text(L.t._("File not found!"));
+				jPick.text(L.t._("未找到文件!"));
 			}
 			else
 				jPick.text(dn.FilePath.extractFileWithExt(curRelPath));
@@ -1047,10 +1047,10 @@ class JsTools {
 		}
 
 		// Remove
-		var jRemove = new J('<button class="remove gray" title="Stop using this image"> <span class="icon clear"/> </button>');
+		var jRemove = new J('<button class="remove gray" title="停止使用此图像"> <span class="icon clear"/> </button>');
 		jRemove.appendTo(jWrapper);
 		jRemove.click( (_)->{
-			new ui.modal.dialog.Confirm(jRemove, L.t._("Stop using this image?"), true, ()->onSelect(null));
+			new ui.modal.dialog.Confirm(jRemove, L.t._("停止使用此图像?"), true, ()->onSelect(null));
 		});
 
 		// Locate

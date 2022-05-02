@@ -30,7 +30,7 @@ class EditProject extends ui.modal.Panel {
 				close();
 		});
 		if( project.isBackup() )
-			jSave.text(L.t._("Restore this backup"));
+			jSave.text(L.t._("还原此备份"));
 
 		var jSaveAs = jContent.find("button.saveAs").click( function(ev) {
 			editor.onSave(true);
@@ -41,23 +41,23 @@ class EditProject extends ui.modal.Panel {
 
 		var jRename = jContent.find("button.rename").click( function(ev) {
 			new ui.modal.dialog.InputDialog(
-				L.t._("Enter the new project file name :"),
+				L.t._("输入新的项目文件名:"),
 				project.filePath.fileName,
 				project.filePath.extWithDot,
 				(str)->{
 					if( str==null || str.length==0 )
-						return L.t._("Invalid file name");
+						return L.t._("无效的文件名");
 
 					var clean = dn.FilePath.cleanUp(str, true);
 					if( clean.length==0 )
-						return L.t._("Invalid file name");
+						return L.t._("无效的文件名");
 
 					if( project.filePath.fileName==str )
-						return L.t._("Enter a new project file name.");
+						return L.t._("输入新的项目文件名。");
 
 					var newPath = project.filePath.directoryWithSlash + str + project.filePath.extWithDot;
 					if( NT.fileExists(newPath) )
-						return L.t._("This file name is already in use.");
+						return L.t._("此文件名已在使用中。");
 
 					return null;
 				},
@@ -90,7 +90,7 @@ class EditProject extends ui.modal.Panel {
 							App.ME.unregisterRecentProject(oldProjectPath);
 
 							// Success!
-							N.success("Renamed project!");
+							N.success("重命名项目!");
 							editor.needSaving = false;
 							editor.updateTitle();
 							App.ME.registerRecentProject(editor.project.filePath.full);
@@ -153,7 +153,7 @@ class EditProject extends ui.modal.Panel {
 					editor.ge.emit(ProjectSettingsChanged);
 					editor.invalidateAllLevelsCache();
 					project.tidy();
-					N.success("Value reset.");
+					N.success("值重置.");
 				}
 			}
 		);
@@ -178,8 +178,8 @@ class EditProject extends ui.modal.Panel {
 	function recommendSaving() {
 		if( !cd.hasSetS("saveReco",2) )
 			N.warning(
-				L.t._("Project file setting changed"),
-				L.t._("You should save the project at least once for this setting to apply its effects.")
+				L.t._("项目文件设置已更改"),
+				L.t._("应至少保存项目一次，以便此设置应用其效果。")
 			);
 	}
 
@@ -205,10 +205,10 @@ class EditProject extends ui.modal.Panel {
 			if( NT.fileExists(old) && NT.renameFile(old, fp.full) ) {
 				App.ME.renameRecentProject(old, fp.full);
 				project.filePath.parseFilePath(fp.full);
-				N.success(L.t._("Changed file extension to ::ext::", { ext:fp.extWithDot }));
+				N.success(L.t._("将文件扩展名更改为 ::ext::", { ext:fp.extWithDot }));
 			}
 			else {
-				N.error(L.t._("Couldn't rename project file!"));
+				N.error(L.t._("无法重命名项目文件！"));
 			}
 		}
 
@@ -282,10 +282,10 @@ class EditProject extends ui.modal.Panel {
 					recommendSaving();
 			},
 			(v)->switch v {
-				case None: L.t._("Don't export any image");
-				case OneImagePerLayer: L.t._("Export one PNG for each individual layer, in each level");
-				case OneImagePerLevel: L.t._("Export a single PNG per level (all layers are merged down)");
-				case LayersAndLevels: L.t._("Export images for both layers and levels");
+				case None: L.t._("不导出任何图像");
+				case OneImagePerLayer: L.t._("每个关卡，为每个单独的层导出PNG");
+				case OneImagePerLevel: L.t._("每个关卡，导出一个PNG（所有层向下合并）");
+				case LayersAndLevels: L.t._("导出单独层和合并层");
 			}
 		);
 		i.linkEvent(ProjectSettingsChanged);
@@ -312,26 +312,26 @@ class EditProject extends ui.modal.Panel {
 					return;
 
 				var old = project.identifierStyle;
-				new LastChance(L.t._("Identifier style changed"), project);
+				new LastChance(L.t._("标识符样式已更改"), project);
 				project.identifierStyle = v;
 				project.applyIdentifierStyleEverywhere(old);
 				editor.invalidateAllLevelsCache();
 				editor.ge.emit(ProjectSettingsChanged);
 			},
 			(v)->switch v {
-				case Capitalize: L.t._('"My_identifier_1" -- First letter is always uppercase, the rest is up to you');
-				case Uppercase: L.t._('"MY_IDENTIFIER_1" -- Full uppercase');
-				case Lowercase: L.t._('"my_identifier_1" -- Full lowercase');
-				case Free: L.t._('"my_IdEnTifIeR_1" -- I wON\'t cHaNge yOuR leTteR caSe');
+				case Capitalize: L.t._('"My_identifier_1" -- 第一个字母总是大写的，其余的由你决定');
+				case Uppercase: L.t._('"MY_IDENTIFIER_1" -- 全大写');
+				case Lowercase: L.t._('"my_identifier_1" -- 全小写');
+				case Free: L.t._('"my_IdEnTifIeR_1" -- 我不会更改您的字母大小写');
 			}
 		);
 		i.customConfirm = (oldV,newV)->{
 			switch newV {
 				case Capitalize, Uppercase, Lowercase:
-					L.t._("WARNING!\nPlease make sure the game engine or importer you're using supports this kind of LDtk identifier!\nIf you proceed, all identifiers in this project will be converted to the new format!\nAre you sure?");
+					L.t._("警告！\n请确保您使用的游戏引擎或导入程序支持此类 LDtk 标识符！\n如果继续，此项目中的所有标识符都将转换为新格式！\n确定吗？");
 
 				case Free:
-					L.t._("WARNING!\nPlease make sure the game engine or importer you're using supports this kind of LDtk identifier!\nAre you sure?");
+					L.t._("警告！\n请确保您使用的游戏引擎或导入程序支持此类 LDtk 标识符！\n您确定吗？");
 			}
 		}
 		var jStyleWarning = jForm.find("#styleWarning");
@@ -417,20 +417,20 @@ class EditProject extends ui.modal.Panel {
 			switch flag {
 				case ExportPreCsvIntGridFormat:
 					jLabel.text("Export legacy pre-CSV IntGrid layers data");
-					_setDesc( L.t._("If enabled, the exported JSON file will also contain the now deprecated array \"intGrid\". The file will be significantly larger.\nOnly use this if your game API only supports LDtk 0.8.x or less.") );
+					_setDesc( L.t._("如果启用，导出的 JSON 文件还将包含现已弃用的数组 “intGrid”。该文件将明显变大。\n仅当您的游戏 API 仅支持 LDtk 0.8.x 或更低版本时，请使用此选项。") );
 
 				case PrependIndexToLevelFileNames:
 					jLabel.text("Prefix level file names with their index in array");
-					_setDesc( L.t._("If enabled, external level file names will be prefixed with an index reflecting their position in the internal array.\nThis is NOT recommended because, with versioning systems (such as GIT), inserting a new level means renaming files of all subsequent levels in the array.\nThis option used to be the default behavior but was changed in version 1.0.0.") );
+					_setDesc( L.t._("如果启用，则外部级别文件名将以反映其在内部阵列中位置的索引为前缀。\n不建议这样做，因为对于版本控制系统（如 GIT），插入新级别意味着重命名数组中所有后续级别的文件。\n此选项以前是默认行为，但在 1.0.0 版中已更改。") );
 
 				case MultiWorlds:
 					jLabel.text("Multi-worlds support");
-					_setDesc( L.t._("If enabled, levels will be stored in a 'worlds' array at the root of the project JSON instead of the root itself directly.\nThis option is still experimental and is not yet supported if Separate Levels option is enabled.") );
+					_setDesc( L.t._("如果启用，级别将存储在项目 JSON 根目录下的“worlds”数组中，而不是直接存储在根目录本身中。\n此选项仍处于实验阶段阶段，如果启用了“单独级别”选项，则尚不支持此选项。") );
 					jInput.prop("disabled", project.worlds.length>1 );
 
 				case UseMultilinesType:
 					jLabel.text('Use "Multilines" instead of "String" for fields in JSON');
-					_setDesc( L.t._("If enabled, the JSON value \"__type\" for Field Instances and Field Definitions will be \"Multilines\" instead of \"String\" for all fields of Multilines type.") );
+					_setDesc( L.t._("如果启用，则字段实例和字段定义的 JSON 值 “__type” 对于多行类型的所有字段，将改为 “Multilines”，而不是 “String”。") );
 
 				case _:
 			}

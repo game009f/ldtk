@@ -106,14 +106,14 @@ class TextEditor extends ui.modal.Dialog {
 	public static function editExternalFile(filePath:String) {
 		var fp = dn.FilePath.fromFile(filePath);
 		if( !NT.fileExists(fp.full) ) {
-			N.error(L.t._("File not found."));
+			N.error(L.t._("未找到文件."));
 			return false;
 		}
 
 		// Read file
 		var bytes = NT.readFileBytes(fp.full);
 		if( bytes==null ) {
-			N.error(L.t._("Could not read file content."));
+			N.error(L.t._("无法读取文件内容."));
 			return false;
 		}
 
@@ -121,7 +121,7 @@ class TextEditor extends ui.modal.Dialog {
 		switch dn.Identify.getType(bytes) {
 			case Unknown:
 			case Aseprite, Png, Jpeg, Gif, Bmp:
-				N.error("You cannot edit an image here.");
+				N.error("您无法在此处编辑图像.");
 				return false;
 		}
 		var raw = bytes.toString();
@@ -130,7 +130,7 @@ class TextEditor extends ui.modal.Dialog {
 		for(i in 0...M.imin(256, bytes.length)) {
 			c = bytes.getString(i,1);
 			if( c==null || c.length==0 || c.charCodeAt(0) > 127 ) {
-				N.error(L.t._("Hey, it looks like a binary file: this cannot be opened in this editor."));
+				N.error(L.t._("嘿，它看起来像一个二进制文件：这不能在此编辑器中打开。"));
 				return false;
 			}
 		}
@@ -160,7 +160,7 @@ class TextEditor extends ui.modal.Dialog {
 			mode,
 			(str)->{
 				NT.writeFileString(fp.full, str);
-				N.success( L.t._('File "::name::" saved.', { name:fp.fileWithExt }) );
+				N.success( L.t._('文件 "::name::" saved.', { name:fp.fileWithExt }) );
 			}
 		);
 		return true;

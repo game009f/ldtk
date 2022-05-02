@@ -4,7 +4,7 @@
 	"main": "assets/main.js",
 	"productName": "LDtk",
 	"author": "Sebastien Benard",
-	"description": "2D level editor",
+	"description": "2D 关卡编辑器",
 	"scripts": {
 		"start": "electron .",
 		"compile": "cd ..  &&  haxe main.hxml  &&  haxe renderer.hxml",

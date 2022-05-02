@@ -111,10 +111,10 @@ class Editor extends Page {
 		// Suggest backups
 		if( project.recommendsBackup() && !project.hasFlag(IgnoreBackupSuggest) ) {
 			var w = new ui.modal.dialog.Choice(
-				L.t._("As your project is growing bigger, it is STRONGLY advised to enable BACKUPS, to secure your work."),
+				L.t._("随着您的项目越来越大，强烈建议您启用 备份，以保护您的工作。"),
 				[
 					{
-						label:L.t._("Enable backups when saving"),
+						label:L.t._("保存时启用备份"),
 						className: "strong",
 						cb: ()->{
 							project.backupOnSave = true;
@@ -122,7 +122,7 @@ class Editor extends Page {
 						},
 					},
 					{
-						label:L.t._("No, and I understand the risk."),
+						label:L.t._("不，我不需要备份。"),
 						className: "gray",
 						cb: ()->{
 							project.setFlag(IgnoreBackupSuggest, true);
@@ -130,7 +130,7 @@ class Editor extends Page {
 						},
 					}
 				],
-				L.t._("Enable backups"),
+				L.t._("启用备份"),
 				false
 			);
 		}
@@ -425,7 +425,7 @@ class Editor extends Page {
 
 	public function onProjectImageChanged(relPath:String) {
 		if( project.reloadImage(relPath) ) {
-			N.success("Image updated: "+dn.FilePath.extractFileWithExt(relPath));
+			N.success("图像已更新: "+dn.FilePath.extractFileWithExt(relPath));
 
 			// Update tilesets
 			for(td in project.defs.tilesets)
@@ -442,7 +442,7 @@ class Editor extends Page {
 				}
 		}
 		else
-			N.error("Unknown watched image changed: "+relPath);
+			N.error("未知监视的图像已更改: "+relPath);
 	}
 
 	function reloadTileset(td:data.def.TilesetDef, isInitialLoading=false) {
@@ -599,7 +599,7 @@ class Editor extends Page {
 
 			case K.S:
 				if( project.isBackup() )
-					N.error("Cannot save over a backup file.");
+					N.error("无法通过备份文件进行保存.");
 				else if( !hasInputFocus() && App.ME.isCtrlDown() )
 					if( App.ME.isShiftDown() )
 						onSave(true);
@@ -642,12 +642,12 @@ class Editor extends Page {
 
 				if( !selectionTool.isEmpty() ) {
 					if( settings.v.singleLayerMode )
-						N.quick( L.t._("Selected all in layer") );
+						N.quick( L.t._("图层中全部选定") );
 					else
-						N.quick( L.t._("Selected all") );
+						N.quick( L.t._("全部选择") );
 				}
 				else
-					N.error("Nothing to select");
+					N.error("无需选择");
 
 			case K.G if( !hasInputFocus() && !App.ME.hasAnyToggleKeyDown() ):
 				setGrid( !settings.v.grid );
@@ -950,7 +950,7 @@ class Editor extends Page {
 		}
 
 		if( !ev.cancel && project.isBackup() )
-			N.error("Backup files should not be edited directly");
+			N.error("不应直接编辑备份文件");
 	}
 
 	function onMouseUp() {
@@ -1343,7 +1343,7 @@ class Editor extends Page {
 		ge.emit( WorldMode(worldMode) );
 		if( worldMode ) {
 			cursor.set(None);
-			N.quick(L.t._("World view"), new J('<span class="icon world"/>'));
+			N.quick(L.t._("世界视图"), new J('<span class="icon world"/>'));
 			ui.Modal.closeAll();
 			new ui.modal.panel.WorldPanel();
 		}
@@ -1401,7 +1401,7 @@ class Editor extends Page {
 		settings.v.showDetails = v;
 		App.ME.settings.save();
 		selectionTool.clear();
-		N.quick( settings.v.showDetails ? L.t._("Showing everything") : L.t._("Showing tiles only"));
+		N.quick( settings.v.showDetails ? L.t._("显示所有内容") : L.t._("仅显示磁贴"));
 		ge.emit( ShowDetailsChanged(v) );
 		updateEditOptions();
 	}
@@ -1499,10 +1499,10 @@ class Editor extends Page {
 		// Save project
 		new ui.ProjectSaver(this, project, (success)->{
 			if( !success )
-				N.error("Saving failed!");
+				N.error("保存失败!");
 			else {
 				App.LOG.fileOp('Saved "${project.filePath.fileWithExt}".');
-				N.success('Saved project', project.filePath.fileName);
+				N.success('保存的项目', project.filePath.fileName);
 
 				App.ME.registerRecentProject(project.filePath.full);
 				this.needSaving = false;
@@ -1517,12 +1517,12 @@ class Editor extends Page {
 
 	function onBackupRestore() {
 		new ui.modal.dialog.Confirm(
-			L.t._("WARNING: restoring this backup will REPLACE the original project file with this version.\nAre you sure?"),
+			L.t._("警告：还原此备份将使用此版本替换原始项目文件。\n您确定吗？?"),
 			()->{
 				var original = ui.ProjectSaver.makeOriginalPathFromBackup(project.filePath.full);
 				if( original.full==null || !NT.fileExists(original.full) ) {
 					// Project not found
-					new ui.modal.dialog.Message(L.t._("Sorry, but I can't restore this backup: I can't locate the original project file."));
+					new ui.modal.dialog.Message(L.t._("很抱歉，我无法还原此备份：我找不到原始项目文件."));
 				}
 				else {
 					App.LOG.fileOp('Restoring backup: ${project.filePath.full}...');
@@ -2087,20 +2087,20 @@ class Editor extends Page {
 		else if( curLayerDef!=null ) {
 			switch curLayerDef.type {
 				case IntGrid:
-					_createGuideBlock([K.SHIFT], "mouseLeft", L.t._("Rectangle"));
-					_createGuideBlock([K.ALT], "mouseLeft", L.t._("Pick"));
+					_createGuideBlock([K.SHIFT], "mouseLeft", L.t._("矩形"));
+					_createGuideBlock([K.ALT], "mouseLeft", L.t._("选择"));
 
 				case AutoLayer:
 
 				case Entities:
-					_createGuideBlock([K.ALT], "mouseLeft", L.t._("Pick"));
-					_createGuideBlock([K.CTRL,K.ALT], "mouseLeft", L.t._("Copy"));
-					// _createGuideBlock([K.CTRL], null, L.t._("(while moving) Free mode"));
+					_createGuideBlock([K.ALT], "mouseLeft", L.t._("选择"));
+					_createGuideBlock([K.CTRL,K.ALT], "mouseLeft", L.t._("复制"));
+					// _createGuideBlock([K.CTRL], null, L.t._("(while moving) 自由模式"));
 
 				case Tiles:
-					_createGuideBlock([K.SHIFT], "mouseLeft", L.t._("Rectangle"));
-					_createGuideBlock([K.ALT], "mouseLeft", L.t._("Pick"));
-					// _createGuideBlock([K.SHIFT,K.ALT], "mouseLeft", L.t._("Pick saved selection"));
+					_createGuideBlock([K.SHIFT], "mouseLeft", L.t._("矩形"));
+					_createGuideBlock([K.ALT], "mouseLeft", L.t._("选择"));
+					// _createGuideBlock([K.SHIFT,K.ALT], "mouseLeft", L.t._("选择已保存的选区"));
 			}
 		}
 	}

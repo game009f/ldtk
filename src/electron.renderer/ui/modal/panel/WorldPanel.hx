@@ -62,17 +62,17 @@ class WorldPanel extends ui.modal.Panel {
 			()->curWorld.worldLayout,
 			(l)->curWorld.worldLayout = l,
 			(l)->switch l {
-				case Free: L.t._("2D free map - Freely positioned in space");
-				case GridVania: L.t._("GridVania - Levels are positioned inside a large world-scale grid");
-				case LinearHorizontal: L.t._("Horizontal - One level after the other");
-				case LinearVertical: L.t._("Vertical - One level after the other");
+				case Free: L.t._("2D自由地图-在世界中自由定位");
+				case GridVania: L.t._("GridVania-关卡左上角对齐世界网格");
+				case LinearHorizontal: L.t._("水平 - 一个关卡接一个关卡");
+				case LinearVertical: L.t._("垂直 - 一个关卡接一个关卡");
 			}
 		);
 
 		if( project.countAllLevels() > 2 )
-			e.customConfirm = (oldV,newV)->L.t._("Changing this will change ALL the level positions! Please make sure you know what you're doing :)");
+			e.customConfirm = (oldV,newV)->L.t._("更改此位置将更改所有级别位置！请确保您知道自己在做什么:)");
 		e.onBeforeSetter = ()->{
-			new LastChance(L.t._("World layout changed"), editor.project);
+			new LastChance(L.t._("世界布局已更改"), editor.project);
 		}
 		e.onValueChange = (l)->{
 			curWorld.onWorldLayoutChange(old);

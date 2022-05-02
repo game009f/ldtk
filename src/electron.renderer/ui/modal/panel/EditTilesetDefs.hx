@@ -27,7 +27,7 @@ class EditTilesetDefs extends ui.modal.Panel {
 	}
 
 	function deleteTilesetDef(td:data.def.TilesetDef) {
-		new LastChance(L.t._("Tileset ::name:: deleted", { name:td.identifier }), project);
+		new LastChance(L.t._("磁贴集 ::name:: 删除", { name:td.identifier }), project);
 		var old = td;
 		project.defs.removeTilesetDef(td);
 		selectTileset(project.defs.tilesets[0]);
@@ -243,10 +243,10 @@ class EditTilesetDefs extends ui.modal.Panel {
 			if( oldUid!=null && oldUid!=uid && curTd.hasAnyTag() )
 				new ui.modal.dialog.Confirm(
 					jSelect,
-					L.t._("Be careful: you have tags in this tileset. You will LOSE them by changing the source Enum!"),
+					L.t._("请注意：此磁贴集中有标记。您将通过更改源枚举来丢失它们!"),
 					true,
 					()->{
-						new LastChance(L.t._("Tileset tags removed"), project);
+						new LastChance(L.t._("已删除磁贴集标记"), project);
 						_apply();
 					},
 					()->jSelect.val(Std.string(oldUid))

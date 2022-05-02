@@ -92,7 +92,7 @@ class FieldDefsForm {
 						new ui.modal.dialog.Choice(
 							L.t._("This project contains no Enum yet. You first need to create one from the Enum panel."),
 							[
-								{ label:L.t._("Open enum panel"), cb:()->new ui.modal.panel.EditEnumDefs() }
+								{ label:L.t._("打开枚举面板"), cb:()->new ui.modal.panel.EditEnumDefs() }
 							]
 						);
 						return;
@@ -102,7 +102,7 @@ class FieldDefsForm {
 					var ctx = new ui.modal.ContextMenu(ev);
 					var tagGroups = project.defs.groupUsingTags(project.defs.enums, ed->ed.tags);
 					if( tagGroups.length<=1 )
-						ctx.addTitle(L.t._("Pick an existing enum"));
+						ctx.addTitle(L.t._("选取现有枚举"));
 					for(group in tagGroups) {
 						if( tagGroups.length>1 )
 							ctx.addTitle( group.tag==null ? L._Untagged() : L.untranslated(group.tag) );
@@ -209,7 +209,7 @@ class FieldDefsForm {
 
 
 	function deleteField(fd:data.def.FieldDef) {
-		new ui.LastChance( L.t._("Field ::name:: deleted", { name:fd.identifier }), project );
+		new ui.LastChance( L.t._("变量 ::name:: deleted", { name:fd.identifier }), project );
 		fieldDefs.remove(fd);
 		project.tidy();
 		editor.ge.emit( FieldDefRemoved(fd) );
@@ -369,7 +369,7 @@ class FieldDefsForm {
 			if( convertors.length==0 ) {
 				// No convertor
 				new ui.modal.dialog.Message(
-					L.t._('Sorry, there\'s no conversion option available for the type "::name::".', { name:L.getFieldType(curField.type) })
+					L.t._('抱歉，没有适用于该类型的转换选项 "::name::".', { name:L.getFieldType(curField.type) })
 				);
 			}
 			else {
@@ -404,7 +404,7 @@ class FieldDefsForm {
 							_convert();
 						else
 							new ui.modal.dialog.Confirm(
-								L.t._("This conversion will TRANSFORM EXISTING VALUES because the target type isn't fully compatible with the previous one!\nSome data might be lost in the process because of this conversion.\nPlease make sure that you known what you're doing here."),
+								L.t._("此转换将转换现有值，因为目标类型与前一个类型不完全兼容！\n此转换在此过程中可能会丢失某些数据。\n请确保您知道您在此处执行的操作。"),
 								true,
 								_convert
 							);
@@ -422,23 +422,23 @@ class FieldDefsForm {
 
 			function(k) {
 				return switch k {
-					case Hidden: L.t._("Do not show");
-					case ValueOnly: curField.isArray ? L.t._("Show values only") : L.t._("Show value only");
+					case Hidden: L.t._("不显示");
+					case ValueOnly: curField.isArray ? L.t._("仅显示值(s)") : L.t._("仅显示值");
 					case NameAndValue:
 						curField.isArray
-						? L.t._('Show "::name::=[...values...]"', { name:curField.identifier })
-						: L.t._('Show "::name::=..."', { name:curField.identifier });
-					case Points: curField.isArray ? L.t._("Show isolated points") : L.t._("Show isolated point");
-					case PointStar: curField.isArray ? L.t._("Show star of points") : L.t._("Show connected point");
-					case PointPath: L.t._("Show path of points");
-					case PointPathLoop: L.t._("Show path of points (looping)");
-					case RadiusPx: L.t._("As a radius (pixels)");
-					case RadiusGrid: L.t._("As a radius (grid-based)");
-					case EntityTile: L.t._("Replace entity tile");
-					case ArrayCountWithLabel: L.t._("Show array length with label");
-					case ArrayCountNoLabel: L.t._("Show array length only");
-					case RefLinkBetweenCenters: L.t._("Reference link (using center coord)");
-					case RefLinkBetweenPivots: L.t._("Reference link (using pivot coord)");
+						? L.t._('显示 "::name::=[...values...]"', { name:curField.identifier })
+						: L.t._('显示 "::name::=..."', { name:curField.identifier });
+					case Points: curField.isArray ? L.t._("显示孤立点(s)") : L.t._("显示孤立点");
+					case PointStar: curField.isArray ? L.t._("显示点的星号(s)") : L.t._("显示点的星号");
+					case PointPath: L.t._("显示点的路径");
+					case PointPathLoop: L.t._("显示点的路径（循环）");
+					case RadiusPx: L.t._("作为半径（像素）");
+					case RadiusGrid: L.t._("作为半径（基于网格）");
+					case EntityTile: L.t._("替换实体磁贴");
+					case ArrayCountWithLabel: L.t._("使用标签显示数组长度");
+					case ArrayCountNoLabel: L.t._("仅显示数组长度");
+					case RefLinkBetweenCenters: L.t._("参考链接（使用中心坐标）");
+					case RefLinkBetweenPivots: L.t._("引用链接（使用枢轴坐标）");
 				}
 			},
 
@@ -596,9 +596,9 @@ class FieldDefsForm {
 				onFieldChange();
 			},
 			(v)->return switch v {
-				case Any: L.t._("Any entity");
-				case OnlyTags: L.t._("Any entity with one of the specified tags");
-				case OnlySame: L.t._("Only another '::name::'s", { name:getParentName() });
+				case Any: L.t._("任何实体");
+				case OnlyTags: L.t._("具有指定标记之一的任何实体");
+				case OnlySame: L.t._("只有另一个 '::name::'s", { name:getParentName() });
 				// case Custom: L.t._("Only selected entities");
 			}
 		);

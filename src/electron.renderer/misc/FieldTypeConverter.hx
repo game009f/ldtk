@@ -143,7 +143,7 @@ class FieldTypeConverter {
 		});
 
 		new ui.modal.Progress("Type conversion", ops, ()->{
-			N.success("Type changed to "+toType);
+			N.success("类型更改为 "+toType);
 			new ui.LastChance(L.t._("Type conversion"), oldProject);
 			onSuccess();
 		});

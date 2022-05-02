@@ -41,7 +41,7 @@ class InputDialog<T> extends ui.modal.Dialog {
 			jContent.find(".suffix").text(suffix);
 
 		// Buttons
-		jValidate = addButton( L.t._("Validate"), tryToValidate );
+		jValidate = addButton( L.t._("验证"), tryToValidate );
 		addCancel();
 		updateError();
 	}

@@ -72,7 +72,7 @@ class MoveEntitiesBetweenLayers extends ui.modal.Dialog {
 
 			// Check form
 			if( filter=="" || !M.isValidNumber(targetUid) ) {
-				N.error("Please provide requested informations first.");
+				N.error("请先提供所要求的资料.");
 				return;
 			}
 
@@ -87,16 +87,16 @@ class MoveEntitiesBetweenLayers extends ui.modal.Dialog {
 				case "id":
 					var ed = project.defs.getEntityDef(filterId);
 					if( !targetLd.excludedTags.isEmpty() && ed.tags.hasAnyTagFoundIn(targetLd.excludedTags) ) {
-						N.error("The destination layer "+targetLd.identifier+" does not accept Entities with one of these tags: "+targetLd.excludedTags.toArray());
+						N.error("目标图层 "+targetLd.identifier+" 不接受具有这些标记之一的实体: "+targetLd.excludedTags.toArray());
 						return;
 					}
 					if( !targetLd.requiredTags.isEmpty() && !ed.tags.hasAnyTagFoundIn(targetLd.requiredTags) ) {
-						N.error("The destination layer "+targetLd.identifier+" only accepts Entities with one of these tags: "+targetLd.requiredTags.toArray());
+						N.error("目标图层 "+targetLd.identifier+" 仅接受具有这些标记之一的实体: "+targetLd.requiredTags.toArray());
 						return;
 					}
 			}
 
-			new LastChance(L.t._("Moved entities between layers"), project);
+			new LastChance(L.t._("在图层之间移动的实体"), project);
 
 			// Move all existing entities
 			var n = 0;
@@ -134,7 +134,7 @@ class MoveEntitiesBetweenLayers extends ui.modal.Dialog {
 			}
 
 			new Message(
-				L.t._("::n:: entities were moved from ::fromLayer:: to ::toLayer::.",  {
+				L.t._("::n:: 实体已从 ::fromLayer:: 到 ::toLayer::.",  {
 					n: n,
 					fromLayer: fromLd.identifier,
 					toLayer: targetLd.identifier,

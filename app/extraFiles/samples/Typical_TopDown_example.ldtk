@@ -31,7 +31,7 @@
 	"backupOnSave": false,
 	"backupLimit": 10,
 	"levelNamePattern": "%world_Level_%idx",
-	"tutorialDesc": "Using combinations of \"Auto-Layers\" and classic \"Tile layers\", you can achieve great results quickly.\n\nPress [A] to toggle \"Single Layer Mode\", and see what each layer contains.\n\nPress [SHIFT + R] to toggle rendering of rules based layers.",
+	"tutorialDesc": "使用“自动图层”和经典“平铺图层”的组合，可以快速获得出色的结果。\n\n按 [A] 切换“单层模式”，并查看每个图层包含的内容。\n\n按 [SHIFT + R] 可切换基于规则的图层的呈现。",
 	"flags": ["UseMultilinesType"],
 	"defs": { "layers": [
 		{

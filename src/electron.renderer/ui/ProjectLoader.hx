@@ -37,7 +37,7 @@ class ProjectLoader {
 			return;
 		}
 
-		progress = new ui.modal.Progress( L.t._("::file::: Project...", {file:fileName}) );
+		progress = new ui.modal.Progress( L.t._("::file::: 项目...", {file:fileName}) );
 
 		var json : ldtk.Json.ProjectJson = null;
 		var raw : String = null;
@@ -115,7 +115,7 @@ class ProjectLoader {
 						w.createLevel(idx);
 					}
 
-					var levelProgress = new ui.modal.Progress(L.t._("::file::: Levels...", {file:fileName}), ()->done(p));
+					var levelProgress = new ui.modal.Progress(L.t._("::file::: 关卡...", {file:fileName}), ()->done(p));
 					log.add(tag, "Loading external levels...");
 					for(w in p.worlds) {
 						var idx = 0;
@@ -175,7 +175,7 @@ class ProjectLoader {
 
 		onLoad(p);
 		if( log.containsAnyCriticalEntry() )
-			new ui.modal.dialog.LogPrint(log, L.t._("Project errors"));
+			new ui.modal.dialog.LogPrint(log, L.t._("项目错误"));
 	}
 
 	function error(err:LoadingError) {
@@ -193,13 +193,13 @@ class ProjectLoader {
 		onError(err);
 		switch err {
 			case ProjectNotFound:
-				N.error("Project file not found");
+				N.error("未找到项目文件");
 
 			case UnsupportedWinNetDrive:
 				new ui.modal.dialog.Message( L._UnsupportedWinNetDir() );
 
 			case FileRead(_), JsonParse(_), ProjectInit(_):
-				new ui.modal.dialog.LogPrint(log, L.t._("Project errors"));
+				new ui.modal.dialog.LogPrint(log, L.t._("项目错误"));
 		}
 	}
 }

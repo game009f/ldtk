@@ -219,7 +219,7 @@ class SelectionTool extends Tool<Int> {
 				startedOverSelecton = true;
 				// Move existing selection
 				if( group.hasIncompatibleGridSizes() ) {
-					new ui.modal.dialog.Message(L.t._("This selection can't be moved around because it contains elements using different grid sizes."));
+					new ui.modal.dialog.Message(L.t._("此选择无法移动，因为它包含使用不同网格大小的元素."));
 					stopUsing(m);
 				}
 			}

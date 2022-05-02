@@ -24,16 +24,16 @@ class LevelInstanceForm {
 		// Delete button
 		jWrapper.find("button.delete").click( (_)->{
 			if( curWorld.levels.length<=1 ) {
-				N.error(L.t._("You can't delete the last level."));
+				N.error(L.t._("您无法删除最后一个级别。"));
 				return;
 			}
 
 			new ui.modal.dialog.Confirm(
-				Lang.t._("Are you sure you want to delete this level?"),
+				Lang.t._("是否确实要删除此关卡?"),
 				true,
 				()->{
 					var closest = curWorld.getClosestLevelFrom(level);
-					new LastChance( L.t._('Level ::id:: removed', {id:level.identifier}), project);
+					new LastChance( L.t._('关卡 ::id:: removed', {id:level.identifier}), project);
 					var deleted = level;
 					editor.selectLevel( closest );
 					for(nl in deleted.getNeighbours())
@@ -304,7 +304,7 @@ class LevelInstanceForm {
 				// Add or update
 				var img = project.getOrLoadImage(relPath);
 				if( img==null ) {
-					ui.modal.dialog.Message.error( L.t._("Could not load this image") );
+					ui.modal.dialog.Message.error( L.t._("无法加载此图像") );
 					return;
 				}
 				level.bgRelPath = relPath;

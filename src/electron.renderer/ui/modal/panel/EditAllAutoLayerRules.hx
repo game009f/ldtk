@@ -526,7 +526,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L.t._("Disable OPTIONAL state"),
+				label: L.t._("禁用可选状态"),
 				cb: ()->{
 					new ui.modal.dialog.Confirm(
 						L.t._("警告：通过删除此组的可选状态，您将失去此组在所有级别中的开/关状态。这组规则将成为“全局”规则，适用于每个级别."),
@@ -543,7 +543,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L._PasteAfter("rule"),
+				label: L._PasteAfter("规则"),
 				cb: ()->{
 					var copy = ld.pasteRule(project, rg, App.ME.clipboard);
 					lastRule = copy;
@@ -554,20 +554,20 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L._Copy("Group"),
+				label: L._Copy("组"),
 				cb: ()->{
 					App.ME.clipboard.copyData(CRuleGroup, li.def.toJsonRuleGroup(rg));
 				}
 			},
 			{
-				label: L._Cut("Group"),
+				label: L._Cut("组"),
 				cb: ()->{
 					App.ME.clipboard.copyData(CRuleGroup, li.def.toJsonRuleGroup(rg));
 					deleteRuleGroup(rg, false);
 				}
 			},
 			{
-				label: L._PasteAfter("group"),
+				label: L._PasteAfter("组"),
 				cb: ()->{
 					var copy = ld.pasteRuleGroup(project, App.ME.clipboard, rg);
 					editor.ge.emit(LayerRuleGroupAdded(copy));
@@ -577,7 +577,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				enable: ()->App.ME.clipboard.is(CRuleGroup),
 			},
 			{
-				label: L.t._("复制组"),
+				label: L.t._("创建组副本"),
 				cb: ()->{
 					var copy = ld.duplicateRuleGroup(project, rg);
 					lastRule = copy.rules.length>0 ? copy.rules[0] : lastRule;

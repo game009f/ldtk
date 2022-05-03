@@ -244,7 +244,7 @@ class EditEntityDefs extends ui.modal.Panel {
 		// Entity render mode
 		var jRenderSelect = jRenderModeBlock.find(".renderMode");
 		jRenderSelect.empty();
-		var jOptGroup = new J('<optgroup label="Shapes"/>');
+		var jOptGroup = new J('<optgroup label="形状"/>');
 		jOptGroup.appendTo(jRenderSelect);
 		for(k in ldtk.Json.EntityRenderMode.getConstructors()) {
 			var mode = ldtk.Json.EntityRenderMode.createByName(k);
@@ -254,9 +254,9 @@ class EditEntityDefs extends ui.modal.Panel {
 			var jOpt = new J('<option value="!$k"/>');
 			jOpt.appendTo(jOptGroup);
 			jOpt.text(switch mode {
-				case Rectangle: Lang.t._("Rectangle");
-				case Ellipse: Lang.t._("Ellipse");
-				case Cross: Lang.t._("Cross");
+				case Rectangle: Lang.t._("长方形");
+				case Ellipse: Lang.t._("椭圆");
+				case Cross: Lang.t._("十字架");
 				case Tile: null;
 			});
 		}
@@ -400,9 +400,9 @@ class EditEntityDefs extends ui.modal.Panel {
 			},
 			function(k) {
 				return switch k {
-					case DiscardOldOnes: Lang.t._("discard older ones");
-					case PreventAdding: Lang.t._("prevent adding more");
-					case MoveLastOne: Lang.t._("move the last one instead of adding");
+					case DiscardOldOnes: Lang.t._("丢弃旧的");
+					case PreventAdding: Lang.t._("防止添加更多");
+					case MoveLastOne: Lang.t._("移动最后一个，而不是添加");
 				}
 			}
 		);

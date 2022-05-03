@@ -53,7 +53,7 @@ class WorldTool extends dn.Process {
 				cb: ()->{
 					if( !ui.vp.LevelSpotPicker.tryToCreateLevelAt(project, curWorld, m) ) {
 						new ui.modal.dialog.Confirm(
-							L.t._("No room for a level here! 是否要选择其他位置?"),
+							L.t._("这里没有关卡的空间了! 是否要选择其他位置?"),
 							()->new ui.vp.LevelSpotPicker()
 						);
 					}

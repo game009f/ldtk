@@ -350,7 +350,7 @@ class ExternalEnum {
 			else {
 				// No change
 				App.LOG.add("import", 'Nothing to sync.');
-				N.msg( fileName, L.t._("Enums are already up-to-date.") );
+				N.msg( fileName, L.t._("枚举已经是最新的了.") );
 				updateChecksums(relSourcePath, checksum);
 				Editor.ME.ge.emit( ExternalEnumsLoaded(false) );
 			}

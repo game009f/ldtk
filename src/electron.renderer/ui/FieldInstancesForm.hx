@@ -533,7 +533,7 @@ class FieldInstancesForm {
 							return;
 
 						if( tei==null ) {
-							N.error("Invalid reference");
+							N.error("引用无效");
 							return;
 						}
 

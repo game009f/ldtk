@@ -376,14 +376,14 @@ class TileTool extends tool.LayerTool<data.DataTypes.TilesetSelection> {
 		jTilesets.change( (_)->{
 			function _apply(canUndo:Bool) {
 				if( canUndo )
-					new ui.LastChance(L.t._("Changed layer tileset"), project);
+					new ui.LastChance(L.t._("已更改图层切片集"), project);
 				curLayerInstance.setOverrideTileset( Std.parseInt( jTilesets.val() ) );
 				editor.ge.emit( ToolOptionChanged );
 				editor.ge.emit( LayerInstanceChangedGlobally(curLayerInstance) );
 			}
 			var isBad = jTilesets.find(":selected").hasClass("bad");
 			if( isBad )
-				new ui.modal.dialog.Confirm(jTilesets, L.t._("Warning: using this tileset in this layer will mess any existing tiles here."), true, _apply.bind(true), initToolOptions);
+				new ui.modal.dialog.Confirm(jTilesets, L.t._("警告：在此图层中使用此切片集会弄乱此处的所有现有切片。"), true, _apply.bind(true), initToolOptions);
 			else
 				_apply(false);
 		});
@@ -413,7 +413,7 @@ class TileTool extends tool.LayerTool<data.DataTypes.TilesetSelection> {
 					var saved = curTilesetDef.getSavedSelectionFor( getSelectedValue().ids[0] );
 					if( saved!=null && !selectedValuesIdentical(saved.ids) ) {
 						if( saved.ids.length>1 )
-							N.quick( L.t._("Loaded selection of ::n:: tiles", { n:saved.ids.length }) );
+							N.quick( L.t._("加载的选定 ::n:: tiles", { n:saved.ids.length }) );
 						selectValue({
 							ids: saved.ids.copy(),
 							mode: saved.mode,

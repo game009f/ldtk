@@ -48,10 +48,10 @@ class EditLayerDefs extends ui.modal.Panel {
 				var jDesc = new J('<div class="desc"/>');
 				jDesc.appendTo(w.jContent);
 				var desc = switch type {
-					case IntGrid: "Contains grids of Integer numbers (ie. 1, 2, 3 etc.). It can be used to mark collisions in your levels or various other informations. It can be also rendered automatically to tiles using dynamic rules.";
-					case Entities: "Contains Entity instances, which are generic objects such as the Player start position or Items to pick up.";
-					case Tiles: "Contains image tiles picked from a Tileset.";
-					case AutoLayer: "This special layer is rendered automatically using dynamic rules and an IntGrid layer as source for its data.";
+					case IntGrid: "包含整数的网格（即 1、2、3 等）。它可用于标记关卡中的碰撞或各种其他信息。它还可以使用动态规则自动呈现到磁贴。";
+					case Entities: "包含实体实例，这些实例是通用对象，如玩家起始位置或要拾取的物品。";
+					case Tiles: "包含从图块集中选取的图像磁贴.";
+					case AutoLayer: "此特殊层使用动态规则和 IntGrid 层作为其数据源自动呈现。";
 				}
 				jDesc.text(desc);
 			}
@@ -68,14 +68,14 @@ class EditLayerDefs extends ui.modal.Panel {
 	function deleteLayer(ld:data.def.LayerDef, bypassConfirm=false) {
 		if( !bypassConfirm && project.defs.isLayerSourceOfAnotherOne(ld) ) {
 			new ui.modal.dialog.Confirm(
-				L.t._("Warning! This IntGrid layer is used by another one as SOURCE. Deleting it will also delete all rules in the corresponding auto-layer(s)!\n You may want to change these layers source to another one before..."),
+				L.t._("警告！这个IntGrid层被另一个层用作SOURCE。删除它也会删除相应自动图层中的所有规则！\n您可能希望将这些图层源更改为另一个图层源。"),
 				true,
 				deleteLayer.bind(ld,true)
 			);
 			return;
 		}
 		new ui.LastChance(
-			L.t._("Layer ::name:: deleted", { name:ld.identifier }),
+			L.t._("图层 ::name:: 删除", { name:ld.identifier }),
 			project
 		);
 		var oldUid = ld.uid;
@@ -89,17 +89,17 @@ class EditLayerDefs extends ui.modal.Panel {
 	function bakeLayer(ld:data.def.LayerDef, ?method:BakeMethod) {
 		for(other in project.defs.layers)
 			if( other.autoSourceLayerDefUid==ld.uid ) {
-				new ui.modal.dialog.Message(L.t._("This layer cannot be baked, as at least one other auto-layer rely on it as 'source' for its data."));
+				new ui.modal.dialog.Message(L.t._("此层无法烘焙，因为至少有一个其他自动层依赖它作为其数据的“源”."));
 				return;
 			}
 
 		if( method==null ) {
 			new ui.modal.dialog.Choice(
-				L.t._("'Baking' an auto-layer will flatten it to create a new regular 'Tiles layer'. The copy will contain all the tiles generated from the auto-layer rules.\nWhat would you like to do with the original layer after baking it?"),
+				L.t._("“烘焙”自动图层将使其变平，以创建新的常规“切片图层”。副本将包含从自动图层规则生成的所有切片。\n烘焙原始图层后，您希望如何处理原始图层？"),
 				[
-					{ label:L.t._("Bake, then delete original layer"), cb:bakeLayer.bind(ld,DeleteBakedLayer) },
-					{ label:L.t._("Bake, then empty original layer"), cb:bakeLayer.bind(ld,EmptyBakedLayer), cond:()->ld.type!=AutoLayer },
-					{ label:L.t._("Keep both baked result and original"), cb:bakeLayer.bind(ld,KeepBakedLayer) },
+					{ label:L.t._("烘焙，然后删除原始图层"), cb:bakeLayer.bind(ld,DeleteBakedLayer) },
+					{ label:L.t._("烘烤，然后清空原始图层"), cb:bakeLayer.bind(ld,EmptyBakedLayer), cond:()->ld.type!=AutoLayer },
+					{ label:L.t._("保持烘焙效果和原始图层"), cb:bakeLayer.bind(ld,KeepBakedLayer) },
 				]
 			);
 			return;
@@ -155,7 +155,7 @@ class EditLayerDefs extends ui.modal.Panel {
 
 		// Execute ops
 		new Progress(
-			L.t._("Baking layer instances"),
+			L.t._("烘焙层实例"),
 			ops,
 			()->{
 				select(newLd);
@@ -172,7 +172,7 @@ class EditLayerDefs extends ui.modal.Panel {
 				}
 
 				editor.ge.emit( LayerDefAdded );
-				new LastChance( L.t._("Baked layer ::name::", {name:ld.identifier}), oldProject );
+				new LastChance( L.t._("烘焙图层 ::name::", {name:ld.identifier}), oldProject );
 			}
 		);
 	}
@@ -409,7 +409,7 @@ class EditLayerDefs extends ui.modal.Panel {
 			var jButton = jForm.find("button.bake");
 			jButton.click( (_)->{
 				if( !cur.autoLayerRulesCanBeUsed() )
-					new ui.modal.dialog.Message(L.t._("Errors in current layer settings prevent rules to be applied. It can't be baked now."));
+					new ui.modal.dialog.Message(L.t._("当前图层设置中的错误会阻止应用规则。它现在不能烘烤。"));
 				else
 					bakeLayer(cur);
 			});
@@ -527,7 +527,7 @@ class EditLayerDefs extends ui.modal.Panel {
 						var isUsed = project.isIntGridValueUsed(cur, intGridVal.value);
 						function run() {
 							if( isUsed )
-								new LastChance(L.t._("IntGrid value removed"), project);
+								new LastChance(L.t._("删除了 IntGrid 值"), project);
 							cur.removeIntGridValue(intGridVal.value);
 							project.tidy();
 							editor.ge.emit( LayerDefIntGridValueRemoved(cur.uid, intGridVal.value, isUsed) );
@@ -535,7 +535,7 @@ class EditLayerDefs extends ui.modal.Panel {
 						if( isUsed ) {
 							new ui.modal.dialog.Confirm(
 								jThis,
-								L.t._("This value is used in some levels: removing it will also remove the value from all these levels. Are you sure?"),
+								L.t._("此值在某些关卡中使用：删除它也会从所有这些关卡中删除该值。是否确定?"),
 								true,
 								run
 							);

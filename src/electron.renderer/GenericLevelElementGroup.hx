@@ -818,7 +818,7 @@ class GenericLevelElementGroup {
 		}
 
 		if( outOfBoundsRemovals.length>0 ) {
-			N.warning( L.t._("Out-of-bounds entity removed: ::names::", {names:outOfBoundsRemovals.join(", ")}) );
+			N.warning( L.t._("已删除越界实体: ::names::", {names:outOfBoundsRemovals.join(", ")}) );
 		}
 
 		// Execute move

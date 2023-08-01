@@ -2,14 +2,14 @@ import dn.data.GetText;
 
 class Lang {
 	// Text constants
-	public static var _Untagged = ()->t._("Untagged");
-	public static var _Duplicate = ()->t._("Duplicate");
-	public static var _Copy = (?v:String) -> v==null ? t._("Copy") : t._("Copy ::e::", {e:v});
-	public static var _Cut = (?v:String) -> v==null ? t._("Cut") : t._("Cut ::e::", {e:v});
-	public static var _Paste = (?v:String) -> v==null ? t._("Paste") : t._("Paste ::e::", {e:v});
-	public static var _PasteAfter = (?v:String) -> v==null ? t._("Paste after") : t._("Paste ::e:: after", {e:v});
-	public static var _Delete = (?v:LocaleString) -> v==null ? t._("Delete") : t._("Delete ::e::", {e:v});
-	public static var _UnsupportedWinNetDir = ()->L.t._("Sorry but LDtk does not support working on a Network Drive yet.\nSo, for your own safety, operations on Network Drives are not permitted for now to avoid errors and potential data loss.");
+	public static var _Untagged = ()->t._("未标记");
+	public static var _Duplicate = ()->t._("副本");
+	public static var _Copy = (?v:String) -> v==null ? t._("复制") : t._("复制 ::e::", {e:v});
+	public static var _Cut = (?v:String) -> v==null ? t._("剪切") : t._("剪切 ::e::", {e:v});
+	public static var _Paste = (?v:String) -> v==null ? t._("粘贴") : t._("粘贴 ::e::", {e:v});
+	public static var _PasteAfter = (?v:String) -> v==null ? t._("粘贴后") : t._("粘贴 ::e:: 后", {e:v});
+	public static var _Delete = (?v:LocaleString) -> v==null ? t._("删除") : t._("删除 ::e::", {e:v});
+	public static var _UnsupportedWinNetDir = ()->L.t._("很抱歉，LDtk 尚不支持在网络驱动器上工作。\n因此，为了您自己的安全，目前不允许在网络驱动器上操作，以避免错误和潜在的数据丢失。");
 
 
 	// Misc

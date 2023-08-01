@@ -201,7 +201,7 @@ class Rulers extends dn.Process {
 				if( !isClicking() && isOver(m.levelX, m.levelY, p) || draggedPos==p ) {
 					ev.cancel = true;
 					if( !dragStarted )
-						editor.cursor.set( Resize(p), L.t._("Resize level") );
+						editor.cursor.set( Resize(p), L.t._("调整关卡大小") );
 					g.alpha = 1;
 				}
 

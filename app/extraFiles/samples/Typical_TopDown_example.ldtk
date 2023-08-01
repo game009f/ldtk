@@ -43,7 +43,7 @@
 	"backupLimit": 10,
 	"backupRelPath": null,
 	"levelNamePattern": "%world_Level_%idx",
-	"tutorialDesc": "This example uses a combination of Auto-Layers with a vertical offset of -16px on the \"Wall_tops\" layer. This trick allows rendering of a \"top-down\" level with a minimal amount of tiles (and work).\n\nPress [SHIFT + A] to toggle \"Single Layer Mode\", and see what each layer really contains.\n\nPress [SHIFT + R] to toggle rendering of rules based layers.",
+	"tutorialDesc": "本例使用“Wall_tops”层上垂直偏移量为-16px的Auto Layers组合。这个技巧允许用最少的瓦片（和工作量）呈现“自上而下”的级别。\\n\n按[SHIFT+A]切换“单层模式”，然后查看每层真正包含的内容。\\n\n按[SHIFT+R]可切换基于规则的层的渲染。",
 	"customCommands": [],
 	"flags": ["UseMultilinesType"],
 	"defs": { "layers": [

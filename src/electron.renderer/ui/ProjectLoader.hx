@@ -39,7 +39,7 @@ class ProjectLoader {
 			return;
 		}
 
-		progress = new ui.modal.Progress( L.t._("::file::: Project...", {file:fileName}) );
+		progress = new ui.modal.Progress( L.t._("::file::: 项目...", {file:fileName}) );
 
 		var json : ldtk.Json.ProjectJson = null;
 		var raw : String = null;
@@ -127,7 +127,7 @@ class ProjectLoader {
 						w.createLevel(idx);
 					}
 
-					var levelProgress = new ui.modal.Progress(L.t._("::file::: Levels...", {file:fileName}), ()->done(p));
+					var levelProgress = new ui.modal.Progress(L.t._("::file::: 关卡...", {file:fileName}), ()->done(p));
 					log.add(tag, "Loading external levels...");
 					for(w in p.worlds) {
 						var idx = 0;
@@ -201,12 +201,17 @@ class ProjectLoader {
 
 			// Error log
 			if( log.containsAnyCriticalEntry() )
-				new ui.modal.dialog.LogPrint(log, L.t._("Project errors"));
+				new ui.modal.dialog.LogPrint(log, L.t._("项目错误"));
 
 			// Fixed external level paths
 			if( fixedLevelPaths.length>0 ) {
 				new ui.modal.dialog.Message(
-					L.t._("Loading successful, but the following level paths were fixed automatically.\nIt seems like you renamed your LDtk project externally: this is defintely NOT recommended, and you should ALWAYS use the \"Save As\" or \"Rename\" buttons from the Project panel (P shortcut).\nAnyway, it seems like everything is fine. Hopefully. Don't do that again, please.\n ::paths::", { paths:"<ul class='fileList'><li>"+fixedLevelPaths.join("</li><li>")+"</li></ul>" }),
+					L.t._("加载成功，但以下关卡路径已自动修复。
+					\n 你似乎从外部重命名了你的LDtk项目：这是绝对不推荐的，
+					并且您应该始终使用“项目”面板中的“另存为”或“重命名”按钮（P快捷方式）。
+					\n 不管怎样，似乎一切都很好。请不要再那样做了。
+					\n ::paths::", { 路径:"<ul class='fileList'><li>"+fixedLevelPaths.join("</li><li>")+"</li></ul>" 
+					}),
 					"warn"
 				);
 			}
@@ -230,7 +235,7 @@ class ProjectLoader {
 		onError(err);
 		switch err {
 			case ProjectNotFound:
-				N.error("Project file not found");
+				N.error("未找到项目文件");
 
 			case ExternalDirMissing(relPath):
 				new ui.modal.dialog.Message( L.t._("Directory \"::dir::\" not found!\nThe levels should be saved separately in this directory, but it's now missing. Did you rename the project manually, or forgot to copy it?", { dir:relPath }) );
@@ -239,7 +244,7 @@ class ProjectLoader {
 				new ui.modal.dialog.Message( L._UnsupportedWinNetDir() );
 
 			case FileRead(_), JsonParse(_), ProjectInit(_):
-				new ui.modal.dialog.LogPrint(log, L.t._("Project errors"));
+				new ui.modal.dialog.LogPrint(log, L.t._("项目错误"));
 		}
 	}
 }

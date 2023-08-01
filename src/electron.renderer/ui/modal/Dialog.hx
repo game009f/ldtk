@@ -87,7 +87,7 @@ class Dialog extends ui.Modal {
 	}
 
 	public function addConfirm(cb:Void->Void) {
-		var b = addButton(L.t._("Confirm"), "confirm", function() {
+		var b = addButton(L.t._("确认"), "confirm", function() {
 			cb();
 			close();
 		});
@@ -96,7 +96,7 @@ class Dialog extends ui.Modal {
 	}
 
 	public function addCancel(?cb:Void->Void) {
-		var b = addButton(L.t._("Cancel"), "cancel", function() {
+		var b = addButton(L.t._("取消"), "cancel", function() {
 			if( cb!=null )
 				cb();
 			close();
@@ -104,7 +104,7 @@ class Dialog extends ui.Modal {
 	}
 
 	public function addClose(?cb:Void->Void) {
-		var b = addButton(L.t._("Close"), "confirm", function() {
+		var b = addButton(L.t._("关闭"), "confirm", function() {
 			if( cb!=null )
 				cb();
 			close();

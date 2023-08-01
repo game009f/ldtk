@@ -1,6 +1,6 @@
 <h2>
 	<span class="icon world"></span>
-	World
+	世界
 </h2>
 
 <div class="scroller">
@@ -18,11 +18,11 @@
 
 
 	<div class="worldSettings">
-		<div class="collapser" default="open" id="worldPanel_world" default="open">World settings: "<span class="curWorldId"></span>"</div>
+		<div class="collapser" default="open" id="worldPanel_world" default="open">世界设置: "<span class="curWorldId"></span>"</div>
 		<dl class="form">
 			<dt>
 				<label for="worldIid">IID</label>
-				<info>The IID (stands for Instance IDentifier) is a unique string identifier associated with this World.</info>
+				<info>IID（代表实例标识符）是与此World关联的唯一字符串标识符。</info>
 			</dt>
 			<dd>
 				<input type="text" id="worldIid" readonly="readonly"/>
@@ -30,16 +30,16 @@
 			</dd>
 
 			<dt>
-				<label for="worldId">World identifier</label>
+				<label for="worldId">世界标识符</label>
 				<info class="identifier"></info>
 			</dt>
 			<dd>
 				<input type="text" id="worldId"/>
 			</dd>
 			<dt>
-				<label for="color">World layout</label>
+				<label for="color">世界图层</label>
 				<info>
-					This setting will affect how all levels are be positioned in the world space.
+					这个设置将影响所有关卡在世界空间中的定位方式。
 				</info>
 			</dt>
 			<dd>
@@ -47,8 +47,8 @@
 			</dd>
 
 			<dt class="GridVania">
-				<label for="worldGridWidth">Gridvania grid size</label>
-				<info>Size in pixels of the large grid that will contain levels. This grid will constraint levels position and their size.</info>
+				<label for="worldGridWidth">格子间的网格尺寸</label>
+				<info>包含关卡的大网格的尺寸，单位是像素。这个网格将限制关卡的位置和它们的大小。</info>
 			</dt>
 			<dd class="GridVania">
 				<input type="text" id="worldGridWidth" name="worldGridWidth" class="small"/> <span>x</span>
@@ -56,8 +56,8 @@
 			</dd>
 
 			<dt>
-				<label for="defaultLevelWidth">Default "new level" size</label>
-				<info>Default level width and height in pixels for all future levels.</info>
+				<label for="defaultLevelWidth">默认的 "新关卡 "尺寸</label>
+				<info>未来所有关卡的默认关卡宽度和高度，单位为像素。</info>
 			</dt>
 			<dd>
 				<input type="text" id="defaultLevelWidth" class="small"/> <span>x</span>

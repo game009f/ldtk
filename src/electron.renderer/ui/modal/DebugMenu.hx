@@ -9,7 +9,7 @@ class DebugMenu extends ui.modal.ContextMenu {
 
 		switch id {
 			case null:
-				addTitle(L.t._("Debug menu"));
+				addTitle(L.t._("调试菜单"));
 
 				#if debug
 				add({
@@ -81,7 +81,7 @@ class DebugMenu extends ui.modal.ContextMenu {
 							for(li in l.layerInstances)
 								li.autoTilesCache = null;
 							editor.checkAutoLayersCache( (_)->{
-								N.success("Done");
+								N.success("完成");
 								editor.levelRender.invalidateAll();
 								editor.worldRender.invalidateAll();
 							});
@@ -140,7 +140,7 @@ class DebugMenu extends ui.modal.ContextMenu {
 					label: L.untranslated("Flush log to disk"),
 					cb: ()->{
 						App.LOG.flushToFile();
-						N.success("Flushed.");
+						N.success("刷新.");
 					}
 				});
 
@@ -161,10 +161,10 @@ class DebugMenu extends ui.modal.ContextMenu {
 						editor.gifMode = !editor.gifMode;
 						if( editor.gifMode ) {
 							editor.setCompactMode(true);
-							N.success("GIF mode: ON");
+							N.success("GIF 模式: ON");
 						}
 						else
-							N.error("GIF mode: off");
+							N.error("GIF 模式: off");
 						App.ME.jBody.find("#miniNotif").hide();
 						App.ME.clearDebug();
 						editor.updateBanners();
@@ -232,7 +232,7 @@ class DebugMenu extends ui.modal.ContextMenu {
 									var s = new ui.ProjectSaver( App.ME, p, (_)->MetaProgress.advance() );
 								},
 								(err)->{
-									new ui.modal.dialog.Message( L.t._("Failed on ::file::", {file:fp.fileName}) );
+									new ui.modal.dialog.Message( L.t._("失败于 ::file::", {file:fp.fileName}) );
 									MetaProgress.advance(2);
 								}
 							);

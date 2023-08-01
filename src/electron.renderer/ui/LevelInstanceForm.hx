@@ -268,7 +268,7 @@ class LevelInstanceForm {
 				// Add or update
 				var img = project.getOrLoadImage(relPath);
 				if( img==null ) {
-					ui.modal.dialog.Message.error( L.t._("Could not load this image") );
+					ui.modal.dialog.Message.error( L.t._("无法加载此图像") );
 					return;
 				}
 				level.bgRelPath = relPath;

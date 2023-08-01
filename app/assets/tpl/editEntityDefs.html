@@ -1,10 +1,10 @@
-<h2> <div class="icon entity"></div> Project entities </h2>
+<h2> <div class="icon entity"></div> 项目实体 </h2>
 
 
 <div class="entityList">
 	<div class="buttons">
 		<button class="create"> <span class="icon add"></span> </button>
-		<button class="presets small" title="Create an entity using a preset.">Presets</button>
+		<button class="presets small" title="使用预设创建一个实体。">预设</button>
 		<!-- <button class="delete">🗑️</button> -->
 	</div>
 	<div class="search"></div>
@@ -13,7 +13,7 @@
 
 <div class="rightColumn">
 	<div class="help none">
-		ENTITIES are generic data that can be placed in your levels, such as the Player start position or Items to pick up. Each entity can have various custom editable properties as defined below.
+		ENTITIES是可以放置在关卡中的通用数据，例如玩家的起始位置或要拾取的物品。每个实体都可以具有以下定义的各种自定义可编辑特性。
 	</div>
 
 	<div class="entityForm">
@@ -23,29 +23,29 @@
 
 		<dl class="form main">
 			<dt>
-				<label for="eName">Entity identifier</label>
+				<label for="eName">实体标识符</label>
 				<div class="info identifier"></div>
 			</dt>
 			<dd>
 				<input type="text" name="name" id="eName"/>
-				<label for="showIdentifier" title="If enabled, the identifier will be displayed above entities in the editor view.">
-					<input type="checkbox" name="showIdentifier" id="showIdentifier"/>
-					Show identifier
+				<label for="showIdentifier" title="如果启用，标识符将显示在编辑器视图中的实体上方.">
+					<input type="checkbox" name="showIdentifier" id="showIdentifier" title="如果启用，标识符将显示在编辑器视图的实体上方。"/>
+					显示标识符
 				</label>
-				<label for="exportToToc" tip="bottom" title="If enabled, all instances of this entity will be listed in a table of content in the root of the project JSON file.\nFor example, this is especially useful if you want to have a quick access to the location of all PlayerStart entities in your game without parsing all your levels manually.\nBE CAREFUL: don't put every entities in the table of content as this will just result in a bloated project JSON.">
+				<label for="exportToToc" tip="bottom" title="如果启用，此实体的所有实例都将列在项目JSON文件根目录中的内容表中。\n 例如，如果你想快速访问游戏中所有PlayerStart实体的位置，而不需要手动解析所有级别，这一点尤其有用。\n BE小心：不要把每个实体都放在内容表中，因为这只会导致项目JSON膨胀。">
 					<input type="checkbox" name="exportToToc" id="exportToToc"/>
-					Add to JSON Table of content
+					添加到JSON内容表
 				</label>
 			</dd>
 		</dl>
 
 
-		<div class="collapser" default="open" id="extraEntityDetails">Extra entity details</div>
+		<div class="collapser" default="open" id="extraEntityDetails">额外实体详细信息</div>
 
 
 		<dl class="form extra">
 			<dt>
-				<label for="entityDoc">Documentation</label>
+				<label for="entityDoc">文档</label>
 				<info class="userDoc"></info>
 			</dt>
 			<dd>
@@ -53,11 +53,11 @@
 			</dd>
 
 			<dt>
-				<label>Tags</label>
+				<label>标签</label>
 				<div class="info">
-					Tags are used to group entities in custom categories. Multiple tags can be assigned to a single entity.
-					You may also use tags in Layers settings to filter which entities are allowed and which are not.
-					Example: add an "Actor" tag to some entities and create an Entity layer that only accepts "Actors" entities in it.
+					标签用于在自定义类别中对实体进行分组。多个标签可以分配给一个实体。
+					你也可以在图层设置中使用标签来过滤哪些实体被允许，哪些不被允许。
+					例如：给一些实体添加一个 "演员 "标签，然后创建一个实体层，其中只接受 "演员 "实体。
 				</div>
 			</dt>
 			<dd>
@@ -65,8 +65,8 @@
 			</dd>
 
 			<dt>
-				<label for="width">Size</label>
-				<div class="info">Default width and height (in pixels) of this entity.</div>
+				<label for="width">大小</label>
+				<div class="info">该实体的最小宽度和高度，单位是像素。</div>
 			</dt>
 			<dd>
 				<input type="text" name="width" class="small" id="width"/>
@@ -87,25 +87,25 @@
 			</dd>
 			<dd>
 				<span>Resizable:</span>
-				<label for="resizableX" tip="bottom">
-					<input type="checkbox" id="resizableX" title="If checked, the entity instances will be horizontally resizable. In this case, the width above will define the a minimum size."/>
-					Width
+				<label for="resizableX">
+					<input type="checkbox" id="resizableX" title="如果选中，实体实例将可以水平调整大小。在这种情况下，上面的宽度将定义为最小尺寸。"/>
+					宽
 				</label>
 
-				<label for="resizableY" tip="bottom">
-					<input type="checkbox" id="resizableY" title="If checked, the entity instances will be vertically resizable. In this case, the height above will define the a minimum size."/>
-					Height
+				<label for="resizableY">
+					<input type="checkbox" id="resizableY" title="如果选中，实体实例将可以垂直调整大小。在这种情况下，上面的高度将定义一个最小尺寸。"/>
+					高
 				</label>
 
-				<label for="keepAspectRatio" tip="bottom">
-					<input type="checkbox" id="keepAspectRatio" title="If checked, the entity instance size will use the same aspect ratio as the size above."/>
-					Keep aspect ratio
+				<label for="keepAspectRatio">
+					<input type="checkbox" id="keepAspectRatio" title="如果选中，实体实例尺寸将使用与上述尺寸相同的长宽比。"/>
+					保持长宽比
 				</label>
 			</dd>
 
 			<dt>
-				<label>Editor visual</label>
-				<div class="info">Customize visual representation of the entity in the editor view.</div>
+				<label>编辑视觉</label>
+				<div class="info">自定义编辑器视图中实体的视觉表现。</div>
 			</dt>
 			<dd class="renderMode">
 				<input type="color" name="color" id="eColor"/>
@@ -116,44 +116,44 @@
 
 				<span class="nineSlice">
 					<div class="info">
-						9-slice scaling mode splits the selected texture in 9 sections (4 corners, 4 borders and 1 inner).
-						Corners are drawn as-is, Borders are repeated on the sides of the entity, and Inner is stretch at the center of the entity.
-						You can adjust the size of up, down, left and right borders, in pixels.
+						9片缩放模式将选定的纹理分成9个部分（4个角、4个边框和1个内部）。
+						角部按原样绘制，边框在实体的两侧重复，内部则在实体的中心拉伸。
+						你可以调整上、下、左、右边界的大小，单位是像素。
 					</div>
-					<span>9-slices borders:</span>
-					<span>top=</span>
+					<span>9-片的边界。</span>
+					<span>顶部=</span>
 					<input type="text" name="nineSliceUp"/>
-					<span>down=</span>
+					<span>底部=</span>
 					<input type="text" name="nineSliceDown"/>
-					<span>left=</span>
+					<span>左=</span>
 					<input type="text" name="nineSliceLeft"/>
-					<span>right=</span>
+					<span>右=</span>
 					<input type="text" name="nineSliceRight"/>
 				</span>
 			</dd>
 
 			<dd>
-				<span>Tile=</span>
-				<input type="text" id="tileOpacity" class="tiny" title="Tile opacity"/>
+				<span>瓷砖=</span>
+				<input type="text" id="tileOpacity" class="tiny" title="瓷砖不透明度"/>
 
-				<span>% Fill=</span>
-				<input type="text" id="fillOpacity" class="tiny" title="Fill color opacity"/>
+				<span>% 填充=</span>
+				<input type="text" id="fillOpacity" class="tiny" title="填充颜色的不透明度"/>
 
-				<span>% Line=</span>
-				<input type="text" id="lineOpacity" class="tiny" title="Outline color opacity"/>
+				<span>% 轮廓线=</span>
+				<input type="text" id="lineOpacity" class="tiny" title="轮廓颜色的不透明度"/>
 				<span>%</span>
 
 				<label for="hollow">
-					<input type="checkbox" id="hollow" name="hollow" title="Clicks will pass through 'hollow' entities, except on edges. They don't have any fill color (only an outline and/or a tile)."/>
-					Hollow
+					<input type="checkbox" id="hollow" name="hollow" title="点击将通过 '空心 '实体，除了边缘。它们没有任何填充颜色（只有一个轮廓和/或一个瓦片）。"/>
+					空心
 				</label>
 			</dd>
 
 			<dt>
-				<label>Pivot point</label>
+				<label>枢轴点</label>
 				<div class="info">
-					The pivot of the entity is its actual pixel coordinate of the entity in the level.
-					The pivot alignment can be customized to adjust the position of the entity bounds relatively to these coordinates: the entity could be centered over the point, above it, on the right, etc.
+					实体的支点是它在场景中的实体的实际像素坐标。
+					枢轴的排列可以自定义，以调整实体边界相对于这些坐标的位置：实体可以在该点的中心，在它的上方，在右边，等等。
 				</div>
 			</dt>
 			<dd>
@@ -161,19 +161,18 @@
 			</dd>
 
 			<dt>
-				<label for="maxCount">Max count</label>
+				<label for="maxCount">最大数量</label>
 				<div class="info">
-					An entity can be limited to a specific number of instances per level or per world.
-					Examples: a PlayerStart entity could be limited to 1 max per world, or you may limit LightSource entities to 10 per level etc.
-					What actually happens when you reach the limit is also customizable.
+					一个实体可以被限制在每个级别或每个世界的特定数量的实例上。
+					例如：一个PlayerStart实体可以被限制为每个世界最多1个，或者你可以将LightSource实体限制为每个级别10个等等。
+					当你达到限制时，实际发生的情况也是可定制的。
 				</div>
 			</dt>
 			<dd>
-				<input type="text" id="maxCount" placeholder="Unlimited" class="small"/>
+				<input type="text" id="maxCount" placeholder="无限制" class="small"/>
 				<select name="scope"></select>
-				<span>, and </span>
+				<span>当达到最大数量</span>
 				<select name="limitBehavior"></select>
-				<span>when max is reached.</span>
 			</dd>
 
 		</dl>

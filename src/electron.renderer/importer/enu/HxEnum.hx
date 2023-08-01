@@ -18,7 +18,7 @@ class HxEnum extends importer.ExternalEnum {
 		// Any enum?
 		var enumBlocksReg = ~/^\s*enum\s+([a-z0-9_]+)\s*{/gim;
 		if( !enumBlocksReg.match(fileContent) ) {
-			N.error("Couldn't find any simple Enum in this source fileContent.");
+			N.error("在此源文件中找不到任何简单的枚举内容。");
 			return [];
 		}
 

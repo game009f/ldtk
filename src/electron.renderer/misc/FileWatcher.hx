@@ -135,11 +135,11 @@ class FileWatcher extends dn.Process {
 					q.value.retry++;
 					if( q.value.retry>MAX_RETRIES ) {
 						queuedChanges.remove(q.key);
-						N.error("Failed "+MAX_RETRIES+" times, gave up.");
+						N.error("失败 "+MAX_RETRIES+" 次, 放弃.");
 					}
 					else {
 						var fp = dn.FilePath.fromFile(q.value.absPath);
-						N.error("Error reloading: "+fp.fileWithExt+"\nRetrying ("+q.value.retry+"/"+MAX_RETRIES+")...");
+						N.error("重新加载时出错: "+fp.fileWithExt+"\nRetrying ("+q.value.retry+"/"+MAX_RETRIES+")...");
 						cd.setS("lock",2);
 					}
 				}

@@ -1,7 +1,7 @@
 <div id="glCtxLost">
 	<span class="icon ghost red"></span>
-	<p>WebGL context is not available :(</p>
-	<p>Please restart the app.</p>
+	<p>WebGL上下文不可用 :(</p>
+	<p>请重新启动该应用程序。</p>
 </div>
 
 <ul id="permanentNotifications"></ul>
@@ -9,22 +9,22 @@
 <div id="mainPanel">
 	<div id="mainBar">
 		<div class="buttons panels">
-			<button class="world blue" title="World view" keys="~"><div class="icon world"></div></button>
-			<button class="editLevelInstance blue" title="Current level settings" keys="C"><div class="icon level"></div></button>
-			<button class="editProject brown" title="Project settings" keys="P"><div class="icon project"></div></button>
-			<button class="editLayers" title="Layers" keys="L"><div class="icon layer"></div></button>
-			<button class="editEntities" title="Entities" keys="E"><div class="icon entity"></div></button>
-			<button class="editEnums" title="Enums" keys="U"><div class="icon enum"></div></button>
-			<button class="editTilesets" title="Tilesets" keys="T"><div class="icon tile"></div></button>
-			<button class="showHelp help" title="Help and shortcuts" keys="H"><div class="icon help"></div></button>
-			<button class="settings gray" title="App settings" keys="F12"><div class="icon settings"></div></button>
-			<button class="close gray dark" title="Close project" keys="CTRL+W"><div class="icon exit"></div></button>
+			<button class="world blue" title="世界预览" keys="~"><div class="icon world"></div></button>
+			<button class="editLevelInstance blue" title="当前关卡设置" keys="C"><div class="icon level"></div></button>
+			<button class="editProject brown" title="项目设置" keys="P"><div class="icon project"></div></button>
+			<button class="editLayers" title="图层" keys="L"><div class="icon layer"></div></button>
+			<button class="editEntities" title="实体" keys="E"><div class="icon entity"></div></button>
+			<button class="editEnums" title="枚举" keys="U"><div class="icon enum"></div></button>
+			<button class="editTilesets" title="图块" keys="T"><div class="icon tile"></div></button>
+			<button class="showHelp help" title="帮助和捷径" keys="H"><div class="icon help"></div></button>
+			<button class="settings gray" title="程序设置" keys="F12"><div class="icon settings"></div></button>
+			<button class="close gray dark" title="关闭项目" keys="CTRL+W"><div class="icon exit"></div></button>
 		</div>
 	</div>
 
 	<ul id="layers" class="niceList"></ul>
 
-	<div id="guide">some useful tips</div>
+	<div id="guide">一些有用的提示</div>
 	<div class="optionsWrapper">
 		<div id="toolOptions"></div>
 		<div id="paletteOptions"></div>
@@ -35,12 +35,12 @@
 
 <ul id="editingOptions">
 
-	<li class="grid warnOff" title="**Grid** Show the layer grid. In supported layer types, hidding the grid will also allow free positionning of elements." keys="G" tip="right">
+	<li class="grid warnOff" title="**Grid** 显示图层网格。在支持的图层类型中，隐藏网格也将允许元素的自由定位。" keys="G" tip="right">
 		<div class="icon gridOn on"></div>
 		<div class="icon gridOff off"></div>
 	</li>
 
-	<li class="showDetails warnOff" title="**Show/hide details** When enabled, shows all elements in layers (tiles, entities, intGrid etc.), or only tiles otherwise." keys="CTRL+H" tip="right">
+	<li class="showDetails warnOff" title="**显示/隐藏细节**当启用时，显示层中的所有元素（瓦片、实体、intGrid等），否则只显示瓦片。" keys="CTRL+H" tip="right">
 		<div class="icon showDetailsOn on"></div>
 		<div class="icon showDetailsOff off"></div>
 	</li>
@@ -52,16 +52,16 @@
 
 	<li class="separator"></li>
 
-	<li class="singleLayerMode" title="**Single layer mode** Enable this to fade all other layers, and focus on active layer only. NOTE: this will also affect the Selection tool (ALT+click)." keys="Shift+A" tip="right">
+	<li class="singleLayerMode" title="**单层模式** 启用此选项可淡入所有其他层，并仅关注活动层。注意：这也会影响“选择”工具（ALT+单击）." keys="Shift+A" tip="right">
 		<div class="icon singleLayer"></div>
 	</li>
 
-	<li class="emptySpaceSelection" title="**Select empty spaces** If this option is enabled when you select a level area with ALT+SHIFT+click, the selection will also include EMPTY grid cells." keys="Shift+E" tip="right">
+	<li class="emptySpaceSelection" title="**选择空位**当你用ALT+SHIFT+点击选择一个水平区域时，如果这个选项被启用，选择也将包括空位的网格单元。" keys="Shift+E" tip="right">
 		<div class="icon emptySpaceOn on"></div>
 		<div class="icon emptySpaceOff off"></div>
 	</li>
 
-	<li class="tileStacking" title="**Tile stacking** Only applies to Tiles layers. If this option is enabled, you will be able to stack multiple tiles in a single grid cell." keys="Shift+T" tip="right">
+	<li class="tileStacking" title="**瓷砖堆叠**只适用于瓷砖层。如果这个选项被启用，你将能够在一个网格单元中堆叠多个瓷砖。" keys="Shift+T" tip="right">
 		<div class="icon tile"></div>
 	</li>
 </ul>
@@ -72,9 +72,9 @@
 
 <div id="worldDepths">
 	<div class="title">
-		World layers
+		世界图层
 		<info class="small" tip="right">
-			World layers are created or removed automatically, as you arrange your levels using the "Change depth" buttons (ie. move level above/beneath).
+			当你使用 "改变深度 "按钮安排你的关卡时（即在上面/下面移动关卡），世界层会自动创建或删除。
 		</info>
 	</div>
 	<ul></ul>
@@ -98,7 +98,7 @@
 	<span class="actions notCompact">
 		<a class="rules" href="#">
 			<span class="icon rule onlyCompact"></span>
-			<span class="notCompact">Rules</span>
+			<span class="notCompact">规则</span>
 		</a>
 		<span class="vis"> <span class="icon"></span> </span>
 	</span>
@@ -107,9 +107,9 @@
 <xml id="lastChance">
 	<div class="lastChance">
 		<div class="content">
-			<button>Undo</button>
+			<button>撤销</button>
 			<div class="action"></div>
-			<div class="desc">This change cannot be undone, so this is your last chance. Please make sure you really wanted to do that :)</div>
+			<div class="desc">这种改变是不能撤销的，所以这是你最后的机会。请确保你真的想这么做 :)</div>
 		</div>
 	</div>
 </xml>

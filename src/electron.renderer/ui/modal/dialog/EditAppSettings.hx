@@ -52,9 +52,9 @@ class EditAppSettings extends ui.modal.Dialog {
 				onSettingChanged();
 			},
 			(v)->return switch v {
-				case Never: L.t._("不自动切换");
-				case ZoomOutOnly: L.t._("缩小时切换");
-				case ZoomInAndOut: L.t._("放大或缩小时切换（默认）");
+				case Never: L.t._("Never");
+				case ZoomOutOnly: L.t._("Switch when zooming out");
+				case ZoomInAndOut: L.t._("Switch when zooming in or out (default)");
 			}
 		);
 
@@ -191,9 +191,9 @@ class EditAppSettings extends ui.modal.Dialog {
 		super.onClose();
 
 		if( needRestart )
-			N.warning( L.t._("已保存。您需要重新启动应用程序才能应用更改。") );
+			N.warning( L.t._("Saved. You need to RESTART the app to apply your changes.") );
 		else if( anyChange )
-			N.success( L.t._("已保存设置.") );
+			N.success( L.t._("Settings saved.") );
 	}
 
 	function hasEditor() {

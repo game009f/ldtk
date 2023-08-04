@@ -1,14 +1,14 @@
-<h2><span class="icon rule"></span>  规则: ::layer::</h2>
+<h2><span class="icon rule"></span>  Rules: ::layer::</h2>
 
 <header>
-	<button class="createGroup">新建组</button>
-	<button class="seed" title="改变当前层的随机种子">随机化</button>
-	<label keys="R" title="显示/隐藏所有自动图层的渲染。你也可以在任何时候按SHIFT-R来切换这个选项。">
+	<button class="createGroup"><span class="icon add"></span> group</button>
+	<button class="seed small" title="Change the random seed of the current layer. This will only affect rules that have random variations.">Randomize</button>
+	<label keys="R" title="Show/hide the render of all auto-layers. You can also press SHIFT-R at any time to toggle this option.">
 		<input type="checkbox" name="renderRules"/>
-		渲染
+		Render
 	</label>
 
-	<select id="autoLayerTileset" title="你可以在每个关卡使用不同的瓷砖组，只要瓷砖组的尺寸完全相同。"></select>
+	<select id="autoLayerTileset" title="You can use a different tileset in each level, as long as the tilesets share the exact same dimensions."></select>
 </header>
 
 <ul class="ruleGroups"></ul>
@@ -24,8 +24,7 @@
 		</div>
 		<input type="text" class="name"/>
 		<button class="active transparent"> <span class="icon"></span> </button>
-		<!-- <button class="addRule" title="在该组中添加一个新的规则">+</button> -->
-		<button class="useWizard">编辑</button>
+		<button class="useWizard">EDIT</button>
 		<button class="addRule"><span class="icon add"></span></button>
 	</header>
 
@@ -46,13 +45,13 @@
 		<input type="text" name="random" title="Random probability for this rule to apply"/>
 		<input type="text" name="alpha" title="Opacity of the resulting tile (between 0.0 and 1.0)"/>
 
-		<a class="break" title="**匹配时停止** 如果该规则应用于网格单元，它将阻止所有以下规则的应用"> <span class="icon stop"></span> </a>
+		<a class="break" title="**Stop on match** If this rule is applied in a grid cell, it will prevent all the rules below to apply"> <span class="icon stop"></span> </a>
 
-		<a class="flipX" title="**X镜像**这个规则可以横向颠倒，以匹配更多的情况。">X</a>
-		<a class="flipY" title="**Y镜像**这个规则可以垂直颠倒，以匹配更多的情况。">Y</a>
-		<a class="randomOffset" title="**随机坐标** 调整随机坐标设置."> <span class="icon offset"></span> </a>
-		<div class="modulo" title='打开 "模块" 和 "复选框" 选项.''></div>
-		<a class="perlin" title="**Perlin过滤**使用PERLIN噪音，只在随机区域启用此规则。右键单击以自定义PERLIN设置。">P</a>
+		<a class="flipX" title="**X mirror** This rule can be reversed HORIZONTALLY to match more cases.">X</a>
+		<a class="flipY" title="**Y mirror** This rule can be reversed VERTICALLY to match more cases.">Y</a>
+		<a class="randomOffset" title="**Randomize position** Adjust random position settings."> <span class="icon offset"></span> </a>
+		<div class="modulo" title='Open "modulo" and "checkboard" options.''></div>
+		<a class="perlin" title="**Perlin filtering** Use a PERLIN noise to only enable this rule in random area. RIGHT CLICK to customize perlin settings.">P</a>
 
 	</div>
 

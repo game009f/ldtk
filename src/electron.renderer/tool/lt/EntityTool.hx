@@ -169,7 +169,7 @@ class EntityTool extends tool.LayerTool<Int> {
 								if( all.length<curEntityDef.maxCount )
 									ei = curLayerInstance.createEntityInstance(curEntityDef);
 								else
-									N.error(L.t._("您不能拥有超过 ::n:: ::name::.", { n:curEntityDef.maxCount, name:curEntityDef.identifier }));
+									N.error(L.t._("You cannot have more than ::n:: ::name::.", { n:curEntityDef.maxCount, name:curEntityDef.identifier }));
 
 							case MoveLastOne:
 								if( all.length>=curEntityDef.maxCount && all.length>0 ) {

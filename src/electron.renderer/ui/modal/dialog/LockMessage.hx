@@ -15,7 +15,7 @@ class LockMessage extends ui.modal.Dialog {
 		var p = '<p>' + StringTools.replace(str,"\n","</p><p>") + '</p>';
 		jMsg.append(p);
 
-		jContent.append('<div class="sub">'+L.t._("请稍候...")+'</div>');
+		jContent.append('<div class="sub">'+L.t._("Please wait...")+'</div>');
 
 		delayer.addS(action, 0.2);
 		cd.setS("wait",0.5);

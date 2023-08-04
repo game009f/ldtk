@@ -15,7 +15,7 @@ class Confirm extends ui.modal.Dialog {
 			jModalAndMask.addClass("warning");
 
 		if( str==null )
-			str = L.t._("确认此操作?");
+			str = L.t._("Confirm this action?");
 		else
 			str = L.untranslated( '<p>'+str.split("\n").join("</p><p>")+'</p>' );
 		jContent.html(str);

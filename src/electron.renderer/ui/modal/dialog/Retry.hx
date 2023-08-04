@@ -8,10 +8,10 @@ class Retry extends ui.modal.Dialog {
 		var p = '<p>' + StringTools.replace(str,"\n","</p><p>") + '</p>';
 		jContent.append(p);
 
-		addButton(L.t._("重试"), ()->{
+		addButton(L.t._("Retry"), ()->{
 			close();
 			cb();
 		} );
-		addButton(L.t._("忽视"), close);
+		addButton(L.t._("Ignore"), close);
 	}
 }

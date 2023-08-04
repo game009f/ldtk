@@ -194,7 +194,7 @@ class App extends dn.Process {
 				pendingUpdate = { ver:info.version, github:true }
 				miniNotif('Found update ${info.version}!');
 				showUpdateButton(info.version, "download", "Download update", false, ()->{
-					N.success('下载更新 ${info.version}...');
+					N.success('Downloading update ${info.version}...');
 					dn.js.ElectronUpdater.download();
 				});
 			}
@@ -224,7 +224,7 @@ class App extends dn.Process {
 			if( settings.v.autoInstallUpdates )
 				showUpdateButton(info.version, "appUpdate", "Install update", _install);
 			else {
-				N.success('更新 ${info.version} 下载.');
+				N.success('Update ${info.version} downloaded.');
 				showUpdateButton(info.version, "appUpdate", "Proceed to install", true, false, _install);
 			}
 		}
@@ -436,7 +436,7 @@ class App extends dn.Process {
 			case K.F11 if( !hasAnyToggleKeyDown() && !hasInputFocus() ):
 				var isFullScreen = ET.isFullScreen();
 				if( !isFullScreen )
-					N.success("按 F11 离开全屏");
+					N.success("Press F11 to leave fullscreen");
 				ET.setFullScreen(!isFullScreen);
 				updateBodyClasses();
 
@@ -482,9 +482,9 @@ class App extends dn.Process {
 		jBody.addClass("noGlCtx");
 
 		var m = Editor.exists()
-			? new ui.modal.dialog.Warning( L.t._("WebGL 上下文丢失了！\n不用担心，它可能什么都没有，也没有丢失任何数据。您应该只保存您的工作并重新启动应用程序。") )
-			: new ui.modal.dialog.Warning( L.t._("WebGL 上下文已丢失！\n您需要重新启动应用程序。") );
-		m.addParagraph( L.t._("如果这种情况经常发生，您应该尝试更新图形驱动程序。") );
+			? new ui.modal.dialog.Warning( L.t._("The WebGL context was lost!\nDon't worry, it's probably nothing, and no data was lost. You should just save your work and restart the application.") )
+			: new ui.modal.dialog.Warning( L.t._("The WebGL context was lost!\nYou need to restart the application.") );
+		m.addParagraph( L.t._("If this happens a lot, you should try to update your graphic drivers.") );
 	}
 
 	function onAppMouseDown(e:js.jquery.Event) {

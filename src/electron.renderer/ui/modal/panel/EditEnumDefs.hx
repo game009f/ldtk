@@ -22,8 +22,8 @@ class EditEnumDefs extends ui.modal.Panel {
 		jContent.find("button.import").click( ev->{
 			var ctx = new ContextMenu(ev);
 			ctx.add({
-				label: L.t._("文本文件"),
-				sub: L.t._('预期格式:\n - 每行一个枚举\n - 每行: "MyEnumId : value1, value2, value3"'),
+				label: L.t._("Text file"),
+				sub: L.t._('Expected format:\n - One enum per line\n - Each line: "MyEnumId : value1, value2, value3"'),
 				cb: ()->{
 					var path = settings.getUiDir(project, "ImportEnumText", project.getProjectDir());
 					dn.js.ElectronDialogs.openFile([".txt"], path, function(absPath:String) {
@@ -35,7 +35,7 @@ class EditEnumDefs extends ui.modal.Panel {
 								i.load( project.makeRelativeFilePath(absPath) );
 
 							case _:
-								N.error('该文件必须具有 ".txt" 扩展.');
+								N.error('The file must have the ".txt" extension.');
 						}
 					});
 				},
@@ -43,7 +43,7 @@ class EditEnumDefs extends ui.modal.Panel {
 
 			ctx.add({
 				label: L.t._("JSON"),
-				sub: L.t._('可接受的格式:\n {\n  "MyEnum1": "a,b,c",\n  "MyEnum2": "a b c",\n  "MyEnum3": ["a","b","c"]\n }'),
+				sub: L.t._('Accepted formats:\n {\n  "MyEnum1": "a,b,c",\n  "MyEnum2": "a b c",\n  "MyEnum3": ["a","b","c"]\n }'),
 				cb: ()->{
 					var path = settings.getUiDir(project, "ImportEnumText", project.getProjectDir());
 					dn.js.ElectronDialogs.openFile([".json"], path, function(absPath:String) {
@@ -55,7 +55,7 @@ class EditEnumDefs extends ui.modal.Panel {
 								i.load( project.makeRelativeFilePath(absPath) );
 
 							case _:
-								N.error('该文件必须具有 ".json" 扩展.');
+								N.error('The file must have the ".json" extension.');
 						}
 					});
 				},
@@ -69,7 +69,7 @@ class EditEnumDefs extends ui.modal.Panel {
 						absPath = StringTools.replace(absPath,"\\","/");
 						settings.storeUiDir(project, "ImportEnumHaxe", dn.FilePath.extractDirectoryWithoutSlash(absPath, true));
 						if( dn.FilePath.extractExtension(absPath,true) != "hx" )
-							N.error("该文件必须具有 HX 扩展.");
+							N.error("The file must have the HX extension.");
 						else {
 							var i = new importer.enu.HxEnum();
 							i.load( project.makeRelativeFilePath(absPath) );
@@ -86,7 +86,7 @@ class EditEnumDefs extends ui.modal.Panel {
 						absPath = StringTools.replace(absPath,"\\","/");
 						settings.storeUiDir(project, "ImportEnumCdb", dn.FilePath.extractDirectoryWithoutSlash(absPath, true));
 						if( dn.FilePath.extractExtension(absPath,true) != "cdb" )
-							N.error("该文件必须具有 CDB 扩展.");
+							N.error("The file must have the CDB extension.");
 						else {
 							var i = new importer.enu.CastleDb();
 							i.load( project.makeRelativeFilePath(absPath) );
@@ -113,11 +113,11 @@ class EditEnumDefs extends ui.modal.Panel {
 		if( ed.isExternal() ) {
 			// Extern enum removal
 			new ui.modal.dialog.Confirm(
-				L.t._("警告：删除此外部枚举也将删除来自同一源的所有外部枚举！请注意，这也将影响在 ALL 级别中使用任何这些枚举的所有实体。"),
+				L.t._("WARNING: removing this external enum will also remove ALL the external enums from the same source! Please note that this will also affect all Entities using any of these enums in ALL levels."),
 				true,
 				function() {
 					var name = dn.FilePath.fromFile(ed.externalRelPath).fileWithExt;
-					new ui.LastChance( L.t._("::file:: 已删除枚举", { file:name }), project );
+					new ui.LastChance( L.t._("::file:: enums deleted", { file:name }), project );
 					editor.watcher.stopWatchingRel(ed.externalRelPath);
 					project.defs.removeExternalEnumSource(ed.externalRelPath);
 					editor.ge.emit(EnumDefRemoved);
@@ -128,7 +128,7 @@ class EditEnumDefs extends ui.modal.Panel {
 		else {
 			// Local enum removal
 			function _delete() {
-				new ui.LastChance( L.t._("枚举 ::name:: 删除", { name: ed.identifier}), project );
+				new ui.LastChance( L.t._("Enum ::name:: deleted", { name: ed.identifier}), project );
 				project.defs.removeEnumDef(ed);
 				editor.ge.emit(EnumDefRemoved);
 				selectEnum( project.defs.enums[0] );
@@ -357,7 +357,7 @@ class EditEnumDefs extends ui.modal.Panel {
 
 				ContextMenu.addTo(jLi, [
 					{
-						label: L.t._("删除外部源"),
+						label: L.t._("Remove extern source"),
 						cb: deleteEnumDef.bind(ed,true),
 					}
 				]);
@@ -523,7 +523,7 @@ class EditEnumDefs extends ui.modal.Panel {
 							Lang.t._("WARNING! This enum value is USED in one or more entity instances. These values will also be removed!"),
 							isUsed,
 							function() {
-								new LastChance(L.t._("枚举值 ::name:: 删除", { name:curEnum.identifier+"."+eValue.id }), project);
+								new LastChance(L.t._("Enum value ::name:: deleted", { name:curEnum.identifier+"."+eValue.id }), project);
 								curEnum.removeValue(eValue.id);
 								project.tidy();
 								editor.ge.emit(EnumDefValueRemoved);

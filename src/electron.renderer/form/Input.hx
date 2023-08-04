@@ -183,7 +183,7 @@ class Input<T> {
 			setter( lastValidValue );
 			writeValueToInput();
 			if( validityError==null )
-				N.error("此值无效。");
+				N.error("This value isn't valid.");
 			else
 				validityError(err);
 			return;

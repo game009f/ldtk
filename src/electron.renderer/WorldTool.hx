@@ -50,11 +50,11 @@ class WorldTool extends dn.Process {
 			var ctx = new ui.modal.ContextMenu(m);
 			// Create new level
 			ctx.add({
-				label: L.t._("新关卡"),
+				label: L.t._("New level"),
 				cb: ()->{
 					if( !ui.vp.LevelSpotPicker.tryToCreateLevelAt(project, curWorld, m) ) {
 						new ui.modal.dialog.Confirm(
-							L.t._("这里没有关卡的空间了! 是否要选择其他位置?"),
+							L.t._("No room for a level here! Do you want to pick another location?"),
 							()->new ui.vp.LevelSpotPicker()
 						);
 					}
@@ -66,7 +66,7 @@ class WorldTool extends dn.Process {
 				editor.selectLevel(l);
 				// Duplicate
 				ctx.add({
-					label: L.t._("复制"),
+					label: L.t._("Duplicate"),
 					cb: ()->{
 						var copy = curWorld.duplicateLevel(l);
 						editor.selectLevel(copy);
@@ -87,11 +87,11 @@ class WorldTool extends dn.Process {
 					label: L._Delete(),
 					cb: ()->{
 						if( curWorld.levels.length==1 ) {
-							N.error(L.t._("您无法删除最后一个关卡，关卡必须存在至少一个。"));
+							N.error(L.t._("You can't delete the last level."));
 							return;
 						}
 						var closest = curWorld.getClosestLevelFrom(l);
-						new ui.LastChance(L.t._('关卡 ::id:: 删除', {id:l.identifier}), project);
+						new ui.LastChance(L.t._('Level ::id:: removed', {id:l.identifier}), project);
 						for(nl in l.getNeighbours())
 							editor.invalidateLevelCache(nl);
 
@@ -106,7 +106,7 @@ class WorldTool extends dn.Process {
 			if( project.worlds.length>1 ) {
 				if( l==null ) {
 					// Change active world
-					ctx.addTitle(L.t._("进入世界:"));
+					ctx.addTitle(L.t._("Go to world:"));
 					for( w in project.worlds ) {
 						ctx.add({
 							label: L.untranslated(w.identifier),
@@ -121,7 +121,7 @@ class WorldTool extends dn.Process {
 				}
 				else {
 					// Move level to another world
-					ctx.addTitle(L.t._("将此关卡移动到:"));
+					ctx.addTitle(L.t._("Move this level to:"));
 					for( w in project.worlds ) {
 						ctx.add({
 							label: L.untranslated("➔ "+w.identifier),
@@ -133,7 +133,7 @@ class WorldTool extends dn.Process {
 									editor.setWorldMode(true);
 									editor.selectLevel(l);
 									editor.camera.fit(true);
-									N.success("成功将关卡移至世界 "+w.identifier);
+									N.success("Successfully moved level to world "+w.identifier);
 								}
 							},
 						});

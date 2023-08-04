@@ -1,12 +1,12 @@
 <h2>
 	<div class="icon enum"></div>
-	项目枚举
+	Project Enums
 </h2>
 
 <div class="enumList">
 	<div class="buttons">
 		<button class="createEnum"> <span class="icon add"></span> </button>
-		<button class="import small">导入</button>
+		<button class="import small">Import</button>
 	</div>
 	<div class="search"></div>
 	<ul class="niceList"></ul>
@@ -20,8 +20,8 @@
 <div class="enumFormWrapper">
 	<dl class="form enumForm">
 		<dt class="onlyExternal">
-			<label>源文件</label>
-			<info>这个枚举是从一个外部文件中导入的，可以与之保持同步。</info>
+			<label>Source file</label>
+			<info>This Enum was imported from an external file and can be kept in-sync with it.</info>
 		</dt>
 
 		<dd class="source">
@@ -29,7 +29,7 @@
 
 
 		<dt>
-			<label for="id">枚举标识符</label>
+			<label for="id">Enum identifier</label>
 			<div class="info identifier"></div>
 		</dt>
 		<dd>
@@ -38,16 +38,16 @@
 
 
 		<dt>
-			<label for="icons">图标瓦片集</label>
-			<div class="info">你可以将一个现有的瓷砖集链接到这个枚举中，以便将图标与每个枚举值联系起来。</div>
+			<label for="icons">Icon tileset</label>
+			<div class="info">You can link an existing Tileset to this Enum to associate icons to each enum values.</div>
 		</dt>
 		<dd>
 			<select id="icons"></select>
 		</dd>
 
 		<dt class="noExternal">
-			<label for="tags">标签</label>
-			<div class="info">标签是用来自由组织你的Enums。</div>
+			<label for="tags">Tags</label>
+			<div class="info">Tags are used to freely organize your Enums.</div>
 		</dt>
 		<dd class="noExternal">
 			<div id="tags"></div>
@@ -56,8 +56,8 @@
 
 
 	<div class="valuesWrapper">
-		<h2>所有可能的枚举值</h2>
-		<button class="createEnumValue noExternal gray">新增变量</button>
+		<h2>All possible enum values</h2>
+		<button class="createEnumValue noExternal gray">Add a new value</button>
 		<ul class="enumValues"></ul>
 	</div>
 
@@ -69,6 +69,6 @@
 	<div class="sortHandle"></div>
 	<div class="pickerWrapper"></div>
 	<input type="color" name="color"/>
-	<input type="text" class="name" placeholder="必需的 - 独一无二的标识符"/>
+	<input type="text" class="name" placeholder="REQUIRED - Unique identifier"/>
 	<button class="delete gray noExternal"> <span class="icon delete"></span> </button>
 </xml>

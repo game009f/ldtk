@@ -127,7 +127,7 @@ class TagEditor {
 	public static function attachRenameAction(jTarget:js.jquery.JQuery, curTag:String, onRename:String->Void) {
 		jTarget.click(_->{
 			new ui.modal.dialog.InputDialog(
-				L.t._("重命名标签:"),
+				L.t._("Rename tag:"),
 				curTag,
 				(t)->data.Tags.cleanUpTag(t)==null ? "Invalid tag" : null,
 				(t)->data.Tags.cleanUpTag(t),

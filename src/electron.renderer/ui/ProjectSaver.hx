@@ -70,20 +70,20 @@ class ProjectSaver extends dn.Process {
 		m.addClass("error");
 
 		if( showOptions ) {
-			m.addTitle(L.t._("保存项目时出错"), true);
+			m.addTitle(L.t._("Error during project saving"), true);
 			m.addDiv(str, "warning");
-			m.addParagraph(L.t._("项目未正确保存!"));
+			m.addParagraph(L.t._("The project was NOT saved properly!"));
 
 			m.removeButtons();
-			m.addButton( L.t._("重试"), "full", ()->{
+			m.addButton( L.t._("Retry"), "full", ()->{
 				Editor.ME.onSave();
 				m.close();
 			} );
-			m.addButton( L.t._("另存为..."), "full gray", ()->{
+			m.addButton( L.t._("Save as..."), "full gray", ()->{
 				Editor.ME.onSave(true);
 				m.close();
 			} );
-			m.addButton( L.t._("打开项目文件夹"), "gray small", ()->{
+			m.addButton( L.t._("Open project folder"), "gray small", ()->{
 				JsTools.locateFile(fp.full, true);
 				m.close();
 			 } );
@@ -125,20 +125,20 @@ class ProjectSaver extends dn.Process {
 				if( NT.fileExists(dir) && !NT.isDirectory(dir) ) {
 					// An existing dir conflicts
 					var f = project.filePath.fileName;
-					error( L.t._('我需要创建一个名为 "::name::", 但是那里有一个名称完全相同的文件.', {name:f} ) );
+					error( L.t._('I need to create a folder named "::name::", but there is a file with the exact same name there.', {name:f} ) );
 					return;
 				}
 				else {
 					// Check dir permissions
 					if( !NT.checkPermissions(project.filePath.directory, true, true, false) ) {
-						N.error("您没有访问此目录的系统权限!");
+						N.error("You don't have system permissions to access this directory!");
 						complete(false);
 						return;
 					}
 
 					// Check overwrite permissions
 					if( NT.fileExists(project.filePath.full) && !NT.checkPermissions(project.filePath.full, true, true, false) ) {
-						N.error("您没有系统权限读取或写入此目录中的文件!");
+						N.error("You don't have system permissions to read or write a file in this directory!");
 						complete(false);
 						return;
 					}
@@ -401,15 +401,15 @@ class ProjectSaver extends dn.Process {
 				if( project.exportTiled ) {
 					logState();
 					ui.modal.Progress.single(
-						L.t._("导出 Tiled..."),
+						L.t._("Exporting Tiled..."),
 						()->{
 							var e = new exporter.Tiled();
 							e.addExtraLogger( App.LOG, "TiledExport" );
 							e.run( project, project.filePath.full );
 							if( e.hasErrors() )
-								N.error('Tiled导出有错误.');
+								N.error('Tiled export has errors.');
 							else
-								N.success('已保存Tiled文件.');
+								N.success('Saved Tiled files.');
 						},
 						()->{
 							beginNextState();
@@ -428,15 +428,15 @@ class ProjectSaver extends dn.Process {
 				if( false ) { // TODO check actual project export setting
 					logState();
 					ui.modal.Progress.single(
-						L.t._("导出 Tiled..."),
+						L.t._("Exporting Tiled..."),
 						()->{
 							var e = new exporter.GameMakerStudio2();
 							e.addExtraLogger( App.LOG, "GMSExport" );
 							e.run( project, project.filePath.full );
 							if( e.hasErrors() )
-								N.error('导出 Game Maker Studio 错误.');
+								N.error('Game Maker Studio export has errors.');
 							else
-								N.success('已保存 Game Maker Studio 文件.');
+								N.success('Saved Game Maker Studio files.');
 						},
 						()->{
 							beginNextState();
@@ -649,7 +649,7 @@ class ProjectSaver extends dn.Process {
 		new ui.modal.Progress("Backup", ops, ()->{
 			log('  Done!');
 			if( anyError )
-				error(L.t._("备份失败!"));
+				error(L.t._("Backup failed!"));
 			else
 				onComplete();
 		});

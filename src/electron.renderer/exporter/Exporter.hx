@@ -50,7 +50,7 @@ class Exporter {
 		#if !debug
 		if( log.containsAnyCriticalEntry() )
 		#end
-			new ui.modal.dialog.LogPrint(log, L.t._("关卡导出器结果"));
+			new ui.modal.dialog.LogPrint(log, L.t._("Level exporter result"));
 	}
 
 	public function addExtraLogger(l:dn.Log, ?tag:String) {

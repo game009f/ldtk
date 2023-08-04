@@ -194,7 +194,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 
 		if( ops.length>0 ) {
 			App.LOG.general("Applying invalidated rules...");
-			new Progress(L.t._("更新自动图层..."), ops, editor.levelRender.renderAll);
+			new Progress(L.t._("Updating auto layers..."), ops, editor.levelRender.renderAll);
 		}
 
 		invalidatedRules = new Map();
@@ -392,7 +392,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			jContent.find("button:not(.close), input").prop("disabled","true");
 			var jError = new J('<li> <div class="warning"/> </li>');
 			jError.appendTo(jRuleGroupList);
-			jError.find("div").append( L.t._("当前图层设置阻止其规则正常工作.") );
+			jError.find("div").append( L.t._("The current layer settings prevent its rules to work.") );
 			var jButton = new J('<button>Open layer settings</button>');
 			jButton.click( ev->new EditLayerDefs() );
 			jError.find("div").append(jButton);
@@ -454,7 +454,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 		var jPrevList = jContent.find('ul[groupUid=${rg.uid}]');
 		var jPrevWrapper = jPrevList.parent();
 		if( jPrevWrapper.length==0 ) {
-			N.error("错误：在 DOM 中找不到规则组");
+			N.error("ERROR: ruleGroup not found in DOM");
 			updateAllRuleGroups();
 			return;
 		}
@@ -556,12 +556,12 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 		// Group context menu
 		var actions : ui.modal.ContextMenu.ContextActions = [
 			{
-				label: L.t._("重命名"),
+				label: L.t._("Rename"),
 				cb: ()->onRenameGroup(jGroupHeader, rg),
 			},
 
 			{
-				label: L.t._("使用助手编辑规则"),
+				label: L.t._("Edit rules using the Assistant"),
 				cb: ()->{
 					doUseWizard(rg);
 				},
@@ -569,8 +569,8 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L.t._("转入可选组"),
-				sub: L.t._("默认情况下，可选组在所有位置都被禁用，并且只能在某些特定级别中手动启用。"),
+				label: L.t._("Turn into an OPTIONAL group"),
+				sub: L.t._("An optional group is disabled everywhere by default, and can be enabled manually only in some specific levels."),
 				cb: ()->{
 					invalidateRuleGroup(rg);
 					rg.isOptional = true;
@@ -581,8 +581,8 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L.t._('编辑所有规则的“越界”策略'),
-				// sub: L.t._("默认情况下，可选组在所有位置都被禁用，并且只能在某些特定级别中手动启用。"),
+				label: L.t._('Edit "out-of-bounds" policy for all rules'),
+				// sub: L.t._("An optional group is disabled everywhere by default, and can be enabled manually only in some specific levels."),
 				cb: ()->{
 					var m = new ui.modal.Dialog();
 					m.loadTemplate("outOfBoundsPolicyGlobal.html");
@@ -608,7 +608,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				label: L.t._("Disable OPTIONAL state"),
 				cb: ()->{
 					new ui.modal.dialog.Confirm(
-						L.t._("警告：通过删除此组的可选状态，您将失去此组在所有级别中的开/关状态。这组规则将成为“全局”规则，适用于每个级别."),
+						L.t._("Warning: by removing the OPTIONAL status of this group, you will lose the on/off state of this group in all levels. The group of rules will become a 'global' one, applied to every levels."),
 						true,
 						()->{
 							rg.isOptional = false;
@@ -622,7 +622,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				separatorAfter: true,
 			},
 			{
-				label: L._PasteAfter("规则"),
+				label: L._PasteAfter("rule"),
 				cb: ()->{
 					var copy = ld.pasteRule(project, rg, App.ME.clipboard);
 					lastRule = copy;
@@ -634,20 +634,20 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L._Copy("组"),
+				label: L._Copy("Group"),
 				cb: ()->{
 					App.ME.clipboard.copyData(CRuleGroup, li.def.toJsonRuleGroup(rg));
 				}
 			},
 			{
-				label: L._Cut("组"),
+				label: L._Cut("Group"),
 				cb: ()->{
 					App.ME.clipboard.copyData(CRuleGroup, li.def.toJsonRuleGroup(rg));
 					deleteRuleGroup(rg, false);
 				}
 			},
 			{
-				label: L._PasteAfter("组"),
+				label: L._PasteAfter("group"),
 				cb: ()->{
 					var copy = ld.pasteRuleGroup(project, App.ME.clipboard, rg);
 					editor.ge.emit(LayerRuleGroupAdded(copy));
@@ -676,7 +676,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				},
 			},
 			{
-				label: L._Delete(L.t._("组")),
+				label: L._Delete(L.t._("Group")),
 				cb: deleteRuleGroup.bind(rg, true),
 			},
 		];
@@ -773,7 +773,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 
 		var jPrev = jContent.find('li[ruleUid=${r.uid}]');
 		if( jPrev.length==0 ) {
-			N.error("错误：在 DOM 中找不到规则");
+			N.error("ERROR: rule not found in DOM");
 			updateAllRuleGroups();
 			return;
 		}
@@ -901,7 +901,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 		jFlag.click( function(ev:js.jquery.Event) {
 			ev.preventDefault();
 			if( r.isSymetricX() )
-				N.error("此选项对对称规则没有影响。");
+				N.error("This option will have no effect on a symetric rule.");
 			else {
 				r.flipX = !r.flipX;
 				editor.ge.emit( LayerRuleChanged(r) );
@@ -914,7 +914,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 		jFlag.click( function(ev:js.jquery.Event) {
 			ev.preventDefault();
 			if( r.isSymetricY() )
-				N.error("此选项对对称规则没有影响.");
+				N.error("This option will have no effect on a symetric rule.");
 			else {
 				r.flipY = !r.flipY;
 				editor.ge.emit( LayerRuleChanged(r) );
@@ -980,7 +980,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				enable: ()->return App.ME.clipboard.is(CRule),
 			},
 			{
-				label: L.t._("创建副本"),
+				label: L.t._("Duplicate rule"),
 				cb: ()->{
 					var copy = ld.duplicateRule(project, rg, r);
 					lastRule = copy;

@@ -13,7 +13,7 @@ class LevelSpotPicker extends ui.ValuePicker<Coords> {
 	public function new() {
 		super();
 
-		setInstructions("为新关卡选择一个位置");
+		setInstructions("Pick a spot for a new level");
 
 		initialWorldMode = editor.worldMode;
 		if( !editor.worldMode ) {

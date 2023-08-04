@@ -3,29 +3,29 @@
 <dl class="form" id="levelProps">
 	<dt>
 		<label for="levelIid">IID</label>
-		<info>IID（代表实例标识符）是与此级别关联的唯一字符串标识符。</info>
+		<info>The IID (stands for Instance IDentifier) is a unique string identifier associated with this Level.</info>
 	</dt>
 	<dd>
 		<input type="text" id="levelIid" readonly="readonly"/>
 		<button class="small gray copyLevelIid"> <span class="icon copy"></span> </button>
 	</dd>
 	<dt>
-		<label for="identifier">关卡标识符</label>
-		<info class="identifier">如果 "保存关卡到独立文件 "选项被启用，它将被用于关卡文件名（见项目面板）。</info>
+		<label for="identifier">Level identifier</label>
+		<info class="identifier">It will be used for the level file name if the "Save levels to separate files" option is enabled (see Project panel).</info>
 	</dt>
 	<dd>
 		<input type="text" id="identifier"/>
 
-		<input type="checkbox" id="useAutoIdentifier" title="如果启用，级别标识符将由LDtk自动管理，基于你在项目面板中定义的偏好的命名惯例。" />
-		<label for="useAutoIdentifier">自动</label>
+		<input type="checkbox" id="useAutoIdentifier" title="If enabled, the level identifier will be managed automatically by LDtk, based on your prefered naming convention as defined in the Project panel." />
+		<label for="useAutoIdentifier">auto</label>
 	</dd>
 
 	<dt>
-		<label for="worldDepth">世界深度</label>
+		<label for="worldDepth">World depth</label>
 		<info>
-			你可以通过改变深度来组织你的关卡在不同的 "世界层"。
-			深度只是一个指数（正或负），较高的值意味着 "这个关卡在更远的背景中"，较低的值意味着 "更靠近摄像机"（有点）。
-			世界层是完全自动的，根据你的需要创建/删除。
+			You can organize your levels in various "world layers" by changing their depth.
+			Depth is just an index (positive or negative), higher values meaning "this level is further in the background" and lower values meaning "closer to the camera" (kind of).
+			World layers are completely automatic and created/removed as you need them.
 		</info>
 	</dt>
 	<dd class="depth">
@@ -37,8 +37,8 @@
 	</dd>
 
 	<dt>
-		<label for="worldX">世界坐标</label>
-		<div class="info">水平的X和Y坐标，单位是像素，在世界坐标系中。</div>
+		<label for="worldX">World coords</label>
+		<div class="info">Level X and Y coordinates in pixels, in the world coordinate system.</div>
 	</dt>
 	<dd>
 		<input type="text" id="worldX" class="small"/>
@@ -48,8 +48,8 @@
 	</dd>
 
 	<dt>
-		<label for="name">尺寸</label>
-		<div class="info">水平的宽度和高度，单位是像素。</div>
+		<label for="name">Size</label>
+		<div class="info">Level width and height in pixels.</div>
 	</dt>
 	<dd>
 		<input type="text" id="width" class="small"/>
@@ -58,14 +58,14 @@
 		<span>px</span>
 	</dd>
 
-	<dt> <label for="bgColor">背景颜色</label> </dt>
+	<dt> <label for="bgColor">Bg color</label> </dt>
 	<dd>
 		<input type="color" id="bgColor"/>
-		<a class="reset">使用默认值</a>
+		<a class="reset">Use default</a>
 		<span class="usingDefault">(default)</a>
 	</dd>
 
-	<dt> <label>背景图</label> </dt>
+	<dt> <label>Bg image</label> </dt>
 	<dd class="bg">
 		<div class="pos">
 			<select id="bgPos"></select>
@@ -74,8 +74,8 @@
 	</dd>
 </dl>
 
-<div class="collapser" default="open" id="levelPanel_fields" default="open">自定义字段</div>
+<div class="collapser" default="open" id="levelPanel_fields" default="open">Custom fields</div>
 <div class="wrapper">
 	<div id="levelCustomFields"></div>
-	<button class="editFields">编辑自定义字段</button>
+	<button class="editFields">Edit custom fields</button>
 </div>

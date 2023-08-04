@@ -25,7 +25,7 @@ class LastChance extends dn.Process {
 			App.LOG.general('Restore complete.');
 			Editor.ME.resetTools();
 			ui.modal.Dialog.closeAll();
-			N.msg( L.t._("已取消的操作"), '"$str"' );
+			N.msg( L.t._("Canceled action"), '"$str"' );
 			hide();
 		});
 

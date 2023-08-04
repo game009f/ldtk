@@ -105,7 +105,7 @@ class Clipboard {
 		this.jsonStr = try haxe.Json.stringify(jsonObj) catch(_) null;
 		if( jsonStr==null || type==null ) {
 			clearInternal();
-			N.error("无法复制值, JSON 写入失败!");
+			N.error("Could not copy value, JSON writer failed!");
 			return;
 		}
 
@@ -137,7 +137,7 @@ class Clipboard {
 	function get_name() : String {
 		// Extract name
 		if( isEmpty() )
-			return L.t._("空");
+			return L.t._("Empty");
 		else
 			return switch type {
 				case CRule:

@@ -236,8 +236,8 @@ class TileTagger extends ui.Tileset {
 				// Add
 				var te = new ui.modal.dialog.TextEditor(
 					tilesetDef.hasTileCustomData(tid) ? tilesetDef.getTileCustomData(tid) : "",
-					'Tile $tid 自定义数据',
-					'您可以在此处输入任何类型的数据，这些数据将与此磁贴关联并存储在项目 JSON 中。\n此数据可以是数字、文本、JSON、XML 等。基本上，您要传递给游戏引擎的任何与磁贴相关的信息。',
+					'Tile $tid custom data',
+					'You can enter any kind of data here, which will be associated to this tile and stored in the project JSON.\nThis data could either be numbers, text, JSON, XML etc. Basically, any tile related info you would like to pass to your game engine.',
 					LangJson,
 					(str)->{
 						str = StringTools.trim(str);
@@ -253,7 +253,7 @@ class TileTagger extends ui.Tileset {
 			else {
 				// Remove
 				new ui.modal.dialog.Confirm(
-					L.t._("清除磁贴的自定义数据 ::tid::?", { tid:tid }),
+					L.t._("Clear custom data for tile ::tid::?", { tid:tid }),
 					true,
 					()->{
 						tilesetDef.setTileCustomData(tid);

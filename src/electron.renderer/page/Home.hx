@@ -17,7 +17,7 @@ class Home extends Page {
 			appVer: Const.getAppVersion(true),
 			buildDate: dn.MacroTools.getHumanBuildDate(),
 			latestVer: changeLog.latest.version,
-			latestDesc: changeLog.latest.title==null ? L.t._("发行说明") : '"'+changeLog.latest.title+'"',
+			latestDesc: changeLog.latest.title==null ? L.t._("Release notes") : '"'+changeLog.latest.title+'"',
 			deepnightUrl: Const.DEEPNIGHT_DOMAIN,
 			discordUrl: Const.DISCORD_URL,
 			docUrl: Const.DOCUMENTATION_URL,
@@ -206,17 +206,17 @@ class Home extends Page {
 
 				var act : ui.modal.ContextMenu.ContextActions = [
 					{
-						label: L.t._("从此文件夹加载"),
+						label: L.t._("Load from this folder"),
 						icon: "open",
 						cb: onLoad.bind( dn.FilePath.fromFile(filePath).directory ),
 					},
 					{
-						label: L.t._("查找文件"),
+						label: L.t._("Locate file"),
 						icon: "locate",
 						cb: JsTools.locateFile.bind(filePath, true),
 					},
 					{
-						label: L.t._("指定自定义颜色"),
+						label: L.t._("Assign custom color"),
 						icon: "color",
 						cb: ()->{
 							var cp = new ui.modal.dialog.ColorPicker(Const.getNicePalette(), col);
@@ -228,7 +228,7 @@ class Home extends Page {
 						separatorBefore: true,
 					},
 					{
-						label: L.t._("重置指定的颜色"),
+						label: L.t._("Reset assigned color"),
 						icon: "color",
 						show: ()->App.ME.hasForcedDirColor(fp.directory),
 						cb: ()->{
@@ -237,7 +237,7 @@ class Home extends Page {
 						},
 					},
 					{
-						label: L.t._("从历史记录中删除"),
+						label: L.t._("Remove from history"),
 						show: ()->!isBackupFile,
 						cb: ()->{
 							App.ME.unregisterRecentProject(filePath);
@@ -246,7 +246,7 @@ class Home extends Page {
 						separatorBefore: true,
 					},
 					{
-						label: L._Delete(L.t._("备份文件")),
+						label: L._Delete(L.t._("Backup file")),
 						show: ()->isBackupFile,
 						cb: ()->{
 							NT.removeFile(filePath);
@@ -255,7 +255,7 @@ class Home extends Page {
 						}
 					},
 					{
-						label: L.t._("清除所有历史记录"),
+						label: L.t._("Clear all history"),
 						cb: ()->{
 							App.ME.clearRecentProjects();
 							updateRecents();
@@ -268,7 +268,7 @@ class Home extends Page {
 			}
 
 			catch( e:Dynamic ) {
-				App.LOG.error("最近的文件出现问题: "+filePath);
+				App.LOG.error("Problem with recent file: "+filePath);
 				jLi.remove();
 			}
 
@@ -285,7 +285,7 @@ class Home extends Page {
 		var jRecentDirs = jPage.find("ul.recentDirs");
 		jRecentDirs.empty();
 		if( dirs.length>0 )
-			jRecentDirs.append('<li class="title">最近使用的文件夹</li>');
+			jRecentDirs.append('<li class="title">Recent folders</li>');
 		for(fp in dirs) {
 			var jLi = new J('<li/>');
 			try {
@@ -311,7 +311,7 @@ class Home extends Page {
 						if( NT.fileExists(fp.directory) )
 							onLoad(fp.directory);
 						else
-							N.error("已从历史记录中删除丢失的文件夹");
+							N.error("Removed lost folder from history");
 
 						updateRecents();
 					}
@@ -319,17 +319,17 @@ class Home extends Page {
 
 				var actions : ui.modal.ContextMenu.ContextActions = [
 					{
-						label: L.t._("此文件夹中的新项目"),
+						label: L.t._("New project in this folder"),
 						icon: "new",
 						cb: onNew.bind(fp.directory),
 					},
 					{
-						label: L.t._("定位文件夹"),
+						label: L.t._("Locate folder"),
 						icon: "locate",
 						cb: JsTools.locateFile.bind(fp.directory, false),
 					},
 					{
-						label: L.t._("指定自定义颜色"),
+						label: L.t._("Assign custom color"),
 						icon: "color",
 						cb: ()->{
 							var cp = new ui.modal.dialog.ColorPicker(Const.getNicePalette(), col);
@@ -341,7 +341,7 @@ class Home extends Page {
 						separatorBefore: true,
 					},
 					{
-						label: L.t._("重置指定的颜色"),
+						label: L.t._("Reset assigned color"),
 						icon: "color",
 						show: ()->App.ME.hasForcedDirColor(fp.directory),
 						cb: ()->{
@@ -350,7 +350,7 @@ class Home extends Page {
 						},
 					},
 					{
-						label: L.t._("从历史记录中删除"),
+						label: L.t._("Remove from history"),
 						cb: ()->{
 							App.ME.unregisterRecentDir(fp.directory);
 							updateRecents();
@@ -358,7 +358,7 @@ class Home extends Page {
 						separatorBefore: true,
 					},
 					{
-						label: L.t._("清除所有文件夹历史记录"),
+						label: L.t._("Clear all folder history"),
 						cb: ()->{
 							App.ME.clearRecentDirs();
 							updateRecents();
@@ -371,7 +371,7 @@ class Home extends Page {
 
 			}
 			catch(e:Dynamic) {
-				App.LOG.error("最近目录出现问题: "+fp.full);
+				App.LOG.error("Problem with recent dir: "+fp.full);
 				jLi.remove();
 			}
 		}
@@ -391,10 +391,10 @@ class Home extends Page {
 
 	function onImport(ev:js.jquery.Event) {
 		var ctx = new ui.modal.ContextMenu(ev);
-		ctx.addTitle( L.t._("从其他应用导入项目") );
+		ctx.addTitle( L.t._("Import a project from another app") );
 		ctx.positionNear( new J(ev.target) );
 		ctx.add({
-			label: L.t._("Ogmo 3 项目"),
+			label: L.t._("Ogmo 3 project"),
 			cb: ()->onImportOgmo(),
 		});
 	}
@@ -413,14 +413,14 @@ class Home extends Page {
 					ui.modal.MetaProgress.advance();
 					new ui.ProjectSaver(this, p, (ok)->{
 						ui.modal.MetaProgress.advance();
-						N.success("成功!");
+						N.success("Success!");
 						App.ME.loadProject(p.filePath.full, (ok)->ui.modal.MetaProgress.completeCurrent());
 					});
 				}
 				else {
 					ui.modal.MetaProgress.closeCurrent();
 					new ui.modal.dialog.LogPrint(i.log);
-					new ui.modal.dialog.Message(L.t._("无法导入此 Ogmo 项目。如果您真的需要这个，请随时向我发送Ogmo项目文件，以便我可以检查并修复更新程序（请参阅联系链接）."));
+					new ui.modal.dialog.Message(L.t._("Failed to import this Ogmo project. If you really need this, feel free to send me the Ogmo project file so I can check and fix the updater (see contact link)."));
 				}
 			}, 0.1);
 		});

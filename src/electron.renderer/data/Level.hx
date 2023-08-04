@@ -656,7 +656,7 @@ class Level {
 			}
 		}
 		if( n>0 )
-			N.warning( L.t._("在调整大小时删除了 ::n:: 个实体!", { n:n }) );
+			N.warning( L.t._("::n:: entity(ies) deleted during resizing!", { n:n }) );
 
 		_project.tidy();
 	}

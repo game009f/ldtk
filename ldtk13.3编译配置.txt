@@ -1,6 +1,7 @@
 haxe 4.2.5
 npm -v16.20.1-x64
 
+当前编译ltdk1.3.3
 
 windows下使用PowerShell执行命令
 先进入源码根目录

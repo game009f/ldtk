@@ -1,0 +1,71 @@
+
+<h2>Auto-layer rules assistant</h2>
+
+<div class="layout">
+	<div class="side">
+		<h3>1. IntGrid values</h3>
+
+		<label>
+			<info>This is the IntGrid value that will be used to paint tiles using automated rules.</info>
+			Main IntGrid value
+		</label>
+		<div class="intGrid main empty">
+			<div class="wrapper">
+				<div class="color"></div>
+				<div class="id">--</div>
+				<div class="name"></div>
+				<div class="noValue">&lt; PICK A VALUE &gt;</div>
+			</div>
+		</div>
+
+		<label>
+			<info>
+				If this "outer value" is not defined, the automated rules will check if the "main value" is near something that is not the "main value".
+				If an "outer value" is defined, the rules will check if the "main value" is near the "outer value".
+				Example: "Grass" as the main value, with "Dirt" as the outer value.
+			</info>
+			Outer IntGrid value
+		</label>
+		<div class="intGrid other empty">
+			<div class="wrapper">
+				<div class="color"></div>
+				<div class="id">--</div>
+				<div class="name"></div>
+				<div class="noValue">&lt; Any other IntGrid value &gt;</div>
+			</div>
+		</div>
+
+
+		<h3>2. Group of rules name</h3>
+		<input type="text" name="name"/>
+
+
+		<h3>
+			3. Auto-rendered tiles
+			<info>
+				You don't have to fill all the tiles! The important ones in most scenarios are the ones in the green area.
+			</info>
+		</h3>
+		<div class="important"></div>
+		<div class="grid"></div>
+
+
+
+		<h3>4. Options</h3>
+		<dl class="form">
+			<dt>
+				Allow rules to stack
+				<info>
+					In some cases, multiple distinct rules may apply to a single cell. If this option is enabled, this will allow tiles to stack.
+					This is only relevant if your tiles use transparency. Otherwise, only the topmost pertinent rule for each cell will apply.
+				</info>
+			</dt>
+			<dd>
+				<input type="checkbox" name="breakOnMatch"/>
+			</dd>
+		</dl>
+	</div>
+
+	<div class="tileset"></div>
+</div>
+

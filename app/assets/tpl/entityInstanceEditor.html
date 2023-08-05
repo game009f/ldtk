@@ -1,0 +1,45 @@
+<div class="entityInstanceWrapper">
+	<div class="propsWrapper">
+
+		<header>
+			<div class="id">::id::</div>
+			<a class="edit">编辑</a>
+		</header>
+
+		<div class="collapser" id="extraEntityInfos"> 额外的实体信息 </div>
+		<dl class="form extraInfos">
+			<dt>
+				IID
+				<info>IID（代表实例标识符）是与此实体实例关联的唯一字符串标识符。</info>
+			</dt>
+			<dd class="iid">
+				<input type="text" readonly="readonly" class="iid"/>
+				<button class="copy gray small"> <span class="icon copy"></span> </button>
+			</dd>
+
+			<dt>
+				坐标
+				<info>坐标和尺寸以像素或单元格为单位（您可以通过单击来切换单位）</info>
+			</dt>
+			<dd class="coords">
+				<input type="text" name="x"/> <span>,</span> <input type="text" name="y"/> <span>&nbsp;;&nbsp;</span>
+				<input type="text" name="w"/> <span>x</span> <input type="text" name="h"/>
+				<span class="unit" title="Change coordinates unit"></span>
+			</dd>
+
+			<dt class="refs">
+				对此实体的引用
+				<info>这是具有指向此实体的“引用”字段的所有其他实体的列表。</info>
+			</dt>
+			<dd class="refs">
+				<div class="entityRefs"></div>
+			</dd>
+		</dl>
+
+		<div class="doc hasDoc"></div>
+	</div>
+
+	<div class="customFieldsWrapper"></div>
+</div>
+
+<div class="resizeBar"></div>

@@ -1,0 +1,36 @@
+haxe 4.2.5
+npm -v16.20.1-x64
+
+
+windows下使用PowerShell执行命令
+先进入源码根目录
+
+#更新haxe链接库
+haxelib --global update haxelib
+
+#安装插件库 需要科学上网，在线安装失败可能要手动安装
+haxe setup.hxml
+
+#初始化 安装依赖 在app目录
+cd app
+npm init -y
+npm i
+npm audit fix --force
+
+#调试编译 根目录下
+cd ..//
+haxe main.debug.hxml
+haxe renderer.debug.hxml
+
+
+#调试运行程序  app目录
+cd app
+npm run start
+
+
+#编译正式版打包
+#这段代码在package.json文件中找到   pack-win来自scripts定义
+npm run pack-win
+
+打包命令参考
+https://www.electronjs.org/docs/latest/tutorial/tutorial-packaging

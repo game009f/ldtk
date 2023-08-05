@@ -1,0 +1,24 @@
+-cp src/externs
+-cp src/electron.common
+-cp src/electron.renderer
+
+-lib heaps
+-lib castle
+-lib deepnightLibs
+-lib hxnodejs
+-lib electron
+-lib ldtk-haxe-api
+-lib heaps-aseprite
+-lib uuid
+
+-D editor
+-D electron
+-D unlimitedProcesses
+
+-main Boot
+# -dce full
+-js app/assets/js/renderer.js
+
+--macro Const.dumpBuildVersionToFile()
+--macro Const.buildLatestReleaseNotes()
+--macro Assets.enableXmlFonts()

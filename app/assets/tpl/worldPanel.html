@@ -1,0 +1,72 @@
+<h2>
+	<span class="icon world"></span>
+	世界
+</h2>
+
+<div class="scroller">
+	<div class="worldBar buttons">
+		<select></select>
+		<button class="create small" title="Create a new world"> <span class="icon add"></span> </button>
+		<button class="delete red small" title="Delete current world"> <span class="icon delete"></span> </button>
+	</div>
+
+	<div class="levelBar buttons">
+		<button class="create"> <span class="icon add"></span> Create a new level</button>
+		<button class="duplicate small" title="Duplicate current level"> <span class="icon copy"></span> </button>
+		<button class="delete red small" title="Delete current level"> <span class="icon delete"></span> </button>
+	</div>
+
+
+	<div class="worldSettings">
+		<div class="collapser" default="open" id="worldPanel_world" default="open">世界设置: "<span class="curWorldId"></span>"</div>
+		<dl class="form">
+			<dt>
+				<label for="worldIid">IID</label>
+				<info>IID（代表实例标识符）是与此World关联的唯一字符串标识符。</info>
+			</dt>
+			<dd>
+				<input type="text" id="worldIid" readonly="readonly"/>
+				<button class="small gray copyWorldIid"> <span class="icon copy"></span> </button>
+			</dd>
+
+			<dt>
+				<label for="worldId">世界标识符</label>
+				<info class="identifier"></info>
+			</dt>
+			<dd>
+				<input type="text" id="worldId"/>
+			</dd>
+			<dt>
+				<label for="color">世界图层</label>
+				<info>
+					这个设置将影响所有关卡在世界空间中的定位方式。
+				</info>
+			</dt>
+			<dd>
+				<select name="worldLayout"></select>
+			</dd>
+
+			<dt class="GridVania">
+				<label for="worldGridWidth">格子间的网格尺寸</label>
+				<info>包含关卡的大网格的尺寸，单位是像素。这个网格将限制关卡的位置和它们的大小。</info>
+			</dt>
+			<dd class="GridVania">
+				<input type="text" id="worldGridWidth" name="worldGridWidth" class="small"/> <span>x</span>
+				<input type="text" id="worldGridHeight" name="worldGridHeight" class="small"/> <span>px</span>
+			</dd>
+
+			<dt>
+				<label for="defaultLevelWidth">默认的 "新关卡 "尺寸</label>
+				<info>未来所有关卡的默认关卡宽度和高度，单位为像素。</info>
+			</dt>
+			<dd>
+				<input type="text" id="defaultLevelWidth" class="small"/> <span>x</span>
+				<input type="text" id="defaultLevelHeight" class="small"/> <span>px</span>
+			</dd>
+		</dl>
+	</div>
+
+
+	<div class="currentLevelInstance">
+	</div>
+</div>

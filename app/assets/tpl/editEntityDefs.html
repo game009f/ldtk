@@ -1,0 +1,184 @@
+<h2> <div class="icon entity"></div> 项目实体 </h2>
+
+
+<div class="entityList">
+	<div class="buttons">
+		<button class="create"> <span class="icon add"></span> </button>
+		<button class="presets small" title="使用预设创建一个实体。">预设</button>
+		<!-- <button class="delete">🗑️</button> -->
+	</div>
+	<div class="search"></div>
+	<ul class="niceList"></ul>
+</div>
+
+<div class="rightColumn">
+	<div class="help none">
+		ENTITIES是可以放置在关卡中的通用数据，例如玩家的起始位置或要拾取的物品。每个实体都可以具有以下定义的各种自定义可编辑特性。
+	</div>
+
+	<div class="entityForm">
+		<div class="previewWrapper">
+			<div class="label"></div>
+		</div>
+
+		<dl class="form main">
+			<dt>
+				<label for="eName">实体标识符</label>
+				<div class="info identifier"></div>
+			</dt>
+			<dd>
+				<input type="text" name="name" id="eName"/>
+				<label for="showIdentifier" title="如果启用，标识符将显示在编辑器视图中的实体上方.">
+					<input type="checkbox" name="showIdentifier" id="showIdentifier" title="如果启用，标识符将显示在编辑器视图的实体上方。"/>
+					显示标识符
+				</label>
+				<label for="exportToToc" tip="bottom" title="如果启用，此实体的所有实例都将列在项目JSON文件根目录中的内容表中。\n 例如，如果你想快速访问游戏中所有PlayerStart实体的位置，而不需要手动解析所有级别，这一点尤其有用。\n BE小心：不要把每个实体都放在内容表中，因为这只会导致项目JSON膨胀。">
+					<input type="checkbox" name="exportToToc" id="exportToToc"/>
+					添加到JSON内容表
+				</label>
+			</dd>
+		</dl>
+
+
+		<div class="collapser" default="open" id="extraEntityDetails">额外实体详细信息</div>
+
+
+		<dl class="form extra">
+			<dt>
+				<label for="entityDoc">文档</label>
+				<info class="userDoc"></info>
+			</dt>
+			<dd>
+				<input type="text" name="entityDoc" id="entityDoc"/>
+			</dd>
+
+			<dt>
+				<label>标签</label>
+				<div class="info">
+					标签用于在自定义类别中对实体进行分组。多个标签可以分配给一个实体。
+					你也可以在图层设置中使用标签来过滤哪些实体被允许，哪些不被允许。
+					例如：给一些实体添加一个 "演员 "标签，然后创建一个实体层，其中只接受 "演员 "实体。
+				</div>
+			</dt>
+			<dd>
+				<div id="tags"></div>
+			</dd>
+
+			<dt>
+				<label for="width">大小</label>
+				<div class="info">该实体的最小宽度和高度，单位是像素。</div>
+			</dt>
+			<dd>
+				<input type="text" name="width" class="small" id="width"/>
+				<span>x</span>
+				<input type="text" name="height" class="small"/>
+
+				<div class="minMax">
+					<span>Min:</span>
+					<input type="text" name="minWidth" class="small"/>
+					<span>x</span>
+					<input type="text" name="minHeight" class="small"/>
+
+					<span class="sep">Max:</span>
+					<input type="text" name="maxWidth" class="small"/>
+					<span>x</span>
+					<input type="text" name="maxHeight" class="small"/>
+				</div>
+			</dd>
+			<dd>
+				<span>Resizable:</span>
+				<label for="resizableX">
+					<input type="checkbox" id="resizableX" title="如果选中，实体实例将可以水平调整大小。在这种情况下，上面的宽度将定义为最小尺寸。"/>
+					宽
+				</label>
+
+				<label for="resizableY">
+					<input type="checkbox" id="resizableY" title="如果选中，实体实例将可以垂直调整大小。在这种情况下，上面的高度将定义一个最小尺寸。"/>
+					高
+				</label>
+
+				<label for="keepAspectRatio">
+					<input type="checkbox" id="keepAspectRatio" title="如果选中，实体实例尺寸将使用与上述尺寸相同的长宽比。"/>
+					保持长宽比
+				</label>
+			</dd>
+
+			<dt>
+				<label>编辑视觉</label>
+				<div class="info">自定义编辑器视图中实体的视觉表现。</div>
+			</dt>
+			<dd class="renderMode">
+				<input type="color" name="color" id="eColor"/>
+				<select class="renderMode"></select>
+
+				<div class="tilePicker"></div>
+				<select class="mode_Tile tileRenderMode"></select>
+
+				<span class="nineSlice">
+					<div class="info">
+						9片缩放模式将选定的纹理分成9个部分（4个角、4个边框和1个内部）。
+						角部按原样绘制，边框在实体的两侧重复，内部则在实体的中心拉伸。
+						你可以调整上、下、左、右边界的大小，单位是像素。
+					</div>
+					<span>9-片的边界。</span>
+					<span>顶部=</span>
+					<input type="text" name="nineSliceUp"/>
+					<span>底部=</span>
+					<input type="text" name="nineSliceDown"/>
+					<span>左=</span>
+					<input type="text" name="nineSliceLeft"/>
+					<span>右=</span>
+					<input type="text" name="nineSliceRight"/>
+				</span>
+			</dd>
+
+			<dd>
+				<span>瓷砖=</span>
+				<input type="text" id="tileOpacity" class="tiny" title="瓷砖不透明度"/>
+
+				<span>% 填充=</span>
+				<input type="text" id="fillOpacity" class="tiny" title="填充颜色的不透明度"/>
+
+				<span>% 轮廓线=</span>
+				<input type="text" id="lineOpacity" class="tiny" title="轮廓颜色的不透明度"/>
+				<span>%</span>
+
+				<label for="hollow">
+					<input type="checkbox" id="hollow" name="hollow" title="点击将通过 '空心 '实体，除了边缘。它们没有任何填充颜色（只有一个轮廓和/或一个瓦片）。"/>
+					空心
+				</label>
+			</dd>
+
+			<dt>
+				<label>枢轴点</label>
+				<div class="info">
+					实体的支点是它在场景中的实体的实际像素坐标。
+					枢轴的排列可以自定义，以调整实体边界相对于这些坐标的位置：实体可以在该点的中心，在它的上方，在右边，等等。
+				</div>
+			</dt>
+			<dd>
+				<div class="pivot"></div>
+			</dd>
+
+			<dt>
+				<label for="maxCount">最大数量</label>
+				<div class="info">
+					一个实体可以被限制在每个级别或每个世界的特定数量的实例上。
+					例如：一个PlayerStart实体可以被限制为每个世界最多1个，或者你可以将LightSource实体限制为每个级别10个等等。
+					当你达到限制时，实际发生的情况也是可定制的。
+				</div>
+			</dt>
+			<dd>
+				<input type="text" id="maxCount" placeholder="无限制" class="small"/>
+				<select name="scope"></select>
+				<span>当达到最大数量</span>
+				<select name="limitBehavior"></select>
+			</dd>
+
+		</dl>
+
+	</div>
+
+	<div id="fields"></div>
+
+</div>

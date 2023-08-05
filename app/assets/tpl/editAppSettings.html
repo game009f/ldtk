@@ -1,0 +1,171 @@
+<h2><span class="icon settings"></span> 应用程序设置</h2>
+
+<button class="update blue">
+	<span class="icon appUpdate"></span>
+	<strong>有新的更新了!</strong>
+	<em>安装 ::updateVer::</em>
+</button>
+
+<div class="columns">
+
+	<div class="left">
+		<dl class="form">
+
+			<dt class="full">
+				<h3>通用</h3>
+			</dt>
+
+			<dt>
+				<label for="openLastProject">重新打开上一个项目</label>
+				<info>如果启用, ::app:: 将自动重新打开您的上一个项目并选择您所在的上一级别.</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="openLastProject" />
+			</dd>
+
+
+			<dt class="full">
+				<h3>视觉</h3>
+			</dt>
+
+			<dt>
+				<label for="appScale">通用UI比例</label>
+				<info>此设置将影响整个用户界面的大小.</info>
+			</dt>
+			<dd>
+				<select id="appScale"></select>
+			</dd>
+
+			<dt>
+				<label for="fontScale">关卡界面比例</label>
+				<info>这个设置只影响编辑者视图中的文本和图标的大小（包括实体自定义字段和级别自定义字段）。</info>
+			</dt>
+			<dd>
+				<select id="fontScale"></select>
+			</dd>
+
+			<dt>
+				<label for="fieldsRender">鼠标滚轮速度</label>
+				<info>这个设置影响到使用鼠标滚轮时的放大/缩小速度。</info>
+			</dt>
+			<dd>
+				<select id="fieldsRender"></select>
+			</dd>
+
+			<dt>
+				<label for="startFullScreen">以全屏模式启动</label>
+				<info>
+					启动时设置默认的“全屏”状态 ::app::.
+					您也可以随时使用F11键切换全屏模式.
+				</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="startFullScreen" />
+			</dd>
+
+			<dt>
+				<label for="colorBlind">偏好色盲颜色</label>
+				<info>启用此选项可默认情况下为新创建的实体、枚举或intGrid值使用色盲友好颜色.</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="colorBlind" />
+			</dd>
+
+			<dt>
+				<label for="blurMask">未聚焦时淡出LDtk窗口</label>
+				<info>如果启用，LDtk窗口在未聚焦时将变灰.</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="blurMask" />
+			</dd>
+
+
+		</dl>
+	</div>
+
+
+
+	<div class="right">
+		<dl class="form">
+
+			<dt class="full">
+				<h3>Controls</h3>
+			</dt>
+
+			<dt>
+				<label for="mouseWheelSpeed">鼠标滚轮速度</label>
+				<info>使用鼠标滚轮时，此设置会影响放大/缩小速度。</info>
+			</dt>
+			<dd>
+				<input type="text" id="mouseWheelSpeed"/>
+				<span>%</span>
+			</dd>
+
+			<dt>
+				<label for="autoSwitchOnZoom">鼠标滚轮切换世界和关卡</label>
+				<info>
+					该设置允许在从一个关卡放大时自动切换到世界视图。
+					然后你可以再放大到任何一个关卡来选择它。
+				</info>
+			</dt>
+			<dd>
+				<select id="autoSwitchOnZoom"></select>
+			</dd>
+
+			<dt>
+				<label for="navKeys">导航键布局</label>
+				<info>导航键用于在图层中的值选项板中导航。例如，在“平铺”层中，可以使用以下键浏览不同的平铺.</info>
+			</dt>
+			<dd>
+				<select id="navKeys"></select>
+			</dd>
+
+
+			<dt class="full">
+				<h3>高级选项</h3>
+			</dt>
+
+			<dt>
+				<label for="gpu">尝试使用最好的GPU</label>
+				<info>
+					启用后，::app::将始终尝试使用你系统上的最佳GPU，从而获得更好的性能。
+					这可能会消耗额外的电池寿命。
+				</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="gpu"/>
+				<span>(建议勾选)</span>
+			</dd>
+
+			<dt>
+				<label for="gpu">自动升级</label>
+				<info>
+					当启用时，::app::将完全自动下载和安装新的更新。
+					这是强烈建议的，因为许多更新包含重要的错误修复和新功能。
+					但在某些情况下，比如当你的游戏引擎使用一个过时的导入器时，你可能更愿意坚持使用一个特定的::app::版本。
+					当前汉化版本自动升级会变成官方版本（没有汉化），非必要不要升级！！！
+				</info>
+			</dt>
+			<dd>
+				<input type="checkbox" id="autoUpdate"/>
+				<span>(不建议勾选)</span>
+				<span class="unsupported">仅在Windows上支持。.</span>
+			</dd>
+
+			<dt>
+				<label>日志文件</label>
+				<info>
+					LOG文件只在报告bug时有用。你可以把它附在电子邮件或在GitHub网站上创建问题时。
+					它不包含任何敏感或个人信息，除了使用的文件路径。
+				</info>
+			</dt>
+			<dd class="log">
+				<span class="logPath"></span>
+				<button class="viewLog gray" > <span class="icon edit"></span></button>
+				<button class="locateLog gray" > <span class="icon locate"></span></button>
+			</dd>
+		</dl>
+	</div>
+
+</div>
+

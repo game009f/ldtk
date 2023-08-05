@@ -1,0 +1,295 @@
+<h2>
+	<div class="icon layer"></div>
+	项目图层
+</h2>
+
+<div class="mainList">
+	<div class="buttons">
+		<button class="create"> <span class="icon add"></span> </button>
+	</div>
+	<div class="search"></div>
+	<ul class="niceList"></ul>
+</div>
+
+<div class="help none">
+	Each LEVEL in your project has LAYERS, as defined below. The layers content can be of various types, including Image Tiles or Integer values.
+</div>
+
+<dl class="form">
+	<dt>
+		<label for="type">类型</label>
+	</dt>
+	<dd>
+		<span class="typeIcon"></span>
+		<span class="type"></span>
+		<button class="help Tiles" href="::tilesUrl::" >瓦片层教程</button>
+		<button class="help IntGridAutoLayer AutoLayer" href="::autoLayersUrl::" >自动图层教程</button>
+	</dd>
+
+
+	<dt>
+		<label for="lName">图层标识符</label>
+		<info class="identifier"></info>
+	</dt>
+	<dd>
+		<input type="text" name="name" id="lName"/>
+	</dd>
+
+
+	<dt>
+		<label for="layerDoc">文档</label>
+		<info class="userDoc"></info>
+	</dt>
+	<dd>
+		<input type="text" name="layerDoc" id="layerDoc"/>
+	</dd>
+
+
+	<dt>
+		<label for="uiColor">界面颜色</label>
+		<info>该颜色将用于出现该层的所有列表中.</info>
+	</dt>
+	<dd>
+		<input type="color" name="uiColor" id="uiColor"/>
+		<button class="transparent resetUiColor small"> <span class="icon reset"></span> </button>
+	</dd>
+
+
+	<dt>
+		<label for="hideInList">隐藏在列表中</label>
+		<info>
+			如果启用，该层将不会显示在编辑器视图的图层列表中。
+			注意：该层仍将在层次中正常渲染，并在图层面板中列出。
+		</info>
+	</dt>
+	<dd>
+		<input type="checkbox" name="hideInList" class="small" id="hideInList"/>
+	</dd>
+
+
+	<dt class="Tiles">
+		<label>默认瓦片组</label>
+		<info>本层使用的默认瓦片组。它可以在每个层中从左边的工具面板上改变。</info>
+	</dt>
+	<dd class="Tiles">
+		<select name="tilesets"></select>
+		<span class="infos"></span>
+		<button class="create">创建新的瓷砖组</button>
+	</dd>
+
+
+	<dt>
+		<label for="gridSize">网格大小</label>
+		<info>捕捉网格的尺寸，单位是像素。</info>
+	</dt>
+	<dd>
+		<input type="text" name="gridSize" class="small" id="gridSize"/>
+		<span>像素</span>
+	</dd>
+
+
+
+	<dt>
+		<label for="guideGridWid">可选的 "指南 "网格</label>
+		<info>可选的二级网格的尺寸。这个网格只是一个视觉指南，并不像正常的网格那样用于实际的抓取。</info>
+	</dt>
+	<dd>
+		<input type="text" name="guideGridWid" class="small" id="guideGridWid" placeholder="(宽)"/>
+		<span>x</span>
+		<input type="text" name="guideGridHei" class="small" id="guideGridHei" placeholder="(高)"/>
+		<span>px</span>
+	</dd>
+
+
+	<dt>
+		<label for="offsetX">偏移</label>
+		<info>
+			偏移量是用来调整该层相对于水平面和其他层的水平和垂直位置。
+			每个偏移量都可以是负的或正的。
+		</info>
+	</dt>
+	<dd>
+		<span>X=</span>
+		<input type="text" name="offsetX" class="small" id="offsetX"/>
+		<span>px, Y=</span>
+		<input type="text" name="offsetY" class="small" id="offsetY"/>
+		<span>px</span>
+	</dd>
+
+
+	<dt>
+		<label for="parallaxFactor">Parallax</label>
+		<info>
+			These parallax factors are applied to the layer (coordinates and scale) to make it move "slower" or "faster" than the camera, creating a fake 3D depth effect.
+			- Greater than zero factor will make the layer movement slower than the camera (eg. mountains in a far background).
+			- Zero means the layer moves at the same rate as the camera.
+			- Less than zero means the layer moves faster than the camera (eg. fog in the foreground)
+		</info>
+	</dt>
+	<dd>
+		<span>X=</span>
+		<input type="text" name="parallaxFactorX" class="small"/>
+		<span>%, Y=</span>
+		<input type="text" name="parallaxFactorY" class="small"/>
+		<span>%</span>
+
+		<label for="parallaxScaling">
+			<input type="checkbox" id="parallaxScaling" title="If checked, the layer will also be scaled up/down accodingly with the parallax factor."/>
+			Scale ?
+		</label>
+	</dd>
+
+
+	<dt>
+		<label for="opacity">不透明性</label>
+		<info>
+			该层的不透明度，百分比从0（透明）到100（完全可见）。
+			当该层没有被选中时，"非活动 "不透明度会被使用。
+		</info>
+	</dt>
+	<dd>
+		<span>活动:</span>
+		<input type="text" name="displayOpacity" class="small" id="opacity"/>
+		<span>%</span>
+
+		<span>非活动:</span>
+		<input type="text" name="inactiveOpacity" class="small" id="opacity"/>
+		<span>%</span>
+	</dd>
+
+	<dt>
+		<label for="canSelectWhenInactive">Allow selections when inactive</label>
+		<info>
+			If enabled, it will be possible to pick an element (ie. ALT+left click) or create a selection including this layer, even if it is not the active one.
+			If disabled, you will need to be working in this layer to select anything from it.
+		</info>
+	</dt>
+	<dd>
+		<input type="checkbox" name="canSelectWhenInactive" class="small" id="canSelectWhenInactive"/>
+	</dd>
+
+	<dt class="IntGrid AutoLayer Tiles">
+		<label for="renderInWorldView">Show in world view</label>
+		<info>
+			If enabled, the content of this layer will be used when rendering levels in a simplified way for the world view.
+		</info>
+	</dt>
+	<dd class="IntGrid AutoLayer Tiles">
+		<input type="checkbox" name="renderInWorldView" class="small" id="renderInWorldView"/>
+	</dd>
+
+
+	<dt class="Entities">
+		<label for="hideFieldsWhenInactive">不活动时隐藏实体字段</label>
+		<info>
+			如果启用，如果当前没有选择该层，将不显示实体字段。
+		</info>
+	</dt>
+	<dd class="Entities">
+		<input type="checkbox" name="hideFieldsWhenInactive" class="small" id="hideFieldsWhenInactive"/>
+	</dd>
+
+
+
+	<dt class="IntGrid">
+		<label>值界面图标</label>
+		<info>您可以将自定义界面图标与每个值相关联。这些图标仅用于UI，不用于实际渲染。若要在级别中将值渲染为平铺，请使用下面的“自动层”。</info>
+	</dt>
+	<dd class="IntGrid">
+		<select class="valuesIconsTileset"></select>
+	</dd>
+
+
+	<dt class="IntGrid">
+		<label>网格变量</label>
+		<info>可以在这个整数网格(INTGRID)层中涂抹的所有整数值的列表。</info>
+	</dt>
+	<dd class="IntGrid">
+		<ul class="intGridValues">
+			<li class="add">
+				<button type="button" class="gray">+</button>
+			</li>
+		</ul>
+
+		<xml id="intGridValue">
+			<div class="sortHandle"></div>
+			<span class="id">?</span>
+			<span class="tile"></span>
+			<input type="text" class="name" placeholder="可选值标识符"/>
+			<input type="color" value="#ffffff"/>
+			<button class="red remove"><span class="icon delete"></span></button>
+		</xml>
+	</dd>
+
+	<dt class="Tiles">
+		<label>瓷砖支点</label>
+		<info>
+			这只有在瓷砖组网格大小与图层网格大小不同时才有用。
+			在这种情况下，支点将决定瓷砖相对于层网格的位置。
+		</info>
+	</dt>
+	<dd class="Tiles">
+		<div class="pivot"></div>
+		<span class="long"></span>
+	</dd>
+
+
+	<dt class="AutoLayer">
+		<label>自动图层源</label>
+	</dt>
+	<dd class="AutoLayer">
+		<select name="autoLayerSources"></select>
+		<div class="help">这个自动层将使用上面的整数网格(INTGRID)层来应用其规则。</div>
+	</dd>
+
+
+	<dt class="IntGrid AutoLayer">
+		<label>自动图层瓦片集</label>
+		<info>
+			在这里选择一个瓦片组将启用该层的所有自动图层渲染功能。
+			这允许根据IntGrid值自动渲染瓦片（例如，在含有 "碰撞 "值的单元格上绘制随机的 "草地 "瓦片）。
+		</info>
+	</dt>
+	<dd class="IntGrid AutoLayer">
+		<select name="autoTileset"></select>
+		<button class="editAutoRules">编辑规则</button>
+	</dd>
+
+
+	<dt class="Entities">
+		<label>必要的标签</label>
+		<info>
+			只有那些至少有一个所需标签的实体才会被允许出现在这个层中。
+			注意：这不会影响之前添加的实体。
+		</info>
+	</dt>
+	<dd class="Entities">
+		<div id="requiredTags"></div>
+	</dd>
+
+	<dt class="Entities">
+		<label>排除的标签</label>
+		<info>
+			至少有一个被禁止的标签的实体将不被允许出现在这个层中。
+			注意：这不会影响之前添加的实体。
+		</info>
+	</dt>
+	<dd class="Entities">
+		<div id="excludedTags"></div>
+	</dd>
+
+	<dt class="advanced Entities IntGridAutoLayer AutoLayer">
+		<label>高级操作</label>
+	</dt>
+	<dd class="advanced Entities">
+		<button class="moveEntities" title="使用这个动作可以快速地将选定的实体实例从这个图层移动到另一个图层。例如，如果你给一些实体添加了一个 '演员 '标签，而你想将所有现有的演员移动到一个新的 '仅演员 '图层，那么这个动作就非常有用。">
+			将现有的实体移到另一个层
+		</button>
+	</dd>
+	<dd class="advanced IntGridAutoLayer AutoLayer">
+		<button class="bake" title="烘烤将把这个自动图层压平为一个新的瓷砖层。有多种选择。">
+			<span class="icon flatten"></span>
+			烘烤自动层
+		</button>
+	</dd>
+</dl>

@@ -1,0 +1,12 @@
+# Build XML
+ldtk/Json.hx
+-lib ldtk-haxe-api
+-dce std
+-D doc-gen
+-xml docs/json_doc.xml
+
+# Build docs (markdown & Json schema)
+--next
+-cp src/docGenerator
+-lib deepnightLibs
+--macro DocGenerator.run("ldtk/Json", "docs/json_doc.xml", "docs/JSON_DOC.md", "docs/JSON_SCHEMA.json", "docs/MINIMAL_JSON_SCHEMA.json")

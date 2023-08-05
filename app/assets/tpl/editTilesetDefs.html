@@ -1,0 +1,89 @@
+<h2>
+	<div class="icon tile"></div>
+	项目瓦片集
+</h2>
+
+<div class="mainList">
+	<div class="buttons">
+		<button class="create"> <span class="icon add"></span> </button>
+	</div>
+	<div class="search"></div>
+	<ul class="niceList"></ul>
+</div>
+
+<div class="help none">
+	Tilesets are large images in which you pick sub-parts to draw them in your levels. They can also be used as icons for some specific elements (like Enums).
+</div>
+
+<dl class="form">
+	<dt class="notEmbed">
+		<label>图片源</label>
+		<info>
+			这是瓷砖组的 "地图集 "图像，包含了所有以网格布局组织的瓷砖。
+			支持的文件格式。Aseprite（推荐）、PNG、GIF和JPEG。
+		</info>
+	</dt>
+	<dd class="img">
+	</dd>
+
+	<dt class="notEmbed">
+		<label for="name">标识符</label>
+		<info class="identifier"></info>
+	</dt>
+	<dd>
+		<input type="text" name="name" id="name"/>
+	</dd>
+
+	<dt class="notEmbed">
+		<label for="tilesetGridSize">瓷砖布局</label>
+		<info>
+			这些值描述了瓦片在源图像中的排列方式。
+			你可以查看下面的瓷砖网格预览。
+			瓷砖被列为网格，从左到右，从上到下，其索引从零开始。
+		</info>
+	</dt>
+	<dd>
+		<input type="text" id="tilesetGridSize" name="tilesetGridSize"/>
+		<span>像素瓷砖，间隔为</span>
+		<input type="text" id="spacing" name="spacing" title="这是每块瓷砖之间的间隙（像素）。"/>
+		<span>像素, 具备地图集的填充物为 </span>
+		<input type="text" id="padding" name="padding" title="这是围绕整个图像的空隙。"/>
+		<span>px</span>
+	</dd>
+
+	<dt>
+		<label for="tags">标签</label>
+		<div class="info">标签是用来自由组织你的枚举Enums。</div>
+	</dt>
+	<dd>
+		<div id="tags"></div>
+	</dd>
+
+
+	<dt class="notEmbed">
+		<label for="tagsSourceEnumUid">瓷砖标识的枚举</label>
+		<info>
+			通过将一个枚举链接到这个瓷砖集，你将能够使用这个枚举的值来标记瓷砖。
+			例如，你可以用以下信息来标记瓷砖。
+			- 碰撞信息（墙块、左/右坡、薄平台等）。
+			- 特殊材料（水、熔岩等）。
+			- 脚步声（金属、木材等）。
+		</info>
+	</dt>
+	<dd>
+		<select id="tagsSourceEnumUid"></select>
+	</dd>
+
+	<dd class="embedTileset">
+		<div class="infos"></div>
+		<div class="desc">
+			这个瓷砖组使用的是LDtk的嵌入式图像，不能被修改。瓷砖组被添加到你的项目中，因为一个元素（一个实体或一个枚举）使用它。
+		</div>
+		<div class="license">
+			<strong>许可证</strong>: 这个图片只能在LDtk内部使用，不能以任何方式重新分发。.
+			请联系作者 (<span class="author"></span>) 如果你想授权此图片在你的游戏中使用。
+		</div>
+	</dd>
+</dl>
+
+<div class="pickerWrapper"></div>

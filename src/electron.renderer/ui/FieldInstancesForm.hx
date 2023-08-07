@@ -806,7 +806,7 @@ class FieldInstancesForm {
 			// Context menu
 			var actions : Array<ui.modal.ContextMenu.ContextAction> = [
 				{
-					label: L.t._("Edit field definition"),
+					label: L.t._("编辑字段定义"),
 					cb: ()->{
 						switch relatedInstance {
 							case Entity(ei):

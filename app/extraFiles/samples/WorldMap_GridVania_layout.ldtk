@@ -43,7 +43,7 @@
 	"backupLimit": 10,
 	"backupRelPath": null,
 	"levelNamePattern": "%world_Level_%idx",
-	"tutorialDesc": "In Gridvania world layouts, levels are organized on a large grid.\nPress [W] to switch to World mode.\nIn this example, some are even in different world layers (ie. above and behind). Use [PAGE UP] and [PAGE DOWN] to move between world layers.",
+	"tutorialDesc": "在Gridvania世界布局中，级别是在一个大网格上组织的。\n按[W]切换到世界模式。\n在这个例子中，有些甚至处于不同的世界层（即上面和后面）。使用[PAGE UP]和[PAGE DOWN]在世界图层之间移动.",
 	"customCommands": [],
 	"flags": ["UseMultilinesType"],
 	"defs": { "layers": [

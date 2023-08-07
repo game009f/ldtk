@@ -164,7 +164,7 @@ class TextEditor extends ui.modal.Dialog {
 			mode,
 			(str)->{
 				NT.writeFileString(fp.full, str);
-				N.success( L.t._('文件 "::name::" saved.', { name:fp.fileWithExt }) );
+				N.success( L.t._('文件 "::name::" 保存.', { name:fp.fileWithExt }) );
 			}
 		);
 		return true;

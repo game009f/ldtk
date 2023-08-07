@@ -468,7 +468,7 @@ class Home extends Page {
 						App.ME.loadPage( ()->new Editor(p), true );
 					}
 					else {
-						N.error("Couldn't create this project file!");
+						N.error("无法创建此项目文件!");
 					}
 				});
 			}
@@ -562,11 +562,11 @@ class Home extends Page {
 
 						if( crashBackups.length>0 )
 							ctx.add({
-								label: L.t._("Delete all crash recovery files"),
+								label: L.t._("删除所有故障恢复文件"),
 								className: "warning",
 								cb: ()->{
 									new ui.modal.dialog.Confirm(
-										L.t._("Delete all crash recovery files project ::name::?", { name: pb.projectFp.fileName}),
+										L.t._("删除所有崩溃恢复文件项目 ::name::?", { name: pb.projectFp.fileName}),
 										true,
 										()->{
 											for(fp in crashBackups)

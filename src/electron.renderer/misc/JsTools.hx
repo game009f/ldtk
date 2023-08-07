@@ -534,7 +534,7 @@ class JsTools {
 					var extra = jThis.text();
 					jThis.data(
 						"str",
-						L.t._("User defined documentation that will appear near this element to provide help and tips to the level designers.")
+						L.t._("将显示在此元素附近的用户定义文档，为关卡设计者提供帮助和提示.")
 						+ (extra==null || extra.length==0 ? "" : "\n"+extra )
 					);
 				}
@@ -1307,9 +1307,9 @@ class JsTools {
 			var jOpt = new J('<option value="$v"/>');
 			jOpt.appendTo(jSelect);
 			switch v {
-				case null: jOpt.text("This rule should not apply when reading cells outside of layer bounds (default)");
-				case v if(v<0): jOpt.text("-- Pick a value --");
-				case 0: jOpt.text("Empty cells");
+				case null: jOpt.text("读取图层边界以外的单元格时不应应用此规则（默认值）");
+				case v if(v<0): jOpt.text("-- 选取一个值 --");
+				case 0: jOpt.text("空单元格");
 				case _:
 					var iv = sourceLd.getIntGridValueDef(v);
 					jOpt.text( Std.string(v) + (iv.identifier!=null ? ' - ${iv.identifier}' : "") );

@@ -286,10 +286,10 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			var m = new ContextMenu( new J(ev.target) );
 
 			m.add({
-				label: L.t._("Use assistant (recommended)"),
+				label: L.t._("使用助手（推荐）"),
 				cb: ()->{
 					if( ld.isAutoLayer() && ld.tilesetDefUid==null ) {
-						N.error( Lang.t._("This auto-layer doesn't have a tileset. Please pick one in the LAYERS panel.") );
+						N.error( Lang.t._("此自动图层没有波浪形集。请在“图层”面板中选择一个。") );
 						return;
 					}
 					doUseWizard();
@@ -297,10 +297,10 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			});
 
 			m.add({
-				label: L.t._("Create an empty group"),
+				label: L.t._("创建一个空组"),
 				cb: ()->{
 					if( ld.isAutoLayer() && ld.tilesetDefUid==null ) {
-						N.error( Lang.t._("This auto-layer doesn't have a tileset. Please pick one in the LAYERS panel.") );
+						N.error( Lang.t._("此自动图层没有波浪形集。请在“图层”面板中选择一个.") );
 						return;
 					}
 					App.LOG.general("Added rule group");
@@ -588,7 +588,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 					m.loadTemplate("outOfBoundsPolicyGlobal.html");
 					var outOfBounds : Null<Int> = -1;
 					JsTools.createOutOfBoundsRulePolicy(m.jContent.find("#outOfBoundsValue"), ld, outOfBounds, (v)->outOfBounds=v);
-					m.addButton(L.t._("Apply to all rules"), ()->{
+					m.addButton(L.t._("应用于所有规则"), ()->{
 						if( outOfBounds<0 )
 							return;
 
@@ -605,7 +605,7 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 			},
 
 			{
-				label: L.t._("Disable OPTIONAL state"),
+				label: L.t._("禁用OPTIONAL状态"),
 				cb: ()->{
 					new ui.modal.dialog.Confirm(
 						L.t._("警告：通过删除此组的可选状态，您将失去此组在所有级别中的开/关状态。这组规则将成为“全局”规则，适用于每个级别."),
@@ -665,8 +665,8 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 				},
 			},
 			{
-				label: L.t._("Duplicate and remap"),
-				sub: L.t._("Duplicate the group, and optionally remap IntGrid IDs and tiles"),
+				label: L.t._("复制并重新映射"),
+				sub: L.t._("复制组，并可选择重新映射IntGrid ID和磁贴"),
 				cb: ()->{
 					new ui.modal.dialog.RuleGroupRemap(ld,rg, (copy)->{
 						editor.ge.emit( LayerRuleGroupAdded(copy) );
@@ -695,8 +695,8 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 
 			var jAdv = new J('<a href="#" class="advanced">Switch to advanced mode</a>');
 			jAdv.click( _->{
-				new ui.modal.dialog.Confirm(jAdv, L.t._("In advanced mode, you will be able to edit manually all the rules or add new ones, for more advanced results.\nWARNING: enabling advanced mode will prevent you from using the Rule Assistant anymore on this particular group."), ()->{
-					new LastChance(L.t._("Enabled advanced mode on rule group ::name::", {name:rg.name}), project);
+				new ui.modal.dialog.Confirm(jAdv, L.t._("在高级模式下，您将能够手动编辑所有规则或添加新规则，以获得更高级的结果。\n警告：启用高级模式将阻止您在此特定组上再使用规则助手."), ()->{
+					new LastChance(L.t._("已对规则组启用高级模式 ::name::", {name:rg.name}), project);
 					rg.usesWizard = false;
 					editor.ge.emit( LayerRuleGroupChanged(rg) );
 				});
@@ -882,11 +882,11 @@ class EditAllAutoLayerRules extends ui.modal.Panel {
 		jFlag.addClass( r.breakOnMatch ? "on" : "off" );
 		jFlag.click( function(ev:js.jquery.Event) {
 			if( r.hasAnyPositionOffset() ) {
-				N.error("This rule has X or Y offsets: they are incompatible with the activation of the Break-on-Match option.");
+				N.error("此规则具有X或Y偏移：它们与“匹配时中断”选项的激活不兼容.");
 				return;
 			}
 			if( r.alpha<1 ) {
-				N.error("This rule has a custom opacity: this is incompatible with the activation of the Break-on-Match option.");
+				N.error("此规则具有自定义的不透明度：这与“匹配时中断”选项的激活不兼容.");
 				return;
 			}
 			ev.preventDefault();

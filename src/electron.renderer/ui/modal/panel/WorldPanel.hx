@@ -17,7 +17,7 @@ class WorldPanel extends ui.modal.Panel {
 		jWrapper.find(".worldBar button.create").click( (_)->{
 			var w = project.createWorld(true);
 			editor.selectWorld(w,true);
-			Notification.success(L.t._("New world created"));
+			Notification.success(L.t._("创造了新世界"));
 			editor.setWorldMode(true);
 			editor.ge.emit( WorldCreated(w) );
 		});
@@ -25,15 +25,15 @@ class WorldPanel extends ui.modal.Panel {
 		// Delete world button
 		jWrapper.find(".worldBar button.delete").click( (_)->{
 			if( project.worlds.length<=1 ) {
-				N.error(L.t._("You can't delete the last world."));
+				N.error(L.t._("你不能删除最后一个世界."));
 				return;
 			}
 
 			new ui.modal.dialog.Confirm(
-				Lang.t._("Are you sure you want to delete this world?"),
+				Lang.t._("你确定要删除这个世界吗?"),
 				true,
 				()->{
-					new LastChance( L.t._('World ::id:: removed', {id:curWorld.identifier}), project);
+					new LastChance( L.t._('世界 ::id:: 删除', {id:curWorld.identifier}), project);
 					var deleted = curWorld;
 					for( other in project.worlds )
 						if( other!=curWorld ) {
@@ -56,17 +56,17 @@ class WorldPanel extends ui.modal.Panel {
 		// Delete level button
 		jWrapper.find(".levelBar button.delete").click( (_)->{
 			if( curWorld.levels.length<=1 ) {
-				N.error(L.t._("You can't delete the last level."));
+				N.error(L.t._("无法删除最后一个关卡."));
 				return;
 			}
 
 			new ui.modal.dialog.Confirm(
-				Lang.t._("Are you sure you want to delete this level?"),
+				Lang.t._("是否确实要删除此关卡?"),
 				true,
 				()->{
 					var level = editor.curLevel;
 					var closest = curWorld.getClosestLevelFrom(level);
-					new LastChance( L.t._('Level ::id:: removed', {id:level.identifier}), project);
+					new LastChance( L.t._('关卡 ::id:: 删除', {id:level.identifier}), project);
 					var deleted = level;
 					editor.selectLevel( closest );
 					for(nl in deleted.getNeighbours())

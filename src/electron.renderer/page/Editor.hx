@@ -635,7 +635,7 @@ class Editor extends Page {
 			case K.R if( !hasInputFocus() && App.ME.isCtrlDown() ):
 				ui.Modal.closeAll();
 				if( ui.Modal.hasAnyOpen() )
-					N.error("Cannot run commands for now");
+					N.error("目前无法运行命令");
 				else {
 					var manualCmds = project.customCommands.filter( c->c.when==Manual );
 					if( manualCmds.length==0 )
@@ -645,7 +645,7 @@ class Editor extends Page {
 							ui.modal.dialog.CommandRunner.runSingleCommand(project, manualCmds[0]);
 						else {
 							var menu = new ui.modal.ContextMenu(getMouse());
-							menu.addTitle(L.t._("Custom project commands"));
+							menu.addTitle(L.t._("自定义项目命令"));
 							for( cmd in manualCmds )
 								menu.add({
 									label: L.untranslated(cmd.command),
@@ -1695,7 +1695,7 @@ class Editor extends Page {
 		function _restore(targetProjectFp:dn.FilePath) {
 			if( !NT.fileExists(targetProjectFp.full) ) {
 				// Project not found
-				new ui.modal.dialog.Message(L.t._("Sorry, but I can't restore this backup: I can't locate the original project file."));
+				new ui.modal.dialog.Message(L.t._("很抱歉，我无法还原此备份：找不到原始项目文件。"));
 			}
 			else {
 				App.LOG.fileOp('Restoring backup: ${project.filePath.full}...');
@@ -1725,7 +1725,7 @@ class Editor extends Page {
 		if( project.backupOriginalFile==null ) {
 			// Unknown original project
 			new ui.modal.dialog.Choice(
-				L.t._("Please locate the original project represented by this backup."),
+				L.t._("请找到此备份所代表的原始项目。"),
 				[{
 					label: "Locate original project",
 					cb: ()->{
@@ -1740,7 +1740,7 @@ class Editor extends Page {
 		else {
 			// Known original project
 			new ui.modal.dialog.Confirm(
-				L.t._("WARNING: restoring this backup will REPLACE the original project file with this version.\nAre you sure?"),
+				L.t._("警告：还原此备份将用此版本替换原始项目文件。\n 你确定吗?"),
 				()->{
 					_restore(project.backupOriginalFile);
 				}
@@ -2448,18 +2448,18 @@ class Editor extends Page {
 
 			var actions : Array<ui.modal.ContextMenu.ContextAction> = [
 				{
-					label: L.t._("Toggle visibility"),
+					label: L.t._("切换可见性"),
 					icon: "visible",
 					cb: ()->jVis.mousedown(),
 				},
 				{
-					label: L.t._("Edit rules"),
+					label: L.t._("编辑规则"),
 					icon: "rule",
 					cb: ()->jRules.click(),
 					show: ()->li.def.isAutoLayer(),
 				},
 				// {
-				// 	label: L.t._("Show/hide in list"),
+				// 	label: L.t._("显示/隐藏 列表"),
 				// 	cb: ()->{
 				// 		selectLayerInstance(li);
 				// 		ld.hideInList = !ld.hideInList;
@@ -2467,7 +2467,7 @@ class Editor extends Page {
 				// 	},
 				// },
 				{
-					label: L.t._("Edit layer settings"),
+					label: L.t._("编辑图层设置"),
 					icon: "edit",
 					cb: ()->{
 						selectLayerInstance(li);

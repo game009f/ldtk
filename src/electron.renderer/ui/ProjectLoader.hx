@@ -206,7 +206,11 @@ class ProjectLoader {
 			// Fixed external level paths
 			if( fixedLevelPaths.length>0 ) {
 				new ui.modal.dialog.Message(
-					L.t._("Loading successful, but the following level paths were fixed automatically.\nIt seems like you renamed your LDtk project externally: this is defintely NOT recommended, and you should ALWAYS use the \"Save As\" or \"Rename\" buttons from the Project panel (P shortcut).\nAnyway, it seems like everything is fine. Hopefully. Don't do that again, please.\n ::paths::", { paths:"<ul class='fileList'><li>"+fixedLevelPaths.join("</li><li>")+"</li></ul>" }),
+					L.t._("加载成功，但以下关卡路径已自动修复.\n
+					似乎您从外部重命名了LDtk项目：这是绝对不推荐的, 
+					并且您应该始终使用 \"另存为\" or \"重命名\" “项目”面板中的按钮 (P 快捷键).\n无论如何, 
+					看起来一切都很好。有希望地不要再那样做了, 请.\n ::paths::", 
+					{ paths:"<ul class='fileList'><li>"+fixedLevelPaths.join("</li><li>")+"</li></ul>" }),
 					"warn"
 				);
 			}
@@ -233,7 +237,7 @@ class ProjectLoader {
 				N.error("未找到项目文件");
 
 			case ExternalDirMissing(relPath):
-				new ui.modal.dialog.Message( L.t._("Directory \"::dir::\" not found!\nThe levels should be saved separately in this directory, but it's now missing. Did you rename the project manually, or forgot to copy it?", { dir:relPath }) );
+				new ui.modal.dialog.Message( L.t._("目录 \"::dir::\" 未找到!\n关卡应单独保存在此目录中, 但现在它不见了。您是否手动重命名项目, 或者忘了复制?", { dir:relPath }) );
 
 			case UnsupportedWinNetDrive:
 				new ui.modal.dialog.Message( L._UnsupportedWinNetDir() );

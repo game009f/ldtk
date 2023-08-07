@@ -82,7 +82,7 @@ class EntityPalette extends ui.ToolPalette {
 
 				var actions : Array<ui.modal.ContextMenu.ContextAction> = [
 					{
-						 label: L.t._("Edit entity definition"),
+						 label: L.t._("编辑实体定义"),
 						 cb: ()->new ui.modal.panel.EditEntityDefs(ed),
 					},
 				];

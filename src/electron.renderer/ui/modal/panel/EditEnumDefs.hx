@@ -62,7 +62,7 @@ class EditEnumDefs extends ui.modal.Panel {
 			});
 
 			ctx.add({
-				label:L.t._("Haxe source code"),
+				label:L.t._("Haxe源代码"),
 				cb: ()->{
 					var path = settings.getUiDir(project, "ImportEnumHaxe", project.getProjectDir());
 					dn.js.ElectronDialogs.openFile([".hx"], path, function(absPath:String) {

@@ -107,7 +107,7 @@ class FieldDefsForm {
 					if( project.defs.enums.length==0 && project.defs.externalEnums.length==0 ) {
 						w.close();
 						new ui.modal.dialog.Choice(
-							L.t._("This project contains no Enum yet. You first need to create one from the Enum panel."),
+							L.t._("此项目尚未包含枚举。首先需要从“枚举”面板创建一个."),
 							[
 								{ label:L.t._("打开枚举面板"), cb:()->new ui.modal.panel.EditEnumDefs() }
 							]
@@ -226,7 +226,7 @@ class FieldDefsForm {
 
 
 	function deleteField(fd:data.def.FieldDef) {
-		new ui.LastChance( L.t._("变量 ::name:: deleted", { name:fd.identifier }), project );
+		new ui.LastChance( L.t._("变量 ::name:: 删除", { name:fd.identifier }), project );
 		fieldDefs.remove(fd);
 		project.tidy();
 		editor.ge.emit( FieldDefRemoved(fd) );
@@ -661,7 +661,7 @@ class FieldDefsForm {
 				case Any: L.t._("任何实体");
 				case OnlyTags: L.t._("具有指定标记之一的任何实体");
 				case OnlySame: L.t._("只有另一个 '::name::'s", { name:getParentName() });
-				case OnlySpecificEntity: L.t._("Only a specific Entity");
+				case OnlySpecificEntity: L.t._("仅特定实体");
 			}
 		);
 

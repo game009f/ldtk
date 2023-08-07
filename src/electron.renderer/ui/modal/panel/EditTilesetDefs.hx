@@ -196,7 +196,7 @@ class EditTilesetDefs extends ui.modal.Panel {
 		i.setBounds(2, curTd.getMaxTileGridSize());
 		var oldGrid = curTd.tileGridSize;
 		i.onChange = ()->{
-			new LastChance(L.t._("Tileset grid changed"), project);
+			new LastChance(L.t._("Tileset网格已更改"), project);
 
 			var result = curTd.remapAllTileIdsAfterGridChange(oldGrid);
 			editor.ge.emit(TilesetDefChanged(curTd));
@@ -206,10 +206,10 @@ class EditTilesetDefs extends ui.modal.Panel {
 					N.msg("No change");
 
 				case RemapLoss:
-					new ui.modal.dialog.Warning(L.t._("The new grid size is larger than the previous one.\nSome tiles may have been lost in the remapping process."));
+					new ui.modal.dialog.Warning(L.t._("新的网格大小比上一个大。\n某些磁贴可能在重新映射过程中丢失."));
 
 				case RemapSuccessful:
-					new ui.modal.dialog.Message(L.t._("All tiles were successfully remapped."));
+					new ui.modal.dialog.Message(L.t._("已成功重新映射所有磁贴."));
 
 				case _:
 					N.error("Unknown remapping result: "+result);

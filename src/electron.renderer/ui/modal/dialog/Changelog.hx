@@ -103,7 +103,7 @@ class Changelog extends ui.modal.Dialog {
 		var jOthers = jContent.find(".others");
 		jOthers.click( ev->{
 			var ctx = new ui.modal.ContextMenu(jOthers);
-			ctx.addTitle(L.t._("LDtk major updates"));
+			ctx.addTitle(L.t._("LDtk主要更新"));
 			for( c in Const.getChangeLog().entries ) {
 				if( c.version.patch!=0 )
 					continue;

@@ -83,9 +83,9 @@ class RuleModuloEditor extends ui.modal.Dialog {
 				renderForm();
 			},
 			(v)->switch v {
-				case None: L.t._("Off");
-				case Horizontal: L.t._("Horizontally");
-				case Vertical: L.t._("Vertically");
+				case None: L.t._("关闭");
+				case Horizontal: L.t._("水平");
+				case Vertical: L.t._("垂直");
 			},
 			(v)->switch v {
 				case None: true;

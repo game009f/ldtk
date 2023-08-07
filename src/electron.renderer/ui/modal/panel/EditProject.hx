@@ -421,10 +421,10 @@ class EditProject extends ui.modal.Panel {
 				()->cmd.when,
 				(v)->cmd.when = v,
 				(v)->switch v {
-					case Manual: App.isMac() ? L.t._("Run manually (CMD-R)") : L.t._("Run manually (CTRL-R)");
-					case AfterLoad: L.t._("Run after loading");
-					case BeforeSave: L.t._("Run before saving");
-					case AfterSave: L.t._("Run after saving");
+					case Manual: App.isMac() ? L.t._("手动运行 (CMD-R)") : L.t._("手动运行 (CTRL-R)");
+					case AfterLoad: L.t._("加载后运行");
+					case BeforeSave: L.t._("保存前运行");
+					case AfterSave: L.t._("保存后运行");
 				}
 			);
 			var jRem = jCmd.find("button.remove");
@@ -436,8 +436,8 @@ class EditProject extends ui.modal.Panel {
 				if( cmd.command=="" )
 					_removeCmd();
 				else
-					new ui.modal.dialog.Confirm(jRem, L.t._("Are you sure?"), ()->{
-						new LastChance(L.t._("Project command removed"), project);
+					new ui.modal.dialog.Confirm(jRem, L.t._("你确定?"), ()->{
+						new LastChance(L.t._("项目命令已删除"), project);
 						_removeCmd();
 					});
 			});

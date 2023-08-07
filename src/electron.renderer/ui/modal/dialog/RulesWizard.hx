@@ -122,13 +122,13 @@ class RulesWizard extends ui.modal.Dialog {
 		jName.change( _->setName(jName.val()) );
 
 		// Confirm
-		addButton(baseRg==null ? L.t._("Create rules") : L.t._("Update rules"), ()->{
+		addButton(baseRg==null ? L.t._("创建规则") : L.t._("更新规则"), ()->{
 			if( mainValue==0 ) {
-				Notification.error(L.t._("You need to pick an IntGrid value."));
+				Notification.error(L.t._("您需要选择IntGrid值."));
 				return;
 			}
 			if( groupName.length==0 ) {
-				Notification.error(L.t._("Name this group of rules."));
+				Notification.error(L.t._("命名此规则组."));
 				jName.focus();
 				return;
 			}

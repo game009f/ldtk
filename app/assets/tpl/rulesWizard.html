@@ -3,47 +3,47 @@
 
 <div class="layout">
 	<div class="side">
-		<h3>1. IntGrid values</h3>
+		<h3>1. IntGrid值</h3>
 
 		<label>
-			<info>This is the IntGrid value that will be used to paint tiles using automated rules.</info>
-			Main IntGrid value
+			<info>这是将用于使用自动规则绘制瓷砖的IntGrid值.</info>
+			主IntGrid值
 		</label>
 		<div class="intGrid main empty">
 			<div class="wrapper">
 				<div class="color"></div>
 				<div class="id">--</div>
 				<div class="name"></div>
-				<div class="noValue">&lt; PICK A VALUE &gt;</div>
+				<div class="noValue">&lt; 选择一个值 &gt;</div>
 			</div>
 		</div>
 
 		<label>
 			<info>
-				If this "outer value" is not defined, the automated rules will check if the "main value" is near something that is not the "main value".
-				If an "outer value" is defined, the rules will check if the "main value" is near the "outer value".
-				Example: "Grass" as the main value, with "Dirt" as the outer value.
+				如果没有定义这个“外部值”，自动规则将检查“主值”是否接近非“主值“的值。
+				如果定义了“外部值”，则规则将检查“主值”是否接近“外部值“。
+				示例：“Grass”作为主要值，“Dirt”作为外部值。
 			</info>
-			Outer IntGrid value
+			外部IntGrid值
 		</label>
 		<div class="intGrid other empty">
 			<div class="wrapper">
 				<div class="color"></div>
 				<div class="id">--</div>
 				<div class="name"></div>
-				<div class="noValue">&lt; Any other IntGrid value &gt;</div>
+				<div class="noValue">&lt; 任何其他IntGrid值 &gt;</div>
 			</div>
 		</div>
 
 
-		<h3>2. Group of rules name</h3>
+		<h3>2. 规则组名称</h3>
 		<input type="text" name="name"/>
 
 
 		<h3>
-			3. Auto-rendered tiles
+			3.自动渲染平铺
 			<info>
-				You don't have to fill all the tiles! The important ones in most scenarios are the ones in the green area.
+				你不必填满所有的瓷砖！在大多数情况下，重要的是在绿色区域。
 			</info>
 		</h3>
 		<div class="important"></div>
@@ -51,13 +51,13 @@
 
 
 
-		<h3>4. Options</h3>
+		<h3>4. 选择</h3>
 		<dl class="form">
 			<dt>
-				Allow rules to stack
+				允许规则堆叠
 				<info>
-					In some cases, multiple distinct rules may apply to a single cell. If this option is enabled, this will allow tiles to stack.
-					This is only relevant if your tiles use transparency. Otherwise, only the topmost pertinent rule for each cell will apply.
+					在某些情况下，多个不同的规则可能适用于单个单元格。如果启用此选项，则将允许瓦片堆叠。
+					只有当瓷砖使用透明度时，这才相关。否则，将仅应用每个单元格的最相关规则。
 				</info>
 			</dt>
 			<dd>

@@ -62,9 +62,9 @@ class RuleGroupRemap extends ui.modal.Dialog {
 		setTileOffset(0,0,true);
 
 		// Confirm & remap!
-		addButton(L.t._("Confirm"), ()->{
+		addButton(L.t._("确认"), ()->{
 			new InputDialog(
-				L.t._("Name this new group"),
+				L.t._("命名此新组"),
 				groupJson.name,
 				(s:String)->return s.length==0 ? "Please enter a valid name" : null,
 				(s:String)->return s,

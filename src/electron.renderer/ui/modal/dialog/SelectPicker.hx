@@ -178,7 +178,7 @@ class SelectPicker extends ui.modal.Dialog {
 					label: L.untranslated('<span class="icon listView"></span> List view'),
 					cb: _setGridAndSave.bind(1),
 				});
-				ctx.addTitle(L.t._("Grid view"));
+				ctx.addTitle(L.t._("网格视图"));
 				for(c in 2...MAX_COLUMNS+1)
 					ctx.add({
 						label: L.untranslated('<span class="icon gridView"></span> $c columns'),

@@ -6,7 +6,7 @@ class UnsavedChanges extends ui.modal.Dialog {
 
 		jContent.text( L.t._("是否要在离开前保存?") );
 
-		addButton(L.t._("是"), "save", ()->{
+		addButton(L.t._("是"), "保存", ()->{
 			close();
 			Editor.ME.onSave(after);
 		});

@@ -211,7 +211,7 @@ class ProjectSaver extends dn.Process {
 						log('  Writing ${project.filePath.full}...');
 						try NT.writeFileString(project.filePath.full, savingData.projectJsonStr) catch(_) {
 							failed = true;
-							error( L.t._("Could not write the project JSON file here! Maybe the destination is read-only?") );
+							error( L.t._("无法在此处写入项目JSON文件！也许目的地是只读的?") );
 						}
 					}
 				});
@@ -292,7 +292,7 @@ class ProjectSaver extends dn.Process {
 										if( project.exportLevelBg ) {
 											var bytes = lr.createBgPng(project, level);
 											if( bytes==null ) {
-												error(L.t._('Failed to create background PNG in level "::id::"', {id:level.identifier}));
+												error(L.t._('无法在关卡中创建背景PNG "::id::"', {id:level.identifier}));
 												return;
 											}
 											var fp = dn.FilePath.fromDir(pngDir);
@@ -315,7 +315,7 @@ class ProjectSaver extends dn.Process {
 											// Save PNGs
 											for(i in allImages) {
 												if( i.bytes==null ) {
-													error(L.t._('Failed to create PNG in layer "::layerId::" from level "::levelId::"', {layerId:li.def.identifier, levelId:level.identifier}));
+													error(L.t._('无法在图层中创建PNG "::layerId::" from level "::levelId::"', {layerId:li.def.identifier, levelId:level.identifier}));
 													return;
 												}
 												if( i.secondarySuffix==null )

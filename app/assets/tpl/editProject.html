@@ -44,8 +44,8 @@
 	</dd>
 
 	<dt class="notSimplified">
-		<label for="png">Export as PNG</label>
-		<info>This option allows you to export 'flattened' PNG screenshots of the levels in addition to the JSON data, every time you save the project.</info>
+		<label for="png">导出为PNG</label>
+		<info>此选项允许您在每次保存项目时，除了JSON数据外，还导出级别的“扁平”PNG屏幕截图。</info>
 	</dt>
 	<dd class="imageExportMode notSimplified">
 		<div class="locate"></div>
@@ -54,36 +54,36 @@
 	</dd>
 
 	<dt class="imageExportOnly notSimplified">
-		Also export level backgrounds
-		<info>Enable this to export PNGs that will include the level background color or image.</info>
+		也导出关卡背景
+		<info>启用此选项可导出将包括级别背景颜色或图像的PNG。</info>
 	</dt>
 	<dd class="imageExportOnly notSimplified">
 		<input type="checkbox" name="exportLevelBg" id="exportLevelBg"/>
 	</dd>
 
-	<dt class="imageExportOnly notSimplified">PNG file names</dt>
+	<dt class="imageExportOnly notSimplified">PNG文件名</dt>
 	<dd class="imageExportOnly notSimplified">
 		<div class="pngPatternEditor"></div>
 	</dd>
 
 	<dt>
-		<label for="tiled">Export Tiled TMX</label>
+		<label for="tiled">导出平铺TMX</label>
 		<info>
-			Enable this to create Tiled TMX files (one per level) in a sub folder, every time you save your project.
-			Warning: this Tiled export is made for quick integration with game frameworks that don't support LDtk yet, but it comes with some limitations!
-			See the link for more info.
+			启用此选项可以在每次保存项目时在子文件夹中创建平铺TMX文件（每个级别一个）。
+			警告：这个Tiled导出是为了与还不支持LDtk的游戏框架快速集成，但它有一些限制！
+			有关详细信息，请参阅链接。
 		</info>
 	</dt>
 	<dd>
 		<input type="checkbox" id="tiled"/>
 		<div class="locate"></div>
-		<a href="https://ldtk.io/go/tiled">Learn more about Tiled export limitations</a>
+		<a href="https://ldtk.io/go/tiled">了解有关平铺导出限制的更多信息</a>
 	</dd>
 
 
 
 
-	<dt class="full"> <h3>Project settings</h3> </dt>
+	<dt class="full"> <h3>项目设置</h3> </dt>
 
 	<dt>
 		<label for="useAppExtension">使用 .::ext:: 扩展名</label>
@@ -101,14 +101,14 @@
 		<label for="backup">保存时备份</label>
 		<info>
 			每次你保存你的项目时，都会在一个子文件夹中创建一个额外的备份副本。
-			备份显然会增加保存时间和磁盘使用量，但这并不是不使用它们的理由；)
+			备份显然会增加保存时间和磁盘使用量，但这并不是不使用它们的理由；
 			注意：在崩溃的情况下，将创建一个特殊的备份，即使这个设置被禁用。
 		</info>
 	</dt>
 	<dd>
 		<input type="checkbox" id="backup" />
 		<button class="curBackupPath gray">?</button>
-		<button class="resetBackupPath gray" title="Reset destination folder to default"> <span class="icon reset"></span> </button>
+		<button class="resetBackupPath gray" title="将目标文件夹重置为默认值"> <span class="icon reset"></span> </button>
 		<div class="locate"></div>
 		<span>最大备份文件数量: </span>
 		<input type="text" id="backupCount"/>
@@ -138,7 +138,7 @@
 
 
 
-	<dt class="full"><h3>User custom commands</h3></dt>
+	<dt class="full"><h3>用户自定义命令</h3></dt>
 	<dt>
 		<label>自定义命令</label>
 		<info>
@@ -214,7 +214,7 @@
 </dl>
 
 
-<div class="collapser">Advanced project settings</div>
+<div class="collapser">高级项目设置</div>
 
 <dl class="form advanced">
 

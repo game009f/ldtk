@@ -12,7 +12,7 @@
 </div>
 
 <div class="help none">
-	Each LEVEL in your project has LAYERS, as defined below. The layers content can be of various types, including Image Tiles or Integer values.
+	项目中的每个关卡都有图层，定义如下。层内容可以是各种类型，包括图像平铺或整数值。
 </div>
 
 <dl class="form">
@@ -120,10 +120,10 @@
 	<dt>
 		<label for="parallaxFactor">Parallax</label>
 		<info>
-			These parallax factors are applied to the layer (coordinates and scale) to make it move "slower" or "faster" than the camera, creating a fake 3D depth effect.
-			- Greater than zero factor will make the layer movement slower than the camera (eg. mountains in a far background).
-			- Zero means the layer moves at the same rate as the camera.
-			- Less than zero means the layer moves faster than the camera (eg. fog in the foreground)
+			这些视差因子应用于层（坐标和比例），使其移动速度比相机“慢”或“快”，从而产生假3D深度效果。
+-大于零的因子会使图层移动速度慢于摄影机（例如，远处背景中的山脉）。
+-零表示层以与摄影机相同的速率移动。
+-小于零意味着图层移动速度快于摄影机（例如前景中的雾）
 		</info>
 	</dt>
 	<dd>
@@ -134,7 +134,7 @@
 		<span>%</span>
 
 		<label for="parallaxScaling">
-			<input type="checkbox" id="parallaxScaling" title="If checked, the layer will also be scaled up/down accodingly with the parallax factor."/>
+			<input type="checkbox" id="parallaxScaling" title="如果选中，该层也将根据视差因子按比例放大/缩小。"/>
 			Scale ?
 		</label>
 	</dd>
@@ -158,10 +158,10 @@
 	</dd>
 
 	<dt>
-		<label for="canSelectWhenInactive">Allow selections when inactive</label>
+		<label for="canSelectWhenInactive">不活动时允许选择</label>
 		<info>
-			If enabled, it will be possible to pick an element (ie. ALT+left click) or create a selection including this layer, even if it is not the active one.
-			If disabled, you will need to be working in this layer to select anything from it.
+			如果启用，则可以拾取一个元素（即ALT+左键单击）或创建包括该层的选择，即使该层不是活动层。
+			如果禁用，则需要在此图层中工作才能从中选择任何内容。
 		</info>
 	</dt>
 	<dd>
@@ -169,9 +169,9 @@
 	</dd>
 
 	<dt class="IntGrid AutoLayer Tiles">
-		<label for="renderInWorldView">Show in world view</label>
+		<label for="renderInWorldView">在世界视图中显示</label>
 		<info>
-			If enabled, the content of this layer will be used when rendering levels in a simplified way for the world view.
+			如果启用，则在以简化的方式为世界视图渲染级别时将使用此层的内容。
 		</info>
 	</dt>
 	<dd class="IntGrid AutoLayer Tiles">

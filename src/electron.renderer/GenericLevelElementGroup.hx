@@ -673,19 +673,19 @@ class GenericLevelElementGroup {
 							switch ed.limitBehavior {
 								case DiscardOldOnes:
 									if( all.length>=ed.maxCount )
-										N.error(L.t._("You cannot have more than ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
+										N.error(L.t._("你不能超过 ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
 									else
 										newEi = li.duplicateEntityInstance(ei);
 
 								case PreventAdding:
 									if( all.length>=ed.maxCount )
-										N.error(L.t._("You cannot have more than ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
+										N.error(L.t._("你不能超过 ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
 									else
 										newEi = li.duplicateEntityInstance(ei);
 
 								case MoveLastOne:
 									if( all.length>=ed.maxCount )
-										N.error(L.t._("You cannot have more than ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
+										N.error(L.t._("你不能超过 ::n:: ::name::.", { n:ed.maxCount, name:ed.identifier }));
 									else
 										newEi = li.duplicateEntityInstance(ei);
 							}

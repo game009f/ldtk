@@ -92,8 +92,8 @@ class RuleEditor extends ui.modal.Dialog {
 			()->rule.tileMode,
 			(v)->rule.tileMode = v,
 			(v)->switch v {
-				case Single: Lang.t._("Random tiles");
-				case Stamp: Lang.t._("Rectangle of tiles");
+				case Single: Lang.t._("随机平铺");
+				case Stamp: Lang.t._("瓷砖矩形");
 			}
 		);
 		i.linkEvent( LayerRuleChanged(rule) );
